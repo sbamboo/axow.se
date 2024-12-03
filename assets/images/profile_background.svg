@@ -1,0 +1,47 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="turbulence">
+            <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="3" seed="1" stitchTiles="stitch"/>
+            <feDisplacementMap in="SourceGraphic" scale="5"/>
+        </filter>
+        
+        <pattern id="wavePattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+            <!-- Wave Group 1 -->
+            <path d="M-50,25 Q0,0 50,25 Q100,50 150,25" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.3">
+                <animate attributeName="d" 
+                    values="M-50,25 Q0,0 50,25 Q100,50 150,25;
+                           M-50,35 Q0,10 50,35 Q100,60 150,35;
+                           M-50,25 Q0,0 50,25 Q100,50 150,25"
+                    dur="8s" 
+                    repeatCount="indefinite"/>
+            </path>
+            
+            <!-- Wave Group 2 (offset) -->
+            <path d="M-50,50 Q0,25 50,50 Q100,75 150,50" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.3">
+                <animate attributeName="d" 
+                    values="M-50,50 Q0,25 50,50 Q100,75 150,50;
+                           M-50,60 Q0,35 50,60 Q100,85 150,60;
+                           M-50,50 Q0,25 50,50 Q100,75 150,50"
+                    dur="10s" 
+                    repeatCount="indefinite"/>
+            </path>
+            
+            <!-- Wave Group 3 (offset) -->
+            <path d="M-50,75 Q0,50 50,75 Q100,100 150,75" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.3">
+                <animate attributeName="d" 
+                    values="M-50,75 Q0,50 50,75 Q100,100 150,75;
+                           M-50,85 Q0,60 50,85 Q100,110 150,85;
+                           M-50,75 Q0,50 50,75 Q100,100 150,75"
+                    dur="12s" 
+                    repeatCount="indefinite"/>
+            </path>
+            
+            <!-- Diagonal Lines -->
+            <line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="0.2" opacity="0.1"/>
+            <line x1="-50" y1="0" x2="50" y2="100" stroke="currentColor" stroke-width="0.2" opacity="0.1"/>
+            <line x1="50" y1="0" x2="150" y2="100" stroke="currentColor" stroke-width="0.2" opacity="0.1"/>
+        </pattern>
+    </defs>
+    
+    <rect width="100%" height="100%" fill="url(#wavePattern)" filter="url(#turbulence)"/>
+</svg>

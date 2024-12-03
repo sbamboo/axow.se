@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    padding: 60px 0 0 0; /* Add top padding for header */
+    font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.container {
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.main-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: var(--link-color);
+    color: var(--card-bg);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.main-button:hover {
+    background-color: var(--link-color);
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.display-mode-toggle:hover {
+    /*
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    */
+}

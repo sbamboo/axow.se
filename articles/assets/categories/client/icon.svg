@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <!-- Isometric portal frame -->
+    <path d="M12 2L4 6v12l8 4 8-4V6l-8-4z" fill="#242424"/>
+    
+    <!-- Inner portal effect -->
+    <path d="M11 6.5L6.5 9v6l4.5 2.5 4.5-2.5V9L11 6.5z" fill="#8B00FF"/>
+    
+    <!-- Portal swirl effect -->
+    <path d="M11 7.5c0 0-2 2-2 4s2 4 2 4" stroke="#B088FF" fill="none" stroke-width="0.5">
+        <animate attributeName="d" 
+                 dur="3s" 
+                 repeatCount="indefinite"
+                 values="M11 7.5c0 0-2 2-2 4s2 4 2 4;
+                        M11 7.5c0 0 2 2 2 4s-2 4-2 4;
+                        M11 7.5c0 0-2 2-2 4s2 4 2 4"/>
+    </path>
+</svg>

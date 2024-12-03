@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    padding: 60px 0 0 0; /* Add top padding for header */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.container {
+    text-align: center;
+    padding: 0px;
+}

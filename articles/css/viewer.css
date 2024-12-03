@@ -1,0 +1,241 @@
+body {
+    margin: 0;
+    padding: 60px 0 0 0; /* Add top padding for header */
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+}
+
+.article-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    background: var(--card-bg);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+#article-banner {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+}
+
+#article-meta {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#article-meta > h1 {
+    margin-bottom: 5px;
+    margin-top: 0em;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    gap: 12px;
+    margin-top: 0px;
+}
+
+.author-info img {
+    width: 42px;
+    height: 42px;
+    border-radius: 21px;
+}
+
+.author-info div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.author-name {
+    font-size: 0.95em;
+}
+
+.author-title {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+}
+
+.dates {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    margin-top: 8px;
+}
+
+.dates > span {
+    margin-right: 15px;
+}
+
+#article-content {
+    padding: 20px;
+    line-height: 1.6;
+    margin-bottom: 50px;
+}
+
+/* Code block styling */
+pre {
+    background: var(--code-bg);
+    padding: 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 16px 0;
+}
+
+code {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9em;
+    padding: 2px 4px;
+    background: var(--code-bg);
+    border-radius: 3px;
+}
+
+pre code {
+    padding: 0;
+    background: none;
+}
+
+/* Image and video styling */
+.article-image {
+    max-width: 100%;
+    height: auto;
+    margin: 16px 0;
+    border-radius: 4px;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+    margin: 16px 0;
+    border-radius: 4px;
+}
+
+iframe {
+    max-width: 100%;
+    margin: 16px 0;
+    border-radius: 4px;
+}
+
+/* Link styling */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Details/Summary styling */
+details {
+    margin: 1em 0;
+    padding: 0.5em;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--dropdown-bg);
+}
+
+details summary {
+    cursor: pointer;
+    padding: 0.5em;
+    font-weight: 500;
+}
+
+details summary:hover {
+    background: var(--dropdown-hover);
+}
+
+details[open] summary {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 0.5em;
+}
+
+/* Return buttons */
+.return-button {
+    position: fixed;
+    top: 80px; /* Move below header */
+    left: 20px;
+    background: var(--card-bg);
+    padding: 8px 16px;
+    border-radius: 16px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    text-decoration: none;
+    color: var(--link-color);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9em;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.return-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.return-button::before {
+    content: '←';
+    font-size: 1.1em;
+}
+
+.return-cross {
+    position: absolute;
+    top: 20px;
+    right: -60px;
+    background: var(--card-bg);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.return-cross:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.return-cross svg {
+    width: 24px;
+    height: 24px;
+    color: var(--text-color);
+}
+
+.error {
+    color: #dc3545;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    background: #fee;
+    border-radius: 4px;
+}
+
+/* Numbered list styling */
+ol {
+    list-style: none;
+    counter-reset: item;
+    padding-left: 0;
+}
+
+ol li {
+    counter-increment: item;
+    margin-bottom: 0.5em;
+    position: relative;
+    padding-left: 2em;
+}
+
+ol li::before {
+    content: counter(item) ".";
+    position: absolute;
+    left: 0;
+    width: 1.5em;
+    text-align: right;
+    color: var(--text-secondary);
+}

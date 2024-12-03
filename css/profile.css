@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    background-repeat: repeat;
+    background-size: 100px 100px;
+}
+
+.profile-container {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    padding: 30px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.profile-info h1 {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 24px;
+}
+
+.profile-title {
+    color: var(--text-secondary);
+    font-size: 16px;
+}
+
+.profile-description {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 0px;
+}
+
+.profile-description > p {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-bottom: 10px;
+}
+
+.profile-section {
+    color: var(--profile-description);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.profile-section p {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--tag-bg);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+    background: var(--dropdown-hover);
+}
+
+.social-link svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-color);
+}
+
+.return-link {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.return-link a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.return-link a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    color: #dc3545;
+    text-align: center;
+    padding: 20px;
+    background: #fee;
+    border-radius: 4px;
+}

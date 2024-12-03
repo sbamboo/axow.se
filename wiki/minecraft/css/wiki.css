@@ -1,0 +1,14 @@
+.wiki-category-highlights-grid {
+    display: flex;
+}
+
+.wiki-category-highlight {
+    width: 100px;
+    height: 100px;
+}
+
+.wiki-category-highlight > img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}

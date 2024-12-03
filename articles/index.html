@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Articles</title>
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+    
+    <link rel="stylesheet" href="css/articles.css" />
+    <link rel="stylesheet" href="/css/themes.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <script src="/components/header/header.js"></script>
+    <link rel="stylesheet" href="/components/header/header.css">
+    
+    <script src="articles.json.js"></script>
+  </head>
+  <body>
+    <header></header>
+    <div class="articles-container">
+      <div class="header-container">
+        <h1>Articles</h1>
+        <div class="search-container">
+          <button class="search-button" id="search-toggle">
+            <span class="material-icons">search</span>
+          </button>
+          <div class="search-field-container hidden" id="search-field">
+            <input
+              type="text"
+              class="search-input"
+              id="search-input"
+              placeholder="Search articles..."
+            />
+            <button class="search-clear" id="search-clear">
+              <span class="material-icons">close</span>
+            </button>
+            <button class="search-mode" id="search-mode">
+              <span class="material-icons">sell</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="articles-grid"></div>
+    </div>
+    <script src="js/articles.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+.profile-link {
+    display: inline-block;
+    padding: 2px 6px;
+    background-color: var(--dropdown-bg);
+    border-radius: 4px;
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.profile-link:hover {
+    background-color: var(--dropdown-hover);
+    text-decoration: none;
+}
