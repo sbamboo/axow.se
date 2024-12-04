@@ -49,7 +49,7 @@ window.onload = () => {
                 for (const categoryPage of categoryPages) {
 
                     const categoryPageLink = document.createElement("a");
-                    const categoryPageLink_href = `/wiki/minecraft/~/${categoryPage.category}/${categoryPage.name}.json`;
+                    const categoryPageLink_href = `/wiki/minecraft/-/${categoryPage.category}/${categoryPage.name}.json`;
                     if (categoryData.viewer) {
                         categoryPageLink.href = `${categoryData.viewer}?data=${encodeURIComponent(categoryPageLink_href)}`;
                     } else {

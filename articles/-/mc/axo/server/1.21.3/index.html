@@ -9,7 +9,7 @@
     var savedSegment = urlSegments.pop();
     var baseUrl = urlSegments.join('/');
 
-    var newUrl = baseUrl.split("~")[0] + "viewer.html?md=" + baseUrl + "/" + savedSegment + "/source.md" + "&ret=_articles_cross_";
+    var newUrl = baseUrl.split("-")[0] + "viewer.html?md=" + baseUrl + "/" + savedSegment + "/source.md" + "&ret=_articles_cross_";
 
     console.log(newUrl);
   

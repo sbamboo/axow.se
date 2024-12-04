@@ -19,7 +19,7 @@ This project is organized into a clear and modular structure to maintain separat
   - `viewer.js`: Handles single article display
   - `utils/`: Utility functions for article handling
 - `css/`: Stylesheets for article pages
-- `~/`: Contains markdown files for articles, organized by category
+- `-/`: Contains markdown files for articles, organized by category
 - `assets/`: Article-specific assets
   - `articles/`: Article-specific images organized by category
   - `images/`: General images for the article section

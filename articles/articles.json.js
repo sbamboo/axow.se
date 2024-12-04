@@ -19,17 +19,17 @@ ARTICLES_INDEX = {
     },
     "articles": [
         {
-            "path": "/articles/~/mc/axo/server/1.21/source.md",
+            "path": "/articles/-/mc/axo/server/1.21/source.md",
             "group": "minecraft",
             "category": "server"
         },
         {
-            "path": "/articles/~/mc/axo/server/1.21.3/source.md",
+            "path": "/articles/-/mc/axo/server/1.21.3/source.md",
             "group": "minecraft",
             "category": "server"
         },
         {
-            "path": "/articles/~/mc/axo/client/c/1.21.1/source.md",
+            "path": "/articles/-/mc/axo/client/c/1.21.1/source.md",
             "group": "minecraft",
             "category": "client"
         }

@@ -19,21 +19,21 @@ if (id) {
     .then(data => {
         // Check if the ID exists in the JSON object
         if (data.hasOwnProperty(id)) {
-        // Redirect to the value associated with the ID
-        window.location.href = data[id];
+            // Redirect to the value associated with the ID
+            window.location.href = data[id];
         } else {
-        // If ID doesn't exist, redirect to the 404 page
-        window.location.href = `${window.location.origin}${window.location.pathname}states/404.json`;
+            // If ID doesn't exist, redirect to the 404 page
+            window.location.href = `${window.location.origin}${window.location.pathname}states/404.json`;
         }
     })
     .catch(error => {
         // Handle any errors in the fetching process
         console.error('Error:', error);
         // Optionally redirect to an error page if cdn.index.json cannot be loaded
-        window.location.href = `${window.location.origin}${window.location.pathname}errors/error.json`;
+        window.location.href = `${window.location.origin}${window.location.pathname}states/error.json`;
     });
 } else {
     // If no id parameter is provided in the URL, redirect to the 404 page
-    window.location.href = `${window.location.origin}${window.location.pathname}errors/unknown_id.json`;
+    window.location.href = `${window.location.origin}${window.location.pathname}states/unknown_id.json`;
 }
   

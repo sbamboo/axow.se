@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (mediaItem.href.startsWith("$")) {
             const [category, page] = mediaItem.href.slice(1).split('/');
             if (WIKI_MINECRAFT.categories && Object.keys(WIKI_MINECRAFT.categories).includes(category)) {
-                const carouselReadMore_href = `/wiki/minecraft/~/${category}/${page}.json`;
+                const carouselReadMore_href = `/wiki/minecraft/-/${category}/${page}.json`;
                 if (WIKI_MINECRAFT.categories[category].viewer) {
                     mediaItem.href = `${WIKI_MINECRAFT.categories[category].viewer}?data=${encodeURIComponent(carouselReadMore_href)}`;
                 } else {
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (mediaItem.src.startsWith("$")) {
                 const [category, page] = mediaItem.src.slice(1).split('/');
                 if (WIKI_MINECRAFT.categories && Object.keys(WIKI_MINECRAFT.categories).includes(category)) {
-                    const carouselReadMore_href = `/wiki/minecraft/~/${category}/${page}.json`;
+                    const carouselReadMore_href = `/wiki/minecraft/-/${category}/${page}.json`;
                     if (WIKI_MINECRAFT.categories[category].viewer) {
                         mediaItem.src = `${WIKI_MINECRAFT.categories[category].viewer}?data=${encodeURIComponent(carouselReadMore_href)}`;
                     } else {

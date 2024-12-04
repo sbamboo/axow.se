@@ -27,7 +27,7 @@ window.onload = () => {
                             const [category, page] = categoryHightlight.href.slice(1).split('/');
 
                             if (Object.keys(WIKI_MINECRAFT.categories).includes(category)) {
-                                const categoryHightlight_href = `/wiki/minecraft/~/${category}/${page}.json`;
+                                const categoryHightlight_href = `/wiki/minecraft/-/${category}/${page}.json`;
                                 if (WIKI_MINECRAFT.categories[category].viewer) {
                                     categoryHightlight.href = `${WIKI_MINECRAFT.categories[category].viewer}?data=${encodeURIComponent(categoryHightlight_href)}`;
                                 } else {
