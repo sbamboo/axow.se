@@ -8,7 +8,6 @@ let lastSearchTerm = '';
 let articles = [];
 
 async function displayArticles() {
-  try {
     if (articles.length === 0) {
       const articlesData = await fetchArticles();
       articles = articlesData.articles;
@@ -82,11 +81,7 @@ async function displayArticles() {
     );
     updateVisibility(filteredResults);
     lastSearchTerm = currentSearchTerm;
-  } catch (error) {
-    console.error('Error loading articles:', error);
-    const grid = document.getElementById('articles-grid');
-    grid.innerHTML = '<div class="error-message">Failed to load articles</div>';
-  }
+  
 }
 
 function groupArticles(articles) {
