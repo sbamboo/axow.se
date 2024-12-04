@@ -134,7 +134,7 @@ function displayContent(markdown) {
 }
 
 async function updateAsyncContent(contentElem) {
-  await processProfileLinks(contentElem);
+  await processProfileLinks(contentElem.parentElement);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
