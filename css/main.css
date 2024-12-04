@@ -37,3 +37,20 @@ body {
     box-shadow: 0 4px 8px var(--shadow-color);
     */
 }
+
+/* Apply this CSS to the specific class */
+.construction_text_tape {
+    font-size: 2.2rem;
+    font-weight: bold;
+    background: repeating-linear-gradient(
+        45deg,                 /* Diagonal stripes */
+        yellow 0%,           /* Start with yellow */
+        yellow 15%,          /* Thickness of yellow stripe */
+        rgb(107, 88, 3) 15%, /* Start black stripe */
+        rgb(107, 88, 3) 30%  /* Thickness of black stripe */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    text-align: center;
+}
