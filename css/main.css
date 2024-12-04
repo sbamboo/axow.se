@@ -44,13 +44,28 @@ body {
     font-weight: bold;
     background: repeating-linear-gradient(
         45deg,                 /* Diagonal stripes */
-        yellow 0%,           /* Start with yellow */
-        yellow 15%,          /* Thickness of yellow stripe */
-        rgb(107, 88, 3) 15%, /* Start black stripe */
-        rgb(107, 88, 3) 30%  /* Thickness of black stripe */
+        yellow 0%,             /* Start with yellow */
+        yellow 15%,            /* Thickness of yellow stripe */
+        rgb(107, 88, 3) 15%,   /* Start black stripe */
+        rgb(107, 88, 3) 30%    /* Thickness of black stripe */
     );
+    background-size: 150% 100%; /* Expand horizontally only */
+    animation: slide 2s linear infinite; /* Animate background position */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-fill-color: transparent;
     text-align: center;
+}
+
+/* Smooth sliding animation */
+@keyframes slide {
+    0% {
+        background-position: 0 0; /* Start position */
+    }
+    50% {
+        background-position: -100% 0; /* End position aligns with the start */
+    }
+    100% {
+        background-position: -200% 0; /* End position aligns with the start */
+    }
 }

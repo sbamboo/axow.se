@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <!-- Three overlapping person symbols -->
+  <g fill="currentColor">
+    <!-- Left person -->
+    <circle cx="8" cy="7" r="3"/>
+    <path d="M2 18c0-2.5 3-4 6-4s6 1.5 6 4H2z"/>
+    
+    <!-- Middle person (slightly offset) -->
+    <circle cx="12" cy="6" r="3"/>
+    <path d="M6 17c0-2.5 3-4 6-4s6 1.5 6 4H6z"/>
+    
+    <!-- Right person -->
+    <circle cx="16" cy="7" r="3"/>
+    <path d="M10 18c0-2.5 3-4 6-4s6 1.5 6 4H10z"/>
+  </g>
+</svg>

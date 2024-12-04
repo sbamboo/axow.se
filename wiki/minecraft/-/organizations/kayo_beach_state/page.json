@@ -1,0 +1,87 @@
+{
+    "category": "organizations",
+    "page": "example",
+
+    "meta": {
+        "short_description": "Example"
+    },
+    
+    "attributes": {
+        "name": "Example",
+        "banner": "$organizations/kayo_beach_state/banner.png",
+      
+        "founded": {
+            "by": ["@TheAxolot77"],
+            "time": {
+                "period": "$timeperiods/kayo_beach_start",
+                "date": "xx-xx-xxxx"
+            }
+        },
+        "owners": [],
+        "active_members": [],
+        "previous_members": [
+            {
+                "role": "Previous Member",
+                "reason": "Left",
+                "profile": "@TheAxolot77"
+            }
+        ],
+        "operation": "Decision-making body of $cities/kayo_beach",
+        "base_of_operations": "$pois/kayo_towers",
+        "status": "active"
+
+        "historic_events": [
+             {
+                 "title": "Founded",
+                 "time": {
+                      "period": "$timeperiods/kayo_beach_start",
+                      "date": "xx-xx-xxxx"
+                  },
+                  "description": ""
+             }   
+        ]
+    },
+
+    "sections": [
+        {
+            "type": "introduction",
+            "content": "!MARKDOWN!"
+        },
+        {
+            "type": "text",
+            "name": "Layout",
+            "content": "!MARKDOWN!"
+        },
+        {
+            "type": "media_grid",
+            "name": "Gallery",
+            "content": [
+                {
+                    "type": "image",
+                    "media": "!URL!",
+                    "alt": "",
+                    "desc": "!MARKDOWN!"
+                }
+            ]
+        },
+        {
+            "type": "sources",
+            "name": "Sources",
+            "content": [
+                {
+                    "text": "!TEXT!",
+                    "href": "!URL!",
+                    "time": "xx-xx-xxxx"
+                }
+            ]
+        }
+    ],
+
+    "comments": [
+        {
+            "by": "@TheAxolot77",
+            "time": "xx-xx-xxxx",
+            "content": "!MARKDOWN!"
+        }
+    ]
+}

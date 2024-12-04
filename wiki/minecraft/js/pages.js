@@ -1,4 +1,4 @@
-window.onload = () => {
+window.onload = async () => {
 
     // Display WIKI_MINECRAFT.highlights as carousell
     const allPagesSection = document.getElementsByClassName("section-all-pages")[0];
@@ -8,7 +8,7 @@ window.onload = () => {
         let uniqueCategories = {};
 
         for (const wikiPage of WIKI_MINECRAFT.wikipages) {
-
+          
             if (Object.keys(WIKI_MINECRAFT.categories).includes(wikiPage.category)) {
 
                 if (Object.keys(uniqueCategories).includes(wikiPage.category)) {
@@ -32,6 +32,17 @@ window.onload = () => {
 
                     const wikiCategoryIcon = document.createElement("img");
                     wikiCategoryIcon.classList.add("wiki-category-title-image");
+                    if (categoryData.icon.startsWith("$")) {
+                        let category = categoryData.icon.slice(1);
+                        let extension = "svg";
+                        if (category.includes(".")) {
+                            [category,extension] = category.split(".");
+                        }
+                                                
+                        if (Object.keys(WIKI_MINECRAFT.categories).includes(category)) {
+                            categoryData.icon = `/wiki/minecraft/assets/images/categories/${category}.${extension}`;
+                        }
+                    }
                     wikiCategoryIcon.src = categoryData.icon;
                     wikiCategoryIcon.alt = "";
 
@@ -49,14 +60,43 @@ window.onload = () => {
                 for (const categoryPage of categoryPages) {
 
                     const categoryPageLink = document.createElement("a");
-                    const categoryPageLink_href = `/wiki/minecraft/-/${categoryPage.category}/${categoryPage.name}.json`;
-                    if (categoryData.viewer) {
-                        categoryPageLink.href = `${categoryData.viewer}?data=${encodeURIComponent(categoryPageLink_href)}`;
-                    } else {
-                        categoryPageLink.href = categoryPageLink_href;
+                  
+                    // Auto HREF
+                    if (!categoryPage.href) {
+                        const categoryPageLink_href = `/wiki/minecraft/-/${categoryPage.category}/${categoryPage.name}/page.json`;
+                        if (categoryData.viewer) {
+                            categoryPageLink.href = `${categoryData.viewer}?data=${encodeURIComponent(categoryPageLink_href)}`;
+                        } else {
+                            categoryPageLink.href = categoryPageLink_href;
+                        }
                     }
+                    // Parse HREF
+                    else {
+                        if (categoryPage.href.startsWith("$")) {
+                            const [category, page] = categoryPage.href.slice(1).split('/');
+
+                            if (Object.keys(WIKI_MINECRAFT.categories).includes(category)) {
+                                const categoryPage_href = `/wiki/minecraft/-/${category}/${page}/page.json`;
+                                if (WIKI_MINECRAFT.categories[category].viewer) {
+                                    categoryPage.href = `${WIKI_MINECRAFT.categories[category].viewer}?data=${encodeURIComponent(categoryPage_href)}`;
+                                } else {
+                                    categoryPage.href = categoryPage_href;
+                                }
+                            }
+                        } else if (categoryPage.href.startsWith("@")) {
+                            const profileHtmlMap = await getProfileReplacementHTML(new Set([categoryPage.href]),"wiki_minecraft","wiki_minecraft");
+                            const replacementHTML = profileHtmlMap[categoryPage.href];
+                            if (replacementHTML.includes('"')) {
+                                categoryPage.href = replacementHTML.split('"')[1];
+                            }
+                        }
+
+                        categoryPageLink.href = categoryPage.href.replace("[AUTO_RETURN]",encodeURIComponent(window.location.href));
+                    }
+                  
                     categoryPageLink.alt = `WikiPage.${categoryPage.name}`;
                     categoryPageLink.innerText = categoryPage.name;
+                    
 
                     wikiCategoryInnerWrapper.appendChild(categoryPageLink);
 

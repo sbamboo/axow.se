@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <!-- Server rack base -->
+    <path d="M12 2L4 6v12l8 4 8-4V6l-8-4z" fill="#242424"/>
+    
+    <!-- Server slices (4 vertically stacked) -->
+    <path d="M11 6L5 9v1l6 3 6-3V9l-6-3z" fill="#333333"/>
+    <path d="M11 10L5 13v1l6 3 6-3v-1l-6-3z" fill="#333333"/>
+    <path d="M11 14L5 17v1l6 3 6-3v-1l-6-3z" fill="#333333"/>
+    
+    <!-- Blinking lights -->
+    <circle cx="9" cy="8.5" r="0.4">
+        <animate attributeName="fill"
+                 values="#00ff00;#004400;#00ff00"
+                 dur="2s"
+                 repeatCount="indefinite"/>
+    </circle>
+    <circle cx="10.5" cy="8.5" r="0.4">
+        <animate attributeName="fill"
+                 values="#ff0000;#440000;#ff0000"
+                 dur="1.5s"
+                 repeatCount="indefinite"/>
+    </circle>
+    
+    <circle cx="9" cy="12.5" r="0.4">
+        <animate attributeName="fill"
+                 values="#00ff00;#004400;#00ff00"
+                 dur="3s"
+                 repeatCount="indefinite"/>
+    </circle>
+    <circle cx="10.5" cy="12.5" r="0.4">
+        <animate attributeName="fill"
+                 values="#ff0000;#440000;#ff0000"
+                 dur="2.5s"
+                 repeatCount="indefinite"/>
+    </circle>
+    
+    <circle cx="9" cy="16.5" r="0.4">
+        <animate attributeName="fill"
+                 values="#00ff00;#004400;#00ff00"
+                 dur="1.8s"
+                 repeatCount="indefinite"/>
+    </circle>
+    <circle cx="10.5" cy="16.5" r="0.4">
+        <animate attributeName="fill"
+                 values="#ff0000;#440000;#ff0000"
+                 dur="2.2s"
+                 repeatCount="indefinite"/>
+    </circle>
+</svg>

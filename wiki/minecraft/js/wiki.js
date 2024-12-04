@@ -20,14 +20,12 @@ window.onload = () => {
                     const categoryHightlightContainer = document.createElement("a");
                     categoryHightlightContainer.classList.add("wiki-category-highlight");
                     if (categoryHightlight.href != "") {
-                        
-                        console.log(categoryHightlight.href)
 
                         if (categoryHightlight.href.startsWith("$")) {
                             const [category, page] = categoryHightlight.href.slice(1).split('/');
 
                             if (Object.keys(WIKI_MINECRAFT.categories).includes(category)) {
-                                const categoryHightlight_href = `/wiki/minecraft/-/${category}/${page}.json`;
+                                const categoryHightlight_href = `/wiki/minecraft/-/${category}/${page}/page.json`;
                                 if (WIKI_MINECRAFT.categories[category].viewer) {
                                     categoryHightlight.href = `${WIKI_MINECRAFT.categories[category].viewer}?data=${encodeURIComponent(categoryHightlight_href)}`;
                                 } else {
@@ -42,6 +40,12 @@ window.onload = () => {
                     }
                     
                     const categoryHightlightImage = document.createElement("img");
+                    if (categoryHightlight.icon.startsWith("$")) {
+                        const category = categoryHightlight.icon.slice(1).split("/")[0];
+                        if (Object.keys(WIKI_MINECRAFT.categories).includes(category)) {
+                            categoryHightlight.icon = `/wiki/minecraft/-/` + categoryHightlight.icon.slice(1);
+                        }
+                    }
                     categoryHightlightImage.src = categoryHightlight.icon;
                     categoryHightlightImage.alt = categoryHightlight.alt;
 

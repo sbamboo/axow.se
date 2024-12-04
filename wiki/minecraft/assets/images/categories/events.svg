@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <!-- Megaphone -->
+  <g fill="currentColor">
+    <!-- Main megaphone body -->
+    <path d="M18 4c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2h-2l-4 4v-4H6c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2h12z"/>
+    <!-- Sound waves -->
+    <path d="M20 8v4c1.1 0 2-.9 2-2s-.9-2-2-2z"/>
+  </g>
+  
+  <!-- Confetti particles -->
+  <g>
+    <!-- Star confetti -->
+    <path fill="currentColor" d="M4 4l1 1-1 1-1-1z"/>
+    <path fill="currentColor" d="M22 18l1 1-1 1-1-1z"/>
+    <path fill="currentColor" d="M18 2l1 1-1 1-1-1z"/>
+    
+    <!-- Circle confetti -->
+    <circle fill="currentColor" cx="20" cy="6" r="1"/>
+    <circle fill="currentColor" cx="6" cy="18" r="1"/>
+    <circle fill="currentColor" cx="3" cy="14" r="1"/>
+    
+    <!-- Square confetti -->
+    <rect fill="currentColor" x="16" y="16" width="1.5" height="1.5"/>
+    <rect fill="currentColor" x="5" cy="7" width="1.5" height="1.5"/>
+    <rect fill="currentColor" x="2" y="10" width="1.5" height="1.5"/>
+  </g>
+</svg>

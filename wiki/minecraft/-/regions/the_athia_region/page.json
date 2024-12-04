@@ -1,0 +1,111 @@
+{
+    "category": "regions",
+    "page": "the_athia_region",
+
+    "meta": {
+        "short_description": "The region surrounding $cities/athia"
+    },
+    
+    "attributes": {
+        "name": "The Athia Region",
+        "banner": "$regions/the_athia_region/banner.png",
+      
+        "formed": {
+            "by": ["@TheAxolot77"],
+            "capital": {
+                "place": "$cities/athia",
+                "coordinates": ["276","-4511"]
+            }
+        },
+        "status": "active",
+
+        "historic_events": [
+             {
+                 "title": "Formed",
+                 "time": {
+                      "period": "$timeperiods/freelands_period",
+                      "date": "xx-xx-xxxx"
+                  },
+                  "description": ""
+             }   
+        ]
+    },
+
+    "sections": [
+        {
+            "type": "introduction",
+            "content": "!MARKDOWN!"
+        },
+        {
+            "type": "img-table",
+            "name": "Cities"
+            "content": {
+                "columns": ["Image", "City", "Coordinates", "Short Description"],
+                "entries": [
+                    [
+                        {
+                            "type": "image",
+                            "media": "!URL!",
+                            "alt": "",
+                            "desc": "!MARKDOWN!"
+                        },
+                        "$cities/athia",
+                        ["276","-4511"],
+                        "$cities/athia:short_description"
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "img-table",
+            "name": "Points of interest"
+            "content": {
+                "columns": ["Image", "POI", "Coordinates", "Short Description"],
+                "entries": [
+                    [
+                        {
+                            "type": "image",
+                            "media": "!URL!",
+                            "alt": "",
+                            "desc": "!MARKDOWN!"
+                        },
+                        "$pois/easter_island_2024",
+                        ["202","-4740"],
+                        "$pois/easter_island_2024:short_description"
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "media_grid",
+            "name": "Gallery",
+            "content": [
+                {
+                    "type": "image",
+                    "media": "!URL!",
+                    "alt": "",
+                    "desc": "!MARKDOWN!"
+                }
+            ]
+        },
+        {
+            "type": "sources",
+            "name": "Sources",
+            "content": [
+                {
+                    "text": "!TEXT!",
+                    "href": "!URL!",
+                    "time": "xx-xx-xxxx"
+                }
+            ]
+        }
+    ],
+
+    "comments": [
+        {
+            "by": "@TheAxolot77",
+            "time": "xx-xx-xxxx",
+            "content": "!MARKDOWN!"
+        }
+    ]
+}

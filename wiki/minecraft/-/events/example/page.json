@@ -1,0 +1,97 @@
+{
+    "category": "events",
+    "page": "example",
+
+    "meta": {
+        "short_description": "Example"
+    },
+    
+    "attributes": {
+        "name": "Examples",
+        "banner": "$events/examples/banner.png",
+
+        "arranged": {
+            "by": ["@TheAxolot77"],
+            "time": {
+                "period": "$timeperiods/kayo_beach_start",
+                "date": "xx-xx-xxxx"
+            },
+            "reason": "Because of example"
+        },
+
+        "participating_players": [
+            {
+                "profile": "@TheAxolot77",
+                "role": "Aranger / Planner / Creator"
+            }
+        ],
+
+        "participating_organizations": [
+            {
+                "organization": "$organizations/example",
+                "role": "Aranger / Planner / Creator"
+            }
+        ]
+        
+        "status": "ended"
+
+        "historic_events": [
+             {
+                 "title": "Started",
+                 "time": {
+                      "period": "$timeperiods/kayo_beach_start",
+                      "date": "xx-xx-xxxx"
+                  },
+                  "description": ""
+             }   
+        ]
+    },
+
+    "sections": [
+        {
+            "type": "introduction",
+            "content": "!MARKDOWN!"
+        },
+        {
+            "type": "timeline",
+            "name": "Timeline"
+            "content": {
+                "xx-xx-xxxx": {
+                    "title": "!TEXT!",
+                    "description": "!MARKDOWN!"
+                }
+            }
+        },
+        {
+            "type": "media_grid",
+            "name": "Gallery",
+            "content": [
+                {
+                    "type": "image",
+                    "media": "!URL!",
+                    "alt": "",
+                    "desc": "!MARKDOWN!"
+                }
+            ]
+        },
+        {
+            "type": "sources",
+            "name": "Sources",
+            "content": [
+                {
+                    "text": "!TEXT!",
+                    "href": "!URL!",
+                    "time": "xx-xx-xxxx"
+                }
+            ]
+        }
+    ],
+
+    "comments": [
+        {
+            "by": "@TheAxolot77",
+            "time": "xx-xx-xxxx",
+            "content": "!MARKDOWN!"
+        }
+    ]
+}

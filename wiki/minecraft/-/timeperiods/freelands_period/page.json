@@ -1,0 +1,86 @@
+{
+    "category": "timeperiods",
+    "page": "freelands_period",
+
+    "meta": {
+        "short_description": "Fun times!"
+    },
+    
+    "attributes": {
+        "name": "The Freelands Period",
+        "banner": "$timeperiods/freelands_period/banner.png",
+
+        "started": {
+            "previous_period": "$timeperiods/old_centrum_days",
+            "date": "xx-xx-xxxx",
+            "reason": "New players joined and moved there. (See $cities/freelands)"
+        },
+      
+        "ended": {
+            "following_period": "$timeperiods/newer_old_centrum_days",
+            "date": "xx-xx-xxxx",
+            "reason": "New server, new capital, new players. (See $server/theaxolot77)"
+        }
+      
+        "status": "ended",
+
+        "historic_events": [
+             {
+                 "title": "Started",
+                 "time": {
+                      "period": "$timeperiods/freelands_period",
+                      "date": "xx-xx-xxxx"
+                  },
+                  "description": ""
+             }   
+        ]
+    },
+
+    "sections": [
+        {
+            "type": "introduction",
+            "content": "!MARKDOWN!"
+        },
+        {
+            "type": "timeline",
+            "name": "Timeline"
+            "content": {
+                "xx-xx-xxxx": {
+                    "title": "!TEXT!",
+                    "description": "!MARKDOWN!"
+                }
+            }
+        },
+        {
+            "type": "media_grid",
+            "name": "Gallery",
+            "content": [
+                {
+                    "type": "image",
+                    "media": "!URL!",
+                    "alt": "",
+                    "desc": "!MARKDOWN!"
+                }
+            ]
+        },
+        {
+            "type": "sources",
+            "name": "Sources",
+            "content": [
+                {
+                    "text": "!TEXT!",
+                    "href": "!URL!",
+                    "time": "xx-xx-xxxx"
+                }
+            ]
+        }
+    ],
+
+    "comments": [
+        {
+            "by": "@TheAxolot77",
+            "time": "xx-xx-xxxx",
+            "content": "!MARKDOWN!"
+        }
+    ]
+}

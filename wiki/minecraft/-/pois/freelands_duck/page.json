@@ -1,0 +1,78 @@
+{
+    "category": "pois",
+    "page": "freelands_duck",
+
+    "meta": {
+        "short_description": "@Daktordoom's duck!"
+    },
+    
+    "attributes": {
+        "name": "The Freelands Duck",
+        "banner": "$pois/freelands_duck/banner.png",
+      
+        "creators": ["@Daktordoom"],
+        "owners": ["@Daktordoom"],
+        "status": "",
+        "access": "Private",
+        "usage": "Home"
+        
+        "geography": {
+            "place": "$cities/freelands",
+            "coordinates": ["4328","-1797"],
+        },
+
+        "historic_events": [
+             {
+                 "title": "Built",
+                 "time": {
+                      "period": "$timeperiods/freelands_period",
+                      "date": "xx-xx-xxxx"
+                  },
+                  "description": ""
+             }   
+        ]
+    },
+
+    "sections": [
+        {
+            "type": "introduction",
+            "content": "!MARKDOWN!"
+        },
+        {
+            "type": "text",
+            "name": "Text",
+            "content": "!MARKDOWN!"
+        },
+        {
+            "type": "media_grid",
+            "name": "Gallery",
+            "content": [
+                {
+                    "type": "image",
+                    "media": "!URL!",
+                    "alt": "",
+                    "desc": "!MARKDOWN!"
+                }
+            ]
+        },
+        {
+            "type": "sources",
+            "name": "Sources",
+            "content": [
+                {
+                    "text": "!TEXT!",
+                    "href": "!URL!",
+                    "time": "xx-xx-xxxx"
+                }
+            ]
+        }
+    ],
+
+    "comments": [
+        {
+            "by": "@TheAxolot77",
+            "time": "xx-xx-xxxx",
+            "content": "!MARKDOWN!"
+        }
+    ]
+}

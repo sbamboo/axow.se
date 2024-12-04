@@ -1,0 +1,90 @@
+{
+    "category": "cities",
+    "page": "kayo_beach",
+
+    "meta": {
+        "short_description": "One of the first cities!"
+    },
+    
+    "attributes": {
+        "name": "Kayo Beach",
+        "banner": "$cities/kayo_beach/banner.png",
+      
+        "founded": {
+            "by": ["@TheAxolot77"],
+            "time": {
+                "period": "$timeperiods/kayo_beach_start",
+                "date": "xx-xx-xxxx"
+            }
+        },
+        "owners": ["$organizations/kayo_beach_state"],
+
+        "residents": ["@TheAxolot77"],
+        "organizations": [],
+      
+        "status": "active",
+        
+        "geography": {
+            "coordinates": ["-337","-537"],
+            "size": "",
+            "biomes": {
+                "current": "Birch, Beach, Plains",
+                "previous": []
+            }
+        },
+
+        "historic_events": [
+             {
+                 "title": "Founded",
+                 "time": {
+                      "period": "$timeperiods/kayo_beach_start",
+                      "date": "xx-xx-xxxx"
+                  },
+                  "description": ""
+             }   
+        ]
+    },
+
+    "sections": [
+        {
+            "type": "introduction",
+            "content": "!MARKDOWN!"
+        },
+        {
+            "type": "text",
+            "name": "Layout",
+            "content": "!MARKDOWN!"
+        },
+        {
+            "type": "media_grid",
+            "name": "Gallery",
+            "content": [
+                {
+                    "type": "image",
+                    "media": "!URL!",
+                    "alt": "",
+                    "desc": "!MARKDOWN!"
+                }
+            ]
+        },
+        {
+            "type": "sources",
+            "name": "Sources",
+            "content": [
+                {
+                    "text": "!TEXT!",
+                    "href": "!URL!",
+                    "time": "xx-xx-xxxx"
+                }
+            ]
+        }
+    ],
+
+    "comments": [
+        {
+            "by": "@TheAxolot77",
+            "time": "xx-xx-xxxx",
+            "content": "!MARKDOWN!"
+        }
+    ]
+}

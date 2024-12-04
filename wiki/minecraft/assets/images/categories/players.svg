@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Body -->
+  <path d="M30 60 L30 30 L45 20 L45 50 Z" fill="#9C27B0"/>
+  <path d="M45 20 L60 30 L60 60 L45 50 Z" fill="#7B1FA2"/>
+  
+  <!-- Head -->
+  <path d="M35 35 L35 15 L50 5 L50 25 Z" fill="#9C27B0"/>
+  <path d="M50 5 L65 15 L65 35 L50 25 Z" fill="#7B1FA2"/>
+  
+  <!-- Legs in running position -->
+  <path d="M35 60 L30 75 L40 80 L45 65 Z" fill="#9C27B0"/>
+  <path d="M50 60 L55 80 L45 85 L40 65 Z" fill="#7B1FA2"/>
+  
+  <!-- Ground shadow -->
+  <ellipse cx="45" cy="85" rx="20" ry="5" fill="#0002"/>
+</svg>

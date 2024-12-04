@@ -1,3 +1,6 @@
+// Configuration
+const HOVER_OPEN_VERTICAL_NAVBAR = false;
+
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('header');
   const currentPath = window.location.pathname;
@@ -50,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </button>
       </div>
     </nav>
+    <div class="header-hover-area"></div>
   `;
 
   // Mobile navigation functionality
@@ -59,8 +63,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Toggle navigation
   navToggle.addEventListener('click', () => {
-    nav.classList.toggle('expanded');
+    if (!HOVER_OPEN_VERTICAL_NAVBAR || window.innerWidth > 591) {
+      nav.classList.toggle('expanded');
+    }
   });
+
+  if (HOVER_OPEN_VERTICAL_NAVBAR) {
+    nav.addEventListener('mouseenter', () => {
+      if (window.innerWidth <= 591) {
+        nav.classList.add('expanded');
+      }
+    });
+
+    nav.addEventListener('mouseleave', () => {
+      if (window.innerWidth <= 591) {
+        nav.classList.remove('expanded');
+        dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+      }
+    });
+  }
 
   // Handle dropdowns in mobile view
   dropdowns.forEach(dropdown => {
@@ -75,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Close expanded nav when clicking outside
   document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 591 && !nav.contains(e.target)) {
+    if (window.innerWidth <= 591 && !nav.contains(e.target) && !HOVER_OPEN_VERTICAL_NAVBAR) {
       nav.classList.remove('expanded');
       dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
     }

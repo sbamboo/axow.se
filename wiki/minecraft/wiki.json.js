@@ -48,14 +48,14 @@ WIKI_MINECRAFT = {
 
         "examples": {
             "name": "Examples",
-            "icon": "https://picsum.photos/id/96/20/20.jpg",
+            "icon": "$examples.svg",
             "viewer": "/wiki/minecraft/viewers/examples/index.html",
             "highlights": []
         },
 
         "servers": {
             "name": "Servers",
-            "icon": "https://picsum.photos/id/261/20/20.jpg",
+            "icon": "$servers.svg",
             "viewer": "/wiki/minecraft/viewers/servers/index.html",
             "highlights": [
                 {
@@ -69,7 +69,7 @@ WIKI_MINECRAFT = {
 
         "cities": {
             "name": "Cities",
-            "icon": "https://picsum.photos/id/413/20/20.jpg",
+            "icon": "$cities.svg",
             "viewer": "/wiki/minecraft/viewers/cities/index.html",
             "highlights": [
                 {
@@ -81,9 +81,37 @@ WIKI_MINECRAFT = {
             ]
         },
 
+        "pois": {
+            "name": "Points Of Interest",
+            "icon": "$pois.svg",
+            "viewer": "/wiki/minecraft/viewers/pois/index.html",
+            "highlights": [
+                {
+                    "name": "Freelands Duck",
+                    "icon": "$pois/freelands_duck/duck1.png",
+                    "alt": "Daktordooms Duck",
+                    "href": "$pois/freelands_duck"
+                }
+            ]
+        },
+
+        "regions": {
+            "name": "Regions",
+            "icon": "$regions.svg",
+            "viewer": "/wiki/minecraft/viewers/regions/index.html",
+            "highlights": [
+                {
+                    "name": "The Athia Region",
+                    "icon": "$regions/the_athia_region/region.png",
+                    "alt": "Founded 2024-03-03",
+                    "href": "$regions/the_athia_region"
+                }
+            ]
+        },
+
         "players": {
             "name": "Players",
-            "icon": "https://picsum.photos/id/541/20/20.jpg",
+            "icon": "$players.svg",
             "viewer": "/wiki/minecraft/viewers/players/index.html",
             "highlights": [
                 {
@@ -99,6 +127,27 @@ WIKI_MINECRAFT = {
                     "href": "/profiles/wiki_minecraft/@Herobrine?ret=[AUTO_RETURN]&sections=wiki_minecraft"
                 }
             ]
+        },
+
+        "organizations": {
+            "name": "Organizations",
+            "icon": "$organizations.svg",
+            "viewer": "/wiki/minecraft/viewers/organizations/index.html",
+            "highlights": []
+        },
+
+        "timeperiods": {
+            "name": "Time Periods",
+            "icon": "$timeperiods.svg",
+            "viewer": "/wiki/minecraft/viewers/timeperiods/index.html",
+            "highlights": []
+        },
+
+        "events": {
+            "name": "Events",
+            "icon": "$events.svg",
+            "viewer": "/wiki/minecraft/viewers/events/index.html",
+            "highlights": []
         }
 
     },
@@ -108,15 +157,56 @@ WIKI_MINECRAFT = {
             "category": "examples",
             "name": "1"
         },
-        
         {
             "category": "examples",
             "name": "2"
         },
         
         {
+            "category": "servers",
+            "name": "theaxolot77",
+            "href": "/projects/minecraft/theaxolot77_server/index.html"
+        },
+        
+        {
             "category": "cities",
             "name": "kayo_beach"
+        },
+        
+        {
+            "category": "pois",
+            "name": "freelands_duck"
+        },
+        
+        {
+            "category": "regions",
+            "name": "the_athia_region"
+        },
+        
+        {
+            "category": "players",
+            "name": "theaxolot77",
+            "href": "@TheAxolot77"
+        },
+        {
+            "category": "players",
+            "name": "herobrine",
+            "href": "@Herobrine"
+        },
+      
+        {
+            "category": "organizations",
+            "name": "kayo_beach_state"
+        },
+      
+        {
+            "category": "timeperiods",
+            "name": "freelands_period"
+        },
+      
+        {
+            "category": "events",
+            "name": "example"
         }
     ]
 }
