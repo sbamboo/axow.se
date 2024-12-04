@@ -31,6 +31,24 @@
     color: var(--text-secondary);
     background: var(--card-bg2);
     border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.carousel-read-more {
+    color: var(--link-color);
+    text-decoration: none;
+    font-size: 0.9em;
+    padding: 4px 12px;
+    border-radius: 4px;
+    background: var(--tag-bg);
+    transition: background-color 0.2s;
+}
+
+.carousel-read-more:hover {
+    background: var(--dropdown-hover);
 }
 
 .arrow {

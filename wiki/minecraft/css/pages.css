@@ -1,5 +1,79 @@
+/* General wiki layout */
+.wiki-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
+.section {
+    margin-bottom: 40px;
+}
+
+/* Category layout */
+.wiki-category-wrapper {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.wiki-category-title-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.wiki-category-title-image {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+}
+
+.wiki-category-name {
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.wiki-category-inner-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+}
 
 .wiki-category-inner-wrapper > a {
-    display: block;
+    color: var(--link-color);
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s, transform 0.2s;
+    background: var(--tag-bg);
+}
+
+.wiki-category-inner-wrapper > a:hover {
+    background: var(--dropdown-hover);
+    transform: translateX(4px);
+}
+
+/* Section layout */
+.section-all-pages {
+    margin-top: 20px;
+}
+
+/* Navigation buttons */
+.wiki_back_button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--link-color);
+    color: var(--card-bg);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 20px;
 }

@@ -102,8 +102,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Create read-more
         const carouselReadMore = document.createElement("a");
-        carouselReadMore.classList.add("carousel-read-more");
         if (mediaItem.href != "") {
+            carouselReadMore.classList.add("carousel-read-more");
             carouselReadMore.href = mediaItem.href;
             carouselReadMore.innerHTML = "Read more..."
         }

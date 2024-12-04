@@ -1,14 +1,99 @@
+/* General wiki layout */
+.wiki-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+/* About section */
+.section-about-wiki {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    margin-top: 20px;
+}
+
+.section-about-wiki h2 {
+    margin-top: 0;
+    color: var(--text-color);
+    font-size: 1.8em;
+    margin-bottom: 16px;
+}
+
+.section-about-wiki p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.section-about-wiki p:last-child {
+    margin-bottom: 0;
+}
+
+/* Category highlights */
+.section-category-hightlights {
+    margin-top: 40px;
+}
+
+.section-category-hightlights h3 {
+    color: var(--text-color);
+    font-size: 1.5em;
+    margin-bottom: 16px;
+}
+
 .wiki-category-highlights-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
 }
 
 .wiki-category-highlight {
-    width: 100px;
-    height: 100px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 8px;
+    text-decoration: none;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
 }
 
-.wiki-category-highlight > img {
+.wiki-category-highlight:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.wiki-category-highlight img {
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Navigation buttons */
+.wiki_index_button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--link-color);
+    color: var(--card-bg);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 20px;
+}
+
+.wiki_index_button:hover,
+.wiki_back_button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
 }
