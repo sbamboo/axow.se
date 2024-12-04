@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
           : '<a href="/index.html"><img src="https://sbamboo.github.io/theaxolot77/assets/logo_theaxo77.png" alt="Home" /></a>'
         }
       </div>
+      <button class="nav-toggle">
+        <span class="material-icons">chevron_right</span>
+      </button>
       <div class="header-links">
         <a href="/index.html" class="header-link ${currentPath === '/' || currentPath === '/index.html' ? 'active' : ''}">Home</a>
         <a href="/articles/index.html" class="header-link ${currentPath.includes('/articles/') ? 'active' : ''}">Articles</a>
@@ -48,4 +51,45 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     </nav>
   `;
+
+  // Mobile navigation functionality
+  const nav = document.querySelector('.header-nav');
+  const navToggle = document.querySelector('.nav-toggle');
+  const dropdowns = document.querySelectorAll('.dropdown');
+
+  // Toggle navigation
+  navToggle.addEventListener('click', () => {
+    nav.classList.toggle('expanded');
+  });
+
+  // Handle dropdowns in mobile view
+  dropdowns.forEach(dropdown => {
+    const button = dropdown.querySelector('.dropdown-button');
+    button.addEventListener('click', (e) => {
+      if (window.innerWidth <= 591) {
+        e.preventDefault();
+        dropdown.classList.toggle('active');
+      }
+    });
+  });
+
+  // Close expanded nav when clicking outside
+  document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 591 && !nav.contains(e.target)) {
+      nav.classList.remove('expanded');
+      dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+    }
+  });
+
+  // Handle window resize
+  let timeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      if (window.innerWidth > 591) {
+        nav.classList.remove('expanded');
+        dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+      }
+    }, 100);
+  });
 });

@@ -10,6 +10,7 @@
   top: 0;
   left: 0;
   z-index: 1000;
+  transition: all 0.3s ease;
 }
 
 .header-logo {
@@ -167,8 +168,126 @@
 }
 
 .header-vertical-divider {
-    width: 2px;
-    height: 35px;
+  width: 2px;
+  height: 35px;
+  border-radius: 5px;
+  background: var(--header-divider);
+}
+
+/* Mobile navigation styles */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--text-color);
+}
+
+.nav-toggle .material-icons {
+  transition: transform 0.3s ease;
+}
+
+.header-nav.expanded .nav-toggle .material-icons {
+  transform: rotate(180deg);
+}
+
+/* Media query for mobile */
+@media (max-width: 591px) {
+  .header-nav {
+    position: fixed;
+    width: 50px;
+    margin: 7px 0 7px 7px;
     border-radius: 5px;
-    background: var(--header-divider);
+    height: auto;
+    flex-direction: column;
+    padding: 0;
+    transition: all 0.3s ease;
+    z-index: 1001;
+  }
+
+  .header-nav.expanded {
+    width: 175px;
+    height: calc(100vh - 14px);
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header-logo {
+    margin: 0;
+  }
+
+  .nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0px;
+  }
+
+  .header-links {
+    display: none;
+  }
+
+  .header-right {
+    display: none;
+    margin-top: auto;
+    padding: 20px;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .display-mode-toggle {
+    margin: 0 auto;
+  }
+
+  .header-nav.expanded .header-links {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .header-nav.expanded .header-right {
+    display: flex;
+  }
+
+  .header-nav.expanded .header-vertical-divider {
+    width: 80%;
+    height: 2px;
+    margin: 10px 0;
+  }
+
+  .header-link {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 0;
+  }
+
+  .dropdown {
+    width: 100%;
+  }
+
+  .dropdown-button {
+    width: 100%;
+    justify-content: space-between;
+    padding: 12px 20px;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    display: none;
+    background: var(--tag-bg);
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-item {
+    padding-left: 40px;
+  }
 }
