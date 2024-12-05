@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Window and Body Sizes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .box {
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Window and Document Sizes</h1>
+  <div class="container">
+    <div class="box" id="innerSize">InnerSize: </div>
+    <div class="box" id="outerSize">OuterSize: </div>
+    <div class="box" id="clientSize">ClientSize: </div>
+    <div class="box" id="bodySize">BodySize: </div>
+  </div>
+
+  <script>
+    function updateSizes() {
+      document.getElementById("innerSize").textContent = 
+        `InnerSize: ${window.innerWidth}, ${window.innerHeight}`;
+      document.getElementById("outerSize").textContent = 
+        `OuterSize: ${window.outerWidth}, ${window.outerHeight}`;
+      document.getElementById("clientSize").textContent = 
+        `ClientSize: ${document.body.clientWidth}, ${document.body.clientHeight}`;
+      document.getElementById("bodySize").textContent = 
+        `BodySize: ${document.body.offsetWidth}, ${document.body.offsetHeight}`;
+    }
+
+    window.addEventListener("resize", updateSizes);
+    window.addEventListener("load", updateSizes);
+  </script>
+</body>
+</html>
