@@ -10,34 +10,6 @@
     padding: 20px 20px 30px 20px
 }
 
-.return-cross {
-    position: absolute;
-    top: 20px;
-    right: -60px;
-    background: var(--card-bg);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px var(--shadow-color);
-    text-decoration: none;
-    color: var(--text-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.return-cross:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px var(--shadow-color);
-}
-
-.return-cross svg {
-    width: 24px;
-    height: 24px;
-    color: var(--text-color);
-}
-
 /* Media query for mobile */
 @media (max-width: 591px) {
     .wikipage-container {

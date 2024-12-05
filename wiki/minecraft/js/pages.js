@@ -63,7 +63,7 @@ window.onload = async () => {
                   
                     // Auto HREF
                     if (!categoryPage.href) {
-                        const categoryPageLink_href = `/wiki/minecraft/#${categoryPage.category}/${categoryPage.name}`;
+                        const categoryPageLink_href = `/wiki/minecraft/?ret=_pages_#${categoryPage.category}/${categoryPage.name}`;
                         categoryPageLink.href = categoryPageLink_href;
                     }
                     // Parse HREF
@@ -72,7 +72,7 @@ window.onload = async () => {
                             const [category, page] = categoryPage.href.slice(1).split('/');
 
                             if (Object.keys(WIKI_MINECRAFT.categories).includes(category)) {
-                                const categoryPage_href = `/wiki/minecraft/#${category}/${page}`;
+                                const categoryPage_href = `/wiki/minecraft/?ret=_pages_#${category}/${page}`;
                                 categoryPage.href = categoryPage_href;
                             }
                         } else if (categoryPage.href.startsWith("@")) {

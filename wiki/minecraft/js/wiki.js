@@ -1,6 +1,9 @@
-import { renderMarkdown } from '/js/utils/markdownRenderer.js';
+import { renderWikiPage } from '/wiki/minecraft/js/wikipage.js';
 
 window.onload = () => {
+
+    const params = new URLSearchParams(window.location.search);
+    const ret = params.get("ret");
 
     // Check if we have hashing
     const wikiContainer = document.getElementsByClassName("wiki-container")[0];
@@ -37,10 +40,22 @@ window.onload = () => {
             })
             .then(pageData => {
                 if (valid === true) {
-                    const markdown = JSON.stringify(pageData);
-                    const html = renderMarkdown(markdown);
 
-                    wikipageContainer.innerHTML = `<div class="wikipage-wrapper">` + html + `</div> <a href="/wiki/minecraft" class="return-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></a>`;
+                    const wikipageWrapper = document.createElement("div");
+                    wikipageWrapper.classList.add("wikipage-wrapper");
+                    
+                    const wikipageCloser = document.createElement("a");
+                    wikipageCloser.href = "/wiki/minecraft";
+                    if (ret == "_pages_") {
+                        wikipageCloser.href = "/wiki/minecraft/pages.html";
+                    }
+                    wikipageCloser.classList.add("return-cross");
+                    wikipageCloser.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>`;
+
+                    wikipageContainer.appendChild(wikipageWrapper);
+                    wikipageContainer.appendChild(wikipageCloser);
+
+                    renderWikiPage(pageData,wikipageWrapper);
 
                     wikipageContainer.style.display = "block";
                     wikiContainer.style.display = "none";

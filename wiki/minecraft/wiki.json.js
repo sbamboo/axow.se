@@ -60,7 +60,7 @@ WIKI_MINECRAFT = {
                     "name": "TheAxolot77",
                     "icon": "https://picsum.photos/id/369/100/100.jpg",
                     "alt": "A vanilla+ server for friends only.",
-                    "href": "/projects/minecraft/theaxolot77_server/index.html"
+                    "href": "/projects/minecraft/theaxolot77_server/index.html?ret=_wiki_minecraft_"
                 }
             ]
         },
@@ -156,7 +156,7 @@ WIKI_MINECRAFT = {
         {
             "category": "servers",
             "name": "theaxolot77",
-            "href": "/projects/minecraft/theaxolot77_server/index.html"
+            "href": "/projects/minecraft/theaxolot77_server/index.html?ret=_wiki_minecraft_pages_"
         },
         
         {
