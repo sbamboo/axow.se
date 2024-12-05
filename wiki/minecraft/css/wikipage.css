@@ -40,6 +40,9 @@
 
 /* Media query for mobile */
 @media (max-width: 591px) {
+    .wikipage-container {
+        max-width: 800px;
+    }
     .return-cross {
         position: absolute;
         top: -50px;
