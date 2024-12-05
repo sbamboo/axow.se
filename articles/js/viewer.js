@@ -31,7 +31,16 @@ async function displayArticle() {
     document.title = metadata.title;
   } catch (error) {
     console.error('Error displaying article:', error);
-    document.body.innerHTML = '<div class="error">Failed to load article</div>';
+    const container = document.getElementsByClassName("article-container")[0];
+    container.classList.add("article-container-error");
+    container.innerHTML = '<div class="error">Failed to load article</div>';
+    if (returnUrl) {
+      if (returnUrl === '_articles_cross_') {
+        addCrossButton();
+      } else {
+        addReturnButton(decodeURIComponent(returnUrl), returnName);
+      }
+    }
   }
 }
 

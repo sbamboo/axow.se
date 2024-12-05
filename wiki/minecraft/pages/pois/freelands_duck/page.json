@@ -14,11 +14,11 @@
         "owners": ["@Daktordoom"],
         "status": "",
         "access": "Private",
-        "usage": "Home"
+        "usage": "Home",
         
         "geography": {
             "place": "$cities/freelands",
-            "coordinates": ["4328","-1797"],
+            "coordinates": ["4328","-1797"]
         },
 
         "historic_events": [

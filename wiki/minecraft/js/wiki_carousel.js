@@ -46,12 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (mediaItem.href.startsWith("$")) {
             const [category, page] = mediaItem.href.slice(1).split('/');
             if (WIKI_MINECRAFT.categories && Object.keys(WIKI_MINECRAFT.categories).includes(category)) {
-                const carouselReadMore_href = `/wiki/minecraft/-/${category}/${page}/page.json`;
-                if (WIKI_MINECRAFT.categories[category].viewer) {
-                    mediaItem.href = `${WIKI_MINECRAFT.categories[category].viewer}?data=${encodeURIComponent(carouselReadMore_href)}`;
-                } else {
-                    mediaItem.href = carouselReadMore_href;
-                }
+                const carouselReadMore_href = `/wiki/minecraft/#${category}/${page}`;
+                mediaItem.href = carouselReadMore_href;
             }
         }
 
@@ -61,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (mediaItem.src.startsWith("$")) {
                 const category = mediaItem.src.slice(1).split("/")[0];
                 if (Object.keys(WIKI_MINECRAFT.categories).includes(category)) {
-                    mediaItem.src = `/wiki/minecraft/-/` + mediaItem.src.slice(1);
+                    mediaItem.src = `/wiki/minecraft/pages/` + mediaItem.src.slice(1);
                 }
             }
             img.src = mediaItem.src;
@@ -81,12 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (mediaItem.src.startsWith("$")) {
                 const [category, page] = mediaItem.src.slice(1).split('/');
                 if (WIKI_MINECRAFT.categories && Object.keys(WIKI_MINECRAFT.categories).includes(category)) {
-                    const carouselReadMore_href = `/wiki/minecraft/-/${category}/${page}.json`;
-                    if (WIKI_MINECRAFT.categories[category].viewer) {
-                        mediaItem.src = `${WIKI_MINECRAFT.categories[category].viewer}?data=${encodeURIComponent(carouselReadMore_href)}`;
-                    } else {
-                        mediaItem.src = carouselReadMore_href;
-                    }
+                    const carouselReadMore_href = `/wiki/minecraft/#${category}/${page}`;
+                    mediaItem.src = carouselReadMore_href;
                 }
             }
 

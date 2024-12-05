@@ -49,14 +49,12 @@ WIKI_MINECRAFT = {
         "examples": {
             "name": "Examples",
             "icon": "$examples.svg",
-            "viewer": "/wiki/minecraft/viewers/examples/index.html",
             "highlights": []
         },
 
         "servers": {
             "name": "Servers",
             "icon": "$servers.svg",
-            "viewer": "/wiki/minecraft/viewers/servers/index.html",
             "highlights": [
                 {
                     "name": "TheAxolot77",
@@ -70,7 +68,6 @@ WIKI_MINECRAFT = {
         "cities": {
             "name": "Cities",
             "icon": "$cities.svg",
-            "viewer": "/wiki/minecraft/viewers/cities/index.html",
             "highlights": [
                 {
                     "name": "Kayo Beach",
@@ -84,7 +81,6 @@ WIKI_MINECRAFT = {
         "pois": {
             "name": "Points Of Interest",
             "icon": "$pois.svg",
-            "viewer": "/wiki/minecraft/viewers/pois/index.html",
             "highlights": [
                 {
                     "name": "Freelands Duck",
@@ -98,7 +94,6 @@ WIKI_MINECRAFT = {
         "regions": {
             "name": "Regions",
             "icon": "$regions.svg",
-            "viewer": "/wiki/minecraft/viewers/regions/index.html",
             "highlights": [
                 {
                     "name": "The Athia Region",
@@ -112,7 +107,6 @@ WIKI_MINECRAFT = {
         "players": {
             "name": "Players",
             "icon": "$players.svg",
-            "viewer": "/wiki/minecraft/viewers/players/index.html",
             "highlights": [
                 {
                     "name": "TheAxolot77",
@@ -132,21 +126,18 @@ WIKI_MINECRAFT = {
         "organizations": {
             "name": "Organizations",
             "icon": "$organizations.svg",
-            "viewer": "/wiki/minecraft/viewers/organizations/index.html",
             "highlights": []
         },
 
         "timeperiods": {
             "name": "Time Periods",
             "icon": "$timeperiods.svg",
-            "viewer": "/wiki/minecraft/viewers/timeperiods/index.html",
             "highlights": []
         },
 
         "events": {
             "name": "Events",
             "icon": "$events.svg",
-            "viewer": "/wiki/minecraft/viewers/events/index.html",
             "highlights": []
         }
 

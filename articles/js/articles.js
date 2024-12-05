@@ -8,6 +8,7 @@ let lastSearchTerm = '';
 let articles = [];
 
 async function displayArticles() {
+
   try {
     if (articles.length === 0) {
       const articlesData = await fetchArticles();
@@ -317,6 +318,23 @@ function createAuthorLink(author) {
 
 // Make handleTagClick available globally
 window.handleTagClick = handleTagClick;
+
+// Handle fragment redirect
+const fragment = decodeURIComponent(window.location.hash.substring(1));
+console.log(fragment);
+if (fragment) {
+  let parentUrl = window.location.href;
+  if (!parentUrl.endsWith('/')) {
+      // Split the URL by "/" and remove the last segment
+      const segments = parentUrl.split("#")[0].split('/');
+      segments.pop();
+      // Join the segments back together with "/"
+      parentUrl = segments.join('/');
+  }
+  let markdownPath = encodeURIComponent(parentUrl+'/-/'+fragment+'/source.md');
+
+  window.location.href = `${parentUrl}/viewer.html?md=${markdownPath}&ret=${encodeURIComponent(parentUrl+"/index.html")}`;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   displayArticles();

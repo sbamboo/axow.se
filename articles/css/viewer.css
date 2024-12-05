@@ -239,3 +239,9 @@ ol li::before {
     text-align: right;
     color: var(--text-secondary);
 }
+
+.article-container-error {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 60px;
+}
