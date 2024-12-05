@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #333;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">Loading...</div>
+    <script>
+        // Fetch the fragment from the URL
+        const fragment = decodeURIComponent(window.location.hash.substring(1));
+        const contentDiv = document.getElementById('content');
+
+        if (!fragment) {
+            contentDiv.innerHTML = '<p class="error">No hash/fragment in the URL. Please provide one.</p>';
+        } else {
+            // Construct the markdown file path
+            const markdownPath = `${fragment}/source.md`;
+
+            // Fetch the markdown file
+            fetch(markdownPath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Could not fetch the markdown file: ${response.statusText}`);
+                    }
+                    return response.text();
+                })
+                .then(markdown => {
+                    // Render the markdown to HTML
+                    const html = marked.parse(markdown);
+                    contentDiv.innerHTML = html;
+                })
+                .catch(error => {
+                    contentDiv.innerHTML = `<p class="error">${error.message}</p>`;
+                });
+        }
+    </script>
+    <script>
+        /*! Marked.js - A markdown parser and compiler */
+        // Inline Marked.js Library (https://github.com/markedjs/marked)
+        // This script will include a small version of Marked.js for demonstration purposes
+        const marked = (() => {
+            const escapeHtml = str => str.replace(/[&<>"']/g, tag =>
+                ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[tag])
+            );
+            return {
+                parse: markdown => markdown
+                    .replace(/^#{1,6}\s?(.*)$/gm, (_, text) => `<h1>${escapeHtml(text)}</h1>`) // Headers
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
+                    .replace(/\*(.*?)\*/g, '<em>$1</em>') // Italics
+                    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>') // Links
+                    .replace(/`([^`]+)`/g, '<code>$1</code>') // Inline code
+                    .replace(/^```([\s\S]*?)```$/gm, '<pre><code>$1</code></pre>') // Code blocks
+            };
+        })();
+    </script>
+</body>
+</html>

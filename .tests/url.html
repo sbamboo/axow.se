@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Parameters and Hash</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        caption {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>URL Parameters and Hash Viewer</h1>
+    <p>Use the URL to add query parameters or a hash (e.g., <code>?key=value#hashText</code>) to see them displayed in the table below.</p>
+    
+    <table>
+        <caption>Parsed URL Information</caption>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Key</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody id="urlTableBody">
+        </tbody>
+    </table>
+
+    <script>
+        // Function to parse the query parameters
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            const result = [];
+            for (const [key, value] of params.entries()) {
+                result.push({ type: "Query Parameter", key, value });
+            }
+            return result;
+        }
+
+        // Function to parse the hash
+        function getHash() {
+            const hash = window.location.hash.substring(1); // Remove the '#' character
+            return hash ? [{ type: "Hash", key: "hash", value: hash }] : [];
+        }
+
+        // Populate the table with parsed data
+        function populateTable() {
+            const tableBody = document.getElementById("urlTableBody");
+            tableBody.innerHTML = ""; // Clear existing rows
+
+            const data = [...getQueryParams(), ...getHash()];
+
+            if (data.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="3" style="text-align: center;">No query parameters or hash found</td>
+                    </tr>`;
+            } else {
+                data.forEach(row => {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                        <td>${row.type}</td>
+                        <td>${row.key}</td>
+                        <td>${row.value}</td>
+                    `;
+                    tableBody.appendChild(tr);
+                });
+            }
+        }
+
+        // Populate the table on page load
+        window.addEventListener("load", populateTable);
+    </script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 import { fetchArticleContent, parseMetadata } from './utils/articleLoader.js';
-import { renderMarkdown } from './utils/markdownRenderer.js';
+import { renderMarkdown } from '/js/utils/markdownRenderer.js';
 import { initDisplayMode } from '/js/utils/displayMode.js';
 
 async function displayArticle() {
