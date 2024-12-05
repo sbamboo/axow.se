@@ -37,3 +37,12 @@
     height: 24px;
     color: var(--text-color);
 }
+
+/* Media query for mobile */
+@media (max-width: 591px) {
+    .return-cross {
+        position: absolute;
+        top: -50px;
+        left: 80px;
+    }
+}
