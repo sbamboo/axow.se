@@ -50,7 +50,9 @@
         `BodySize: ${document.body.offsetWidth}, ${document.body.offsetHeight}`;
     }
 
-    window.addEventListener("resize", updateSizes);
+    // Update sizes every 0.5 seconds
+    setInterval(updateSizes, 500);
+    // Initial update when page loads
     window.addEventListener("load", updateSizes);
   </script>
 </body>
