@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Window and Body Sizes</title>
+  <title>Window, Document, and Screen Sizes</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -27,15 +27,50 @@
       border-radius: 5px;
       font-size: 16px;
     }
+    .description {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      line-height: 1.5;
+    }
+    .description h2 {
+      font-size: 18px;
+      color: #555;
+    }
+    .description p {
+      margin: 5px 0;
+    }
   </style>
 </head>
 <body>
-  <h1>Window and Document Sizes</h1>
+  <h1>Browser and Screen Sizes</h1>
   <div class="container">
     <div class="box" id="innerSize">InnerSize: </div>
     <div class="box" id="outerSize">OuterSize: </div>
     <div class="box" id="clientSize">ClientSize: </div>
     <div class="box" id="bodySize">BodySize: </div>
+    <div class="box" id="screenSize">ScreenSize: </div>
+    <div class="box" id="screenAvailSize">Screen Available Size: </div>
+    <div class="box" id="documentSize">Document Size: </div>
+    <div class="box" id="scrollSize">Scroll Size: </div>
+    <div class="box" id="devicePixelRatio">Device Pixel Ratio: </div>
+    <div class="box" id="windowPosition">Window Position: </div>
+  </div>
+
+  <div class="description">
+    <h2>Explanation of Attributes:</h2>
+    <p><b>InnerSize:</b> The width and height of the browser's viewport (the visible area inside the browser window).</p>
+    <p><b>OuterSize:</b> The width and height of the browser window, including toolbars, scrollbars, and borders.</p>
+    <p><b>ClientSize:</b> The width and height of the content area within the `<body>` tag, excluding scrollbars.</p>
+    <p><b>BodySize:</b> The full width and height of the `<body>` tag, including padding and borders.</p>
+    <p><b>ScreenSize:</b> The total width and height of the user's screen in pixels.</p>
+    <p><b>Screen Available Size:</b> The width and height of the screen available for the browser, excluding UI elements like the taskbar.</p>
+    <p><b>Document Size:</b> The width and height of the viewport for the `<html>` element, excluding scrollbars.</p>
+    <p><b>Scroll Size:</b> The total width and height of the document, including content outside the viewport that can be scrolled to.</p>
+    <p><b>Device Pixel Ratio:</b> The ratio of the display's physical pixels to the CSS pixels, which determines the resolution of the screen.</p>
+    <p><b>Window Position:</b> The X and Y coordinates of the browser window relative to the screen.</p>
   </div>
 
   <script>
@@ -48,6 +83,18 @@
         `ClientSize: ${document.body.clientWidth}, ${document.body.clientHeight}`;
       document.getElementById("bodySize").textContent = 
         `BodySize: ${document.body.offsetWidth}, ${document.body.offsetHeight}`;
+      document.getElementById("screenSize").textContent = 
+        `ScreenSize: ${screen.width}, ${screen.height}`;
+      document.getElementById("screenAvailSize").textContent = 
+        `Screen Available Size: ${screen.availWidth}, ${screen.availHeight}`;
+      document.getElementById("documentSize").textContent = 
+        `Document Size: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}`;
+      document.getElementById("scrollSize").textContent = 
+        `Scroll Size: ${document.documentElement.scrollWidth}, ${document.documentElement.scrollHeight}`;
+      document.getElementById("devicePixelRatio").textContent = 
+        `Device Pixel Ratio: ${window.devicePixelRatio}`;
+      document.getElementById("windowPosition").textContent = 
+        `Window Position: X=${window.screenX}, Y=${window.screenY}`;
     }
 
     // Update sizes every 0.5 seconds
