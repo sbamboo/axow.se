@@ -245,3 +245,12 @@ ol li::before {
     padding-bottom: 20px;
     margin-top: 60px;
 }
+
+/* Media query for mobile */
+@media (max-width: 591px) {
+    .return-cross {
+        position: absolute;
+        top: -50px;
+        right: 10px;
+    }
+}
