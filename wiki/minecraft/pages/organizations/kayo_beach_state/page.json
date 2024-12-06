@@ -1,46 +1,110 @@
 {
     "category": "organizations",
-    "page": "example",
+    "page": "kayo_beach_state",
 
     "meta": {
-        "short_description": "Example"
+        "title": "Kayo Beach State",
+        "short_description": "!TEXT!"
     },
-    
-    "attributes": {
-        "name": "Example",
-        "banner": "$organizations/kayo_beach_state/banner.png",
-      
-        "founded": {
-            "by": ["@TheAxolot77"],
+
+    "infobox": [
+        {
+            "type": "title",
+            "content": "%META.title%",
+            "attribute_id": "name"
+        },
+
+        {
+            "type": "banner",
+            "content": "$organizations/kayo_beach_state/banner.png",
+            "attribute_id": "banner"
+        },
+        {
+            "type": "banner_source",
+            "content": "!MARKDOWN!",
+            "attribute_id": "banner_source"
+        },
+
+        {
+            "type": "attributed_profile",
+            "title": "Founded by",
+            "profiles": ["@TheAxolot77"],
+            "attribute_id": "founders"
+        },
+        {
+            "type": "metadata",
+            "attribute_id": "founded_time",
+            "value": {
+                "period": "$timeperiods/kayo_beach_start",
+                "date": "xx-xx-xxxx"
+            },
+            "value_type": "time"
+        },
+
+        {
+            "type": "attributed_profile",
+            "title": "Owned by",
+            "profiles": ["Self"],
+            "attribute_id": "owners"
+        },
+        {
+            "type": "attribute",
+            "title": "Status",
+            "content": "Active",
+            "attribute_id": "status"
+        },
+
+        {
+            "type": "header",
+            "content": "Members"
+        },
+        {
+            "type": "attributed_descripted_profiles",
+            "title": "Players",
+            "value": [],
+            "attribute_id": "members_active"
+        },
+        {
+            "type": "attributed_descripted_profiles",
+            "title": "Players",
+            "value": [
+                ["@TheAxolot77", "Previous Member (Left)"]
+            ],
+            "attribute_id": "members_previous"
+        },
+
+        {
+            "type": "header",
+            "content": "About"
+        },
+        {
+            "type": "attribute",
+            "title": "Operations",
+            "content": "Decision-making body of $cities/kayo_beach",
+            "attribute_id": "operations"
+        },
+        {
+            "type": "attribute",
+            "title": "Base of Operations",
+            "content": "$pois/kayo_towers",
+            "attribute_id": "base_of_operations"
+        },
+
+        {
+            "type": "header",
+            "content": "Historic Events"
+        },
+        {
+            "type": "attributed_time",
+            "title": "Founded",
             "time": {
                 "period": "$timeperiods/kayo_beach_start",
                 "date": "xx-xx-xxxx"
-            }
-        },
-        "owners": [],
-        "active_members": [],
-        "previous_members": [
-            {
-                "role": "Previous Member",
-                "reason": "Left",
-                "profile": "@TheAxolot77"
-            }
-        ],
-        "operation": "Decision-making body of $cities/kayo_beach",
-        "base_of_operations": "$pois/kayo_towers",
-        "status": "active"
-
-        "historic_events": [
-             {
-                 "title": "Founded",
-                 "time": {
-                      "period": "$timeperiods/kayo_beach_start",
-                      "date": "xx-xx-xxxx"
-                  },
-                  "description": ""
-             }   
-        ]
-    },
+            },
+            "description": "",
+            "attribute_id": "historic_event_organized"
+        }
+    ],
 
     "sections": [
         {

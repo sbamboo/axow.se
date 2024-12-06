@@ -3,11 +3,11 @@
     "page": "2",
 
     "meta": {
+        "title": "Example 1",
         "short_description": ""
     },
-    
-    "attributes": {
-    },
+
+    "infobox": [],
 
     "sections": [
         {

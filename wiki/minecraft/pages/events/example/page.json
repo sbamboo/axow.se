@@ -3,49 +3,95 @@
     "page": "example",
 
     "meta": {
+        "title": "Example",
         "short_description": "Example"
     },
-    
-    "attributes": {
-        "name": "Examples",
-        "banner": "$events/examples/banner.png",
 
-        "arranged": {
-            "by": ["@TheAxolot77"],
+    "infobox": [
+        {
+            "type": "title",
+            "content": "%META.title%",
+            "attribute_id": "name"
+        },
+
+        {
+            "type": "banner",
+            "content": "$events/example/banner.png",
+            "attribute_id": "banner"
+        },
+        {
+            "type": "banner_source",
+            "content": "!MARKDOWN!",
+            "attribute_id": "banner_source"
+        },
+        
+        {
+            "type": "named_multivalue_attribute",
+            "title": "Arranged",
+            "content": [
+                {
+                    "name": "By",
+                    "type": "descripted_profiles",
+                    "value": ["@TheAxolot77"],
+                    "description": "Because of example",
+                    "attribute_id": "arranged_by"
+                }
+            ],
+            "attribute_id": "arranged_by"
+        },
+        {
+            "type": "metadata",
+            "attribute_id": "arranged_time",
+            "value": {
+                "period": "$timeperiods/kayo_beach_start",
+                "date": "xx-xx-xxxx"
+            },
+            "value_type": "time"
+        },
+        {
+            "type": "attribute",
+            "title": "Status",
+            "content": "Ended",
+            "attribute_id": "status"
+        },
+
+        {
+            "type": "header",
+            "content": "Participants"
+        },
+        {
+            "type": "attributed_descripted_profiles",
+            "title": "Players",
+            "value": [
+                ["@TheAxolot77", "Aranger / Planner / Creator"]
+            ],
+            "attribute_id": "participating_players"
+        },
+        {
+            "type": "attributed_descripted_profiles",
+            "title": "Organizations",
+            "value": [
+                ["$organizations/example", "Aranger / Planner / Creator"]
+            ],
+            "attribute_id": "participating_organizations"
+        },
+
+        {
+            "type": "header",
+            "content": "Historic Events"
+        },
+        {
+            "type": "attributed_time",
+            "title": "Organized",
             "time": {
                 "period": "$timeperiods/kayo_beach_start",
                 "date": "xx-xx-xxxx"
             },
-            "reason": "Because of example"
-        },
+            "description": "",
+            "attribute_id": "historic_event_organized"
+        }
 
-        "participating_players": [
-            {
-                "profile": "@TheAxolot77",
-                "role": "Aranger / Planner / Creator"
-            }
-        ],
-
-        "participating_organizations": [
-            {
-                "organization": "$organizations/example",
-                "role": "Aranger / Planner / Creator"
-            }
-        ]
-        
-        "status": "ended"
-
-        "historic_events": [
-             {
-                 "title": "Started",
-                 "time": {
-                      "period": "$timeperiods/kayo_beach_start",
-                      "date": "xx-xx-xxxx"
-                  },
-                  "description": ""
-             }   
-        ]
-    },
+    ],
 
     "sections": [
         {
@@ -54,7 +100,7 @@
         },
         {
             "type": "timeline",
-            "name": "Timeline"
+            "name": "Timeline",
             "content": {
                 "xx-xx-xxxx": {
                     "title": "!TEXT!",

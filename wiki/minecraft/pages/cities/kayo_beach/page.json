@@ -3,57 +3,138 @@
     "page": "kayo_beach",
 
     "meta": {
+        "title": "Kayo Beach",
         "short_description": "One of the first cities!"
     },
-    
-    "attributes": {
-        "name": "Kayo Beach",
-        "banner": "$cities/kayo_beach/banner.png",
-      
-        "founded": {
-            "by": ["@TheAxolot77"],
+
+    "infobox": [
+        {
+            "type": "title",
+            "content": "%META.title%",
+            "attribute_id": "title"
+        },
+
+        {
+            "type": "banner",
+            "content": "$cities/kayo_beach/banner.png",
+            "attribute_id": "banner"
+        },
+        {
+            "type": "banner_source",
+            "content": "[TheAxo77 Bluemap](__axo77_bluemap__)",
+            "attribute_id": "banner_source"
+        },
+
+        {
+            "type": "attributed_profile",
+            "title": "Founded by",
+            "profiles": ["@TheAxolot77"],
+            "attribute_id": "founders"
+        },
+        {
+            "type": "metadata",
+            "attribute_id": "founded_time",
+            "value": {
+                "period": "$timeperiods/kayo_beach_start",
+                "date": "xx-xx-xxxx"
+            },
+            "value_type": "time"
+        },
+
+        {
+            "type": "attributed_profile",
+            "title": "Owned by",
+            "profiles": ["@TheAxolot77"],
+            "attribute_id": "owners"
+        },
+        {
+            "type": "attribute",
+            "title": "Status",
+            "content": "Active",
+            "attribute_id": "status"
+        },
+
+        {
+            "type": "header",
+            "content": "Residents"
+        },
+        {
+            "type": "attributed_profile",
+            "title": "Players",
+            "profiles": ["@TheAxolot77"],
+            "attribute_id": "player_residents"
+        },
+        {
+            "type": "attributed_profile",
+            "title": "Organizations",
+            "profiles": [],
+            "attribute_id": "organization_residents"
+        },
+
+        {
+            "type": "header",
+            "content": "Geography"
+        },
+        {
+            "type": "attributed_location",
+            "title": "Coordinates",
+            "content": ["-337", "-537"],
+            "attribute_id": "coordinates"
+        },
+        {
+            "type": "attribute",
+            "title": "Size",
+            "content": "",
+            "attribute_id": "size"
+        },
+        {
+            "type": "named_multivalue_attribute",
+            "title": "Biomes",
+            "content": [
+                {
+                    "name": "Current",
+                    "type": "text",
+                    "value": "Birch, Beach, Plains",
+                    "attribute_id": "biomes_current"
+                },
+                {
+                    "name": "Previous",
+                    "type": "text",
+                    "value": "",
+                    "attribute_id": "biomes_previous"
+                }
+            ],
+            "attribute_id": "biomes"
+        },
+
+        {
+            "type": "header",
+            "content": "Historic Events"
+        },
+        {
+            "type": "attributed_time",
+            "title": "Founded",
             "time": {
                 "period": "$timeperiods/kayo_beach_start",
                 "date": "xx-xx-xxxx"
-            }
-        },
-        "owners": ["$organizations/kayo_beach_state"],
+            },
+            "description": "",
+            "attribute_id": "historic_event_founded"
+        }
 
-        "residents": ["@TheAxolot77"],
-        "organizations": [],
-      
-        "status": "active",
-        
-        "geography": {
-            "coordinates": ["-337","-537"],
-            "size": "",
-            "biomes": {
-                "current": "Birch, Beach, Plains",
-                "previous": []
-            }
-        },
-
-        "historic_events": [
-             {
-                 "title": "Founded",
-                 "time": {
-                      "period": "$timeperiods/kayo_beach_start",
-                      "date": "xx-xx-xxxx"
-                  },
-                  "description": ""
-             }   
-        ]
-    },
+    ],
 
     "sections": [
         {
             "type": "introduction",
-            "content": "!MARKDOWN!"
+            "content": "!MARKDOWN!",
+            "section_id": "introduction"
         },
         {
             "type": "text",
             "name": "Layout",
-            "content": "!MARKDOWN!"
+            "content": "!MARKDOWN!",
+            "section_id": "layout"
         },
         {
             "type": "media_grid",
@@ -65,7 +146,8 @@
                     "alt": "",
                     "desc": "!MARKDOWN!"
                 }
-            ]
+            ],
+            "section_id": "gallery"
         },
         {
             "type": "sources",
@@ -76,7 +158,8 @@
                     "href": "!URL!",
                     "time": "xx-xx-xxxx"
                 }
-            ]
+            ],
+            "section_id": "sources"
         }
     ],
 

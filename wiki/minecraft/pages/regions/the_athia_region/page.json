@@ -3,33 +3,83 @@
     "page": "the_athia_region",
 
     "meta": {
+        "title": "The Athia Region",
         "short_description": "The region surrounding $cities/athia"
     },
-    
-    "attributes": {
-        "name": "The Athia Region",
-        "banner": "$regions/the_athia_region/banner.png",
-      
-        "formed": {
-            "by": ["@TheAxolot77"],
-            "capital": {
-                "place": "$cities/athia",
-                "coordinates": ["276","-4511"]
-            }
-        },
-        "status": "active",
 
-        "historic_events": [
-             {
-                 "title": "Formed",
-                 "time": {
-                      "period": "$timeperiods/freelands_period",
-                      "date": "xx-xx-xxxx"
-                  },
-                  "description": ""
-             }   
-        ]
-    },
+    "infobox": [
+        {
+            "type": "title",
+            "content": "%META.title%",
+            "attribute_id": "name"
+        },
+
+        {
+            "type": "banner",
+            "content": "$regions/the_athia_region/banner.png",
+            "attribute_id": "banner"
+        },
+        {
+            "type": "banner_source",
+            "content": "!MARKDOWN!",
+            "attribute_id": "banner_source"
+        },
+
+        {
+            "type": "attributed_profile",
+            "title": "Formed by",
+            "profiles": ["@TheAxolot77"],
+            "attribute_id": "formers"
+        },
+        {
+            "type": "metadata",
+            "attribute_id": "formed_time",
+            "value": {
+                "period": "$timeperiods/the_athians_arrive",
+                "date": "xx-xx-xxxx"
+            },
+            "value_type": "time"
+        },
+        {
+            "type": "attribute",
+            "title": "Status",
+            "content": "Active",
+            "attribute_id": "status"
+        },
+
+        {
+            "type": "header",
+            "content": "Capital"
+        },
+        {
+            "type": "attribute",
+            "title": "Place",
+            "content": "$cities/athia",
+            "attribute_id": "place"
+        },
+        {
+            "type": "attributed_location",
+            "title": "Coordinates",
+            "content": ["276","-4511"],
+            "attribute_id": "coordinates"
+        },
+
+        {
+            "type": "header",
+            "content": "Historic Events"
+        },
+        {
+            "type": "attributed_time",
+            "title": "Formed",
+            "time": {
+                "period": "$timeperiods/the_athians_arrive",
+                "date": "xx-xx-xxxx"
+            },
+            "description": "",
+            "attribute_id": "historic_event_built"
+        }
+
+    ],
 
     "sections": [
         {
@@ -38,7 +88,7 @@
         },
         {
             "type": "img-table",
-            "name": "Cities"
+            "name": "Cities",
             "content": {
                 "columns": ["Image", "City", "Coordinates", "Short Description"],
                 "entries": [
@@ -58,7 +108,7 @@
         },
         {
             "type": "img-table",
-            "name": "Points of interest"
+            "name": "Points of interest",
             "content": {
                 "columns": ["Image", "POI", "Coordinates", "Short Description"],
                 "entries": [

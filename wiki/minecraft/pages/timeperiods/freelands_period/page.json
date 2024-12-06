@@ -3,38 +3,72 @@
     "page": "freelands_period",
 
     "meta": {
+        "title": "The Freelands Period",
         "short_description": "Fun times!"
     },
-    
-    "attributes": {
-        "name": "The Freelands Period",
-        "banner": "$timeperiods/freelands_period/banner.png",
 
-        "started": {
-            "previous_period": "$timeperiods/old_centrum_days",
-            "date": "xx-xx-xxxx",
-            "reason": "New players joined and moved there. (See $cities/freelands)"
+    "infobox": [
+        {
+            "type": "title",
+            "content": "%META.title%",
+            "attribute_id": "name"
         },
-      
-        "ended": {
-            "following_period": "$timeperiods/newer_old_centrum_days",
-            "date": "xx-xx-xxxx",
-            "reason": "New server, new capital, new players. (See $server/theaxolot77)"
-        }
-      
-        "status": "ended",
 
-        "historic_events": [
-             {
-                 "title": "Started",
-                 "time": {
-                      "period": "$timeperiods/freelands_period",
-                      "date": "xx-xx-xxxx"
-                  },
-                  "description": ""
-             }   
-        ]
-    },
+        {
+            "type": "banner",
+            "content": "$timeperiods/freelands_period/banner.png",
+            "attribute_id": "banner"
+        },
+        {
+            "type": "banner_source",
+            "content": "!MARKDOWN!",
+            "attribute_id": "banner_source"
+        },
+        {
+            "type": "attributed_time",
+            "title": "Started",
+            "time": {
+                "__note__": "#Starttime and previous period",
+                "period": "$timeperiods/old_centrum_days",
+                "date": "xx-xx-xxxx"
+            },
+            "description": "New players joined and moved there. (See $cities/freelands)",
+            "attribute_id": "started"
+        },
+        {
+            "type": "attributed_time",
+            "title": "Ended",
+            "time": {
+                "__note__": "#Endtime and following period",
+                "period": "$timeperiods/newer_old_centrum_days",
+                "date": "xx-xx-xxxx"
+            },
+            "description": "New server, new capital, new players. (See $server/theaxolot77)",
+            "attribute_id": "ended"
+        },
+        {
+            "type": "attribute",
+            "title": "Status",
+            "content": "Ended",
+            "attribute_id": "status"
+        },
+
+        {
+            "type": "header",
+            "content": "Historic Events"
+        },
+        {
+            ">MERGE.FROM<": "started",
+            "description": "",
+            "attribute_id": "historic_event_started"
+        },
+        {
+            ">MERGE.FROM<": "ended",
+            "description": "",
+            "attribute_id": "historic_event_ended"
+        }
+
+    ],
 
     "sections": [
         {
@@ -43,7 +77,7 @@
         },
         {
             "type": "timeline",
-            "name": "Timeline"
+            "name": "Timeline",
             "content": {
                 "xx-xx-xxxx": {
                     "title": "!TEXT!",
