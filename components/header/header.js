@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="dropdown-arrow material-icons">expand_more</span>
           </button>
           <div class="dropdown-content">
-            <a href="/projects/minecraft/theaxolot77_server/index.html" class="dropdown-item">Server</a>
+            <a href="/projects/minecraft/axo77_server/index.html" class="dropdown-item">Server</a>
             <a href="https://sbamboo.github.io/mcc-web/" class="dropdown-item" target="_blank" rel="noopener noreferrer">
               MCC Installer
               <svg class="external-link-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
