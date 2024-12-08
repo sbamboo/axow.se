@@ -1,3 +1,33 @@
+export function getParentUrl(filepath) {
+  try {
+      // Check if the input is a valid URL
+      let url;
+      try {
+          url = new URL(filepath);
+      } catch (e) {
+          url = null; // Not a valid URL, treat as a file path
+      }
+
+      if (url) {
+          // Handle URL
+          url.pathname = url.pathname.replace(/\/$/, ''); // Remove trailing slash if present
+          const segments = url.pathname.split('/');
+          segments.pop(); // Remove the last segment
+          url.pathname = segments.join('/') || '/'; // Rebuild the path or set to root
+          return url.toString();
+      } else {
+          // Handle file path
+          filepath = filepath.replace(/\/$/, ''); // Remove trailing slash if present
+          const segments = filepath.split(/[/\\]/); // Split by forward or backslash
+          segments.pop(); // Remove the last segment
+          return segments.join('/') || '/'; // Rebuild the path or set to root
+      }
+  } catch (error) {
+      console.error('Error processing the filepath:', error);
+      return null;
+  }
+}
+
 export async function fetchArticles() {
   // Use the globally defined ARTICLES_INDEX
   const data = window.ARTICLES_INDEX;
@@ -6,7 +36,7 @@ export async function fetchArticles() {
   const articlesWithMetadata = await Promise.all(
     data.articles.map(async (article) => {
       const content = await fetchArticleContent(article.path);
-      const { metadata } = parseMetadata(content);
+      const { metadata } = parseMetadata(content,article.path);
 
       // Add category information only if category exists
       if (article.category && data.categories[article.category]) {
@@ -52,7 +82,7 @@ export async function fetchArticleContent(path) {
   return await response.text();
 }
 
-export function parseMetadata(content) {
+export function parseMetadata(content,path) {
   const metaMatch = content.match(/<p hidden meta>([\s\S]*?)<\/p>/);
 
   if (!metaMatch) {
@@ -65,10 +95,14 @@ export function parseMetadata(content) {
   metaContent.split('\n').forEach((line) => {
     const [key, ...valueParts] = line.split(':').map((s) => s.trim());
     if (key && valueParts.length > 0) {
-      const value = valueParts.join(':').trim(); // Rejoin value parts to handle URLs with colons
+      let value = valueParts.join(':').trim(); // Rejoin value parts to handle URLs with colons
       if (key === 'Tags') {
         metadata.tags = value.split(',').map((t) => t.trim());
       } else {
+        if (["Banner","Favicon","CardBackground"].includes(key) && !value.includes("/")) {
+          const parentPath = getParentUrl(path);
+          value = (parentPath.endsWith("/") ? parentPath : parentPath+"/") + value;
+        }
         metadata[key.charAt(0).toLowerCase() + key.slice(1)] = value;
       }
     }

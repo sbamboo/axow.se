@@ -2,9 +2,9 @@
 Title: 1.21.3 Server Update
 Author: @TheAxolot77
 AuthorTitle: Author/Owner
-Banner: https://sbamboo.github.io/theaxolot77/assets/articles/banners/mc_server_1.21.3.png
-Favicon: https://sbamboo.github.io/theaxolot77/assets/logo_theaxo77.png
-CardBackground: https://sbamboo.github.io/theaxolot77/assets/articles/banners/mc_server_1.21.3.png
+Banner: banner.png
+Favicon: favicon.png
+CardBackground: banner.png
 Tags: news,changelog,minecraft,mc,axo,server
 CreationDate: 2024-12-01
 UpdatedDate: 2024-12-01
@@ -45,5 +45,3 @@ The server is now generously hosted by @PigiBlossom!
 - Making 1.21.3 clients.
 - 1.21.4 Will change how items work in resourcepacks so I am planning on re-making the server resourcepack from the ground up.
 - Also some more stability testing and work!
-
-@Admin

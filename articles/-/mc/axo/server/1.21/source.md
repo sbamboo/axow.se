@@ -2,9 +2,9 @@
 Title: 1.21 Server Update
 Author: @TheAxolot77
 AuthorTitle: Author/Owner
-Banner: https://sbamboo.github.io/theaxolot77/assets/articles/banners/mc_server_1.21.png
-Favicon: https://sbamboo.github.io/theaxolot77/assets/logo_theaxo77.png
-CardBackground: https://sbamboo.github.io/theaxolot77/assets/articles/banners/mc_server_1.21.png
+Banner: banner.png
+Favicon: favicon.png
+CardBackground: banner.png
 Tags: news,changelog,minecraft,mc,axo,server
 CreationDate: 2024-07-05
 UpdatedDate: 2024-07-05

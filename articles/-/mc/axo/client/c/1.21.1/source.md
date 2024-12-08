@@ -2,9 +2,9 @@
 Title: 1.21.1 Community Client Release
 Author: @TheAxolot77
 AuthorTitle: Author/Owner
-Banner: https://sbamboo.github.io/theaxolot77/assets/articles/banners/community_client_1.21.1.png
-Favicon: https://sbamboo.github.io/theaxolot77/assets/logo_theaxo77.png
-CardBackground: https://sbamboo.github.io/theaxolot77/assets/articles/banners/community_client_1.21.1.png
+Banner: banner.png
+Favicon: favicon.png
+CardBackground: banner.png
 Tags: news,changelog,minecraft,mc,axo,client,community
 CreationDate: 2024-09-12
 UpdatedDate: 2024-09-12

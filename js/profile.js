@@ -30,6 +30,15 @@ async function loadProfile() {
 async function displayProfile(profile, requestedSections) {
   const content = document.getElementById('profile-content');
 
+  if (!profile.image || profile.image == "" || profile.image == null) {
+    profile.image = '/assets/images/default_author.svg';
+  } else if (!profile.image.includes("/")) {
+    const url = new URL(window.location.href);
+    const parentUrl = url.pathname.endsWith('/') ? url.pathname : url.pathname.substring(0, url.pathname.lastIndexOf('/') + 1);
+    const value = profile.image;
+    profile.image = (parentUrl.endsWith("/") ? parentUrl : parentUrl+"/") + value;
+  }
+
   // Create main profile content
   content.innerHTML = `
         <div class="profile-header">

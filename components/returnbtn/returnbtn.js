@@ -12,7 +12,7 @@ async function addCrossButton(returnUrl) {
     button.className = 'return-cross';
     
     try {
-        const response = await fetch('/articles/assets/cross.svg');
+        const response = await fetch('/assets/images/cross.svg');
         const svgContent = await response.text();
         button.innerHTML = svgContent;
     } catch (error) {

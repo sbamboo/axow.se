@@ -1,4 +1,4 @@
-import { fetchArticleContent, parseMetadata } from './utils/articleLoader.js';
+import { fetchArticleContent, parseMetadata, getParentUrl } from './utils/articleLoader.js';
 import { renderMarkdown } from '/js/utils/markdownRenderer.js';
 import { initDisplayMode } from '/js/utils/displayMode.js';
 
@@ -15,7 +15,7 @@ async function displayArticle() {
 
   try {
     const content = await fetchArticleContent(mdPath);
-    const { metadata, markdown } = parseMetadata(content);
+    const { metadata, markdown } = parseMetadata(content,mdPath);
 
     if (returnUrl) {
       if (returnUrl === '_articles_cross_') {
@@ -26,7 +26,7 @@ async function displayArticle() {
     }
 
     displayBanner(metadata.banner);
-    displayMetadata(metadata);
+    displayMetadata(metadata,mdPath);
     displayContent(markdown);
     document.title = metadata.title;
   } catch (error) {
@@ -62,7 +62,7 @@ async function addCrossButton() {
   button.className = 'return-cross';
   
   try {
-    const response = await fetch('/articles/assets/cross.svg');
+    const response = await fetch('/assets/images/cross.svg');
     const svgContent = await response.text();
     button.innerHTML = svgContent;
   } catch (error) {
@@ -87,7 +87,8 @@ function formatDate(dateString) {
   return `${day} ${month} ${year}`;
 }
 
-async function displayMetadata(metadata) {
+async function displayMetadata(metadata,path) {
+  console.log(path);
   const metaContainer = document.getElementById('article-meta');
   const authorLink = metadata.author.startsWith('@')
     ? `<a href="/profiles/${metadata.author}/index.html?ret=${encodeURIComponent(
@@ -95,7 +96,15 @@ async function displayMetadata(metadata) {
       )}" class="author-link">${metadata.author}</a>`
     : metadata.author;
 
-  let authorImg = metadata.authorImg || '/articles/assets/default_author.svg';
+  let authorImg;
+  if (!metadata.authorImg || metadata.authorImg == "" || metadata.authorImg == null) {
+    authorImg = '/assets/images/default_author.svg';
+  } else if (!metadata.authorImg.includes("/")) {
+    const url = new URL(path);
+    const parentUrl = url.pathname.endsWith('/') ? url.pathname : url.pathname.substring(0, url.pathname.lastIndexOf('/') + 1);
+    const value = metadata.authorImg;
+    authorImg = (parentUrl.endsWith("/") ? parentUrl : parentUrl+"/") + value;
+  }
   let authorTitle = metadata.authorTitle || 'Author';
 
   if (metadata.author.startsWith('@')) {
@@ -107,6 +116,12 @@ async function displayMetadata(metadata) {
         authorImg = metadata.authorImg;
       } else {
         authorImg = profileData.image;
+        if (!authorImg || authorImg == "" || authorImg == null) {
+          authorImg = '/assets/images/default_author.svg';
+        } else if (!authorImg.includes("/")) {
+          const parentUrl = `/profiles/${profileData.name.endsWith("@") ? profileData.name : "@"+profileData.name}/`;
+          authorImg = parentUrl + authorImg;
+        }
       }
       // AuthorTitle
       if (metadata.authorTitle) {
@@ -122,7 +137,7 @@ async function displayMetadata(metadata) {
   metaContainer.innerHTML = `
         <h1>${metadata.title}</h1>
         <div class="author-info">
-            <img src="${authorImg}" alt="${metadata.author}" onerror="this.src='/articles/assets/default_author.svg'">
+            <img src="${authorImg}" alt="${metadata.author}" onerror="this.src='/assets/images/default_author.svg'">
             <div>
                 <span class="author-name">${authorLink}</span>
                 <span class="author-title">${authorTitle}</span>

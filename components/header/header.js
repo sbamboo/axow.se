@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     <nav class="header-nav">
       <div class="header-logo ${currentPath === '/' || currentPath === '/index.html' ? 'no-link' : ''}">
         ${currentPath === '/' || currentPath === '/index.html' 
-          ? '<img src="https://sbamboo.github.io/theaxolot77/assets/logo_theaxo77.png" alt="Home" />'
-          : '<a href="/index.html"><img src="https://sbamboo.github.io/theaxolot77/assets/logo_theaxo77.png" alt="Home" /></a>'
+          ? '<img src="/assets/images/site_logo.png" alt="Home" />'
+          : '<a href="/index.html"><img src="/assets/images/site_logo.png" alt="Home" /></a>'
         }
       </div>
       <button class="nav-toggle">
