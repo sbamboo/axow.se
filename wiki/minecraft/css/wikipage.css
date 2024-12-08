@@ -1,5 +1,6 @@
 .wikipage-container {
-    max-width: 1050px;
+    max-width: 800px;
+    width: 800px;
     margin: 0 auto;
     position: relative;
     background: var(--card-bg);
@@ -12,9 +13,6 @@
 
 /* Media query for mobile */
 @media (max-width: 591px) {
-    .wikipage-container {
-        max-width: 800px;
-    }
     .return-cross {
         position: absolute;
         top: -50px;

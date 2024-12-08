@@ -3,7 +3,7 @@ Directives:
   @<prof>             //ProfileLink
   $<cat>/<art>        //ArticleLink
   $<cat>/<art>/<path> //ArticleAssetFetch
-  $<cat>/<art>:<path> //ArticleFetch
+  $<cat>/<art>:<attribute_id> //ArticleFetch
   !<text>!            //Placeholder (Unparsed)
 
 Constants:
@@ -20,7 +20,7 @@ DataTypes:
   DATETIME  -> Literal
   TIME      -> [period => URL,  date => DATETIME]
   MEDIA     -> [type => <MediaType>,  media => URL,  alt => TEXT,  desc => MARKDOWN]
-  REFERENCE -> [text => TEXT,  href => URL,  time => DATETIME]
+  REFERENCE -> [id => Literal,  text => TEXT,  href => URL,  time => DATETIME]
   COORD     -> List<[Literal/Int],*>
   PROFILES  -> LIST<ProfileLink,ArticleLink>
   DESC_PROFILES -> List< Pair<(ProfileLink,ArticleLink), TEXT> >
@@ -79,10 +79,10 @@ SetTypes:
     content     -> MARKDOWN
   SECTIONS.media_grid
     title       -> TEXT
-    content     -> MEDIA
+    content     -> List<MEDIA>
   SECTIONS.sources
     title       -> TEXT
-    content     -> REFERENCE
+    content     -> List<REFERENCE>
   SECTIONS.timeline
     title       -> TEXT
     content     -> Dictionary<DATETIME, [title => TEXT,  description => MARKDOWN]>
@@ -94,6 +94,7 @@ SetTypes:
                    }
   COMMENT
     by          -> ProfileLink / ArticleLink
-    title       -> TEXT
+    title (opt) -> TEXT
     content     -> MARKDOWN
     posted      -> DATETIME
+    note (opt)  -> TEXT

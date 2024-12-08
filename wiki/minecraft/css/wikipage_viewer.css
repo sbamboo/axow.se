@@ -1,0 +1,13 @@
+.a-reset,.a-reset:hover,.a-reset:active,.a-reset:visited {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.wikipage-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.wikipage-pagesource {
+    width: fit-content;
+}

@@ -154,6 +154,7 @@
             "title": "Sources",
             "content": [
                 {
+                    "id": 1,
                     "text": "!TEXT!",
                     "href": "!URL!",
                     "time": "xx-xx-xxxx"
