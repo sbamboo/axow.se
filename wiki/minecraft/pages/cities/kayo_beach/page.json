@@ -10,7 +10,7 @@
     "infobox": [
         {
             "type": "title",
-            "content": "%META.title%",
+            "content": "%meta.title%",
             "attribute_id": "title"
         },
 
@@ -44,7 +44,7 @@
         {
             "type": "attributed_profile",
             "title": "Owned by",
-            "profiles": ["@TheAxolot77"],
+            "profiles": ["$organizations/kayo_beach_state"],
             "attribute_id": "owners"
         },
         {
@@ -132,13 +132,13 @@
         },
         {
             "type": "text",
-            "name": "Layout",
+            "title": "Layout",
             "content": "!MARKDOWN!",
             "section_id": "layout"
         },
         {
             "type": "media_grid",
-            "name": "Gallery",
+            "title": "Gallery",
             "content": [
                 {
                     "type": "image",
@@ -151,7 +151,7 @@
         },
         {
             "type": "sources",
-            "name": "Sources",
+            "title": "Sources",
             "content": [
                 {
                     "text": "!TEXT!",
@@ -166,8 +166,9 @@
     "comments": [
         {
             "by": "@TheAxolot77",
-            "time": "xx-xx-xxxx",
-            "content": "!MARKDOWN!"
+            "title": "!TEXT!",
+            "content": "!MARKDOWN!",
+            "posted": "xx-xx-xxxx"
         }
     ]
 }

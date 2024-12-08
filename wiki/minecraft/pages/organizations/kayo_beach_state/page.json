@@ -10,7 +10,7 @@
     "infobox": [
         {
             "type": "title",
-            "content": "%META.title%",
+            "content": "%meta.title%",
             "attribute_id": "name"
         },
 
@@ -60,15 +60,15 @@
         },
         {
             "type": "attributed_descripted_profiles",
-            "title": "Players",
+            "title": "Active",
             "value": [],
             "attribute_id": "members_active"
         },
         {
             "type": "attributed_descripted_profiles",
-            "title": "Players",
+            "title": "Previous",
             "value": [
-                ["@TheAxolot77", "Previous Member (Left)"]
+                ["@TheAxolot77", "Member (Left)"]
             ],
             "attribute_id": "members_previous"
         },
@@ -113,12 +113,12 @@
         },
         {
             "type": "text",
-            "name": "Layout",
+            "title": "Layout",
             "content": "!MARKDOWN!"
         },
         {
             "type": "media_grid",
-            "name": "Gallery",
+            "title": "Gallery",
             "content": [
                 {
                     "type": "image",
@@ -130,7 +130,7 @@
         },
         {
             "type": "sources",
-            "name": "Sources",
+            "title": "Sources",
             "content": [
                 {
                     "text": "!TEXT!",
@@ -144,8 +144,9 @@
     "comments": [
         {
             "by": "@TheAxolot77",
-            "time": "xx-xx-xxxx",
-            "content": "!MARKDOWN!"
+            "title": "!TEXT!",
+            "content": "!MARKDOWN!",
+            "posted": "xx-xx-xxxx"
         }
     ]
 }

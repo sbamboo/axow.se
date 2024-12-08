@@ -10,7 +10,7 @@
     "infobox": [
         {
             "type": "title",
-            "content": "%META.title%",
+            "content": "%meta.title%",
             "attribute_id": "name"
         },
 
@@ -77,7 +77,7 @@
         },
         {
             "type": "timeline",
-            "name": "Timeline",
+            "title": "Timeline",
             "content": {
                 "xx-xx-xxxx": {
                     "title": "!TEXT!",
@@ -87,7 +87,7 @@
         },
         {
             "type": "media_grid",
-            "name": "Gallery",
+            "title": "Gallery",
             "content": [
                 {
                     "type": "image",
@@ -99,7 +99,7 @@
         },
         {
             "type": "sources",
-            "name": "Sources",
+            "title": "Sources",
             "content": [
                 {
                     "text": "!TEXT!",
@@ -113,8 +113,9 @@
     "comments": [
         {
             "by": "@TheAxolot77",
-            "time": "xx-xx-xxxx",
-            "content": "!MARKDOWN!"
+            "title": "!TEXT!",
+            "content": "!MARKDOWN!",
+            "posted": "xx-xx-xxxx"
         }
     ]
 }

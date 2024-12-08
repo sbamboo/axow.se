@@ -16,12 +16,12 @@
         },
         {
             "type": "text",
-            "name": "Text",
+            "title": "Text",
             "content": "!MARKDOWN!"
         },
         {
             "type": "media_grid",
-            "name": "Gallery",
+            "title": "Gallery",
             "content": [
                 {
                     "type": "image",
@@ -33,7 +33,7 @@
         },
         {
             "type": "sources",
-            "name": "Sources",
+            "title": "Sources",
             "content": [
                 {
                     "text": "!TEXT!",
@@ -47,8 +47,9 @@
     "comments": [
         {
             "by": "@TheAxolot77",
-            "time": "xx-xx-xxxx",
-            "content": "!MARKDOWN!"
+            "title": "!TEXT!",
+            "content": "!MARKDOWN!",
+            "posted": "xx-xx-xxxx"
         }
     ]
 }

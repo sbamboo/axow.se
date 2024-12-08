@@ -10,7 +10,7 @@
     "infobox": [
         {
             "type": "title",
-            "content": "%META.title%",
+            "content": "%meta.title%",
             "attribute_id": "name"
         },
 
@@ -88,47 +88,45 @@
         },
         {
             "type": "img-table",
-            "name": "Cities",
+            "title": "Cities",
             "content": {
                 "columns": ["Image", "City", "Coordinates", "Short Description"],
                 "entries": [
-                    [
-                        {
-                            "type": "image",
-                            "media": "!URL!",
-                            "alt": "",
-                            "desc": "!MARKDOWN!"
-                        },
-                        "$cities/athia",
-                        ["276","-4511"],
-                        "$cities/athia:short_description"
-                    ]
+                    ["media", {
+                        "type": "image",
+                        "media": "!URL!",
+                        "alt": "",
+                        "desc": "!MARKDOWN!"
+                    }],
+                    ["url", "$cities/athia"],
+                    ["coord", ["276","-4511"]],
+                    ["url", "$cities/athia:short_description"]
                 ]
             }
         },
         {
             "type": "img-table",
-            "name": "Points of interest",
+            "title": "Points of interest",
             "content": {
                 "columns": ["Image", "POI", "Coordinates", "Short Description"],
                 "entries": [
                     [
-                        {
+                        ["media", {
                             "type": "image",
                             "media": "!URL!",
                             "alt": "",
                             "desc": "!MARKDOWN!"
-                        },
-                        "$pois/easter_island_2024",
-                        ["202","-4740"],
-                        "$pois/easter_island_2024:short_description"
+                        }],
+                        ["url", "$pois/easter_island_2024"],
+                        ["coord", ["202","-4740"]],
+                        ["url", "$pois/easter_island_2024:short_description"]
                     ]
                 ]
             }
         },
         {
             "type": "media_grid",
-            "name": "Gallery",
+            "title": "Gallery",
             "content": [
                 {
                     "type": "image",
@@ -140,7 +138,7 @@
         },
         {
             "type": "sources",
-            "name": "Sources",
+            "title": "Sources",
             "content": [
                 {
                     "text": "!TEXT!",
@@ -154,8 +152,9 @@
     "comments": [
         {
             "by": "@TheAxolot77",
-            "time": "xx-xx-xxxx",
-            "content": "!MARKDOWN!"
+            "title": "!TEXT!",
+            "content": "!MARKDOWN!",
+            "posted": "xx-xx-xxxx"
         }
     ]
 }
