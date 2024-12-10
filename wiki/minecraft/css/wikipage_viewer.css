@@ -1,6 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
 .a-reset,.a-reset:hover,.a-reset:active,.a-reset:visited {
     text-decoration: none;
     color: var(--text-color);
+}
+
+.wikipage-container {
+    margin-bottom: 30px;
 }
 
 .wikipage-header {
@@ -10,4 +20,464 @@
 
 .wikipage-pagesource {
     width: fit-content;
+}
+
+.wikipage-comment-profileimg {
+    width: 25px;
+}
+
+.wikipage-mediagrid-block {
+    display: flex;
+    align-items: center;
+}
+
+/* Timeline section */
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: var(--link-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    border-radius: 2px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: -8px;
+    top: 15px;
+    background: var(--link-color);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -8px;
+}
+
+.timeline-content {
+    padding: 20px;
+    background: var(--card-bg2);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    min-width: 101px;
+}
+
+.timeline-date {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--link-color);
+}
+
+.timeline-title {
+    margin: 0 0 10px 0;
+    color: var(--text-color);
+}
+
+.timeline-description {
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+
+
+
+
+
+/* Style */
+.wikipage-introduction-section {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.wikipage-left {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.wikipage-right {
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+}
+
+.wikipage-infobox {
+    width: 270px;
+    border: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.wikipage-infobox a,
+.wikipage-infobox a:active,
+.wikipage-infobox a:visited {
+    color: var(--link-color);
+}
+.wikipage-infobox a:hover {
+    color: var(--link-color-hover);
+}
+
+.wikipage-infobox .profile-link,
+.wikipage-infobox .profile-link:hover,
+
+.wikipage-comment-profile .profile-link,
+.wikipage-comment-profile .profile-link:hover
+{
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    transform: none;
+    background-color: rgba(0,0,0,0);
+}
+
+.wikipage-infobox > div {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.wikipage-infobox > .wikipage-infobox-title {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    width: 100%;
+    background-color: green;
+}
+.wikipage-infobox > .wikipage-infobox-header {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(0, 128, 0, 0.551);
+}
+.wikipage-infobox-title-content {
+    font-size: 18px;
+    line-height: 1.25;
+}
+
+.wikipage-infobox .wikipage-infobox-header-content {
+    font-size: 14px;
+    line-height: 1.25;
+}
+.wikipage-infobox .wikipage-infobox-banner-figcaption {
+    font-size: 14px;
+    line-height: 1;
+}
+
+.wikipage-infobox > .wikipage-infobox-banner {
+    padding: 0;
+}
+
+.wikipage-infobox-banner {
+    min-width: 100%;
+    max-width: 100%;
+
+    border-bottom: 1px solid var(--border-color);
+}
+
+.wikipage-infobox-banner > figure, .wikipage-infobox-banner img {
+    width: 100%;
+}
+
+.wikipage-infobox-banner-figcaption {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 3px;
+}
+
+.wikipage-infobox-attribute {
+    display: flex;
+    flex-direction: row;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.wikipage-infobox-attribute > *:first-child {
+    margin-right: auto;
+}
+
+.wikipage-infobox-attribute > *:last-child {
+    border-bottom: none;
+}
+
+.wikipage-infobox > *:last-child {
+    border-bottom: none;
+}
+
+.wikipage-infobox-attribute-named-multivalue {
+    display: flex;
+    flex-direction: column;
+}
+
+.wikipage-infobox-attribute-named-multivalue > * {
+    margin-left: 10px;
+}
+
+.wikipage-infobox-attribute-named-multivalue > *:first-child {
+    margin-left: 0px;
+}
+
+.multivalue-block {
+    display: flex;
+    flex-direction: row;
+}
+
+.multivalue-block > *:first-child {
+    margin-right: auto;
+}
+
+.wikipage-infobox-attribute-content > :not(div) {
+    width: min-content;
+}
+.wikipage-infobox-attribute-content > :is(p):not(:has(a)) {
+    width: fit-content;
+}
+
+.wikipage-content-block > h2:first-child {
+    font-size: 21px;
+    margin-top: 40px;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.wikipage-content-section > .wikipage-content-block:first-child > h2 {
+    margin-top: 20px;
+}
+
+.wikipage-sources-section > h2,
+.wikipage-comment-section > h2  {
+    font-size: 21px;
+    margin-top: 40px;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.wikipage-reference-note {
+    display: flex;
+    flex-direction: row;
+}
+.wikipage-reference-note > * {
+    margin-right: 10px;
+}
+.wikipage-reference-note > i {
+    color: var(--text-secondary);
+}
+
+.wikipage-comment-block {
+    margin: 10px;
+    background-color: var(--code-bg);
+    padding: 5px;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.wikipage-comment-block > *:first-child {
+    display: flex;
+    flex-direction: row;
+}
+
+.wikipage-comment-block > *:first-child > *:not(:first-child) {
+    margin-right: 10px;
+}
+
+.wikipage-comment-block > *:not(:first-child) {
+    display: inline;
+}
+
+.wikipage-footer {
+    margin-top: 60px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+}
+
+.wikipage-mediagrid {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.wikipage-mediagrid-block,
+.wikipage-mediagrid-block > figure,
+.wikipage-mediagrid-block > figure > *{
+    width: 200px;
+}
+
+.wikipage-mediagrid-block > figure {
+    background-color: var(--dropdown-bg);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.wikipage-imgtable td > .multivalue-block,
+.wikipage-imgtable td > .multivalue-block > .multivalue-block-value
+{
+    width: fit-content;
+}
+.wikipage-imgtable td > .multivalue-block > .multivalue-block-value > figure > *
+{
+    width: 200px;
+}
+
+.wikipage-imgtable {
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+.wikipage-imgtable tr > * {
+    border-left: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+}
+.wikipage-imgtable tr > *:last-child {
+    border-right: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+}
+.wikipage-imgtable tr:last-child > td {
+    border-bottom: 1px solid var(--border-color);
+}
+.wikipage-imgtable th {
+    padding: 2px 5px 2px 5px;
+}
+.wikipage-imgtable td {
+    padding: 5px;
+    font-size: 12.5px;
+}
+.wikipage-imgtable a,
+.wikipage-imgtable a:active,
+.wikipage-imgtable a:visited {
+    color: var(--link-color);
+}
+.wikipage-imgtable a:hover {
+    color: var(--link-color-hover);
+}
+
+.wikipage-infobox-attribute-descripted-profiles {
+    display: flex;
+    flex-direction: column;
+}
+.wikipage-infobox-attribute-descripted-profiles > *:not(:first-child) {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+}
+.wikipage-infobox-attribute-descripted-profiles > *:not(:first-child) > *:first-child {
+    margin-right: auto;
+}
+
+.wikipage-infobox-attribute-content > .multivalue-block >.time-block-value:not(:first-child) {
+    width: min-content;
+}
+
+
+.desc_profiles-block {
+    display: flex;
+    flex-direction: column;
+}
+.desc_profiles-block > *:not(:first-child) {
+    margin-left: 10px;
+}
+.desc_profiles-block .multivalue_attributed_descripted_profiles {
+    display: flex;
+    flex-direction: row;
+}
+.desc_profiles-block .multivalue_attributed_descripted_profiles > *:first-child {
+    margin-right: auto;
+}
+
+.profiles-block > *:not(:first-child) {
+    width: min-content;
+}
+
+
+.wikipage-infobox-attribute-named-multivalue {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wikipage-infobox-attribute-named-multivalue > .attributed_named_multivalue {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wikipage-infobox-attribute-named-multivalue > .attributed_named_multivalue {
+    border-bottom: 1px solid var(--border-color);
+    padding: 2px 3px 2px 3px;
+}
+
+.wikipage-infobox-attribute-named-multivalue .contains-rendered-media-display-image,
+.wikipage-infobox-attribute-named-multivalue .contains-rendered-media-display-video,
+.wikipage-infobox-attribute-named-multivalue .contains-rendered-media-display-embed,
+.wikipage-infobox-attribute-named-multivalue .contains-rendered-media-display-audio {
+    display: flex;
+    flex-direction: column;
+}
+
+.wikipage-infobox-attribute-named-multivalue .contains-rendered-media-display-image .rendered-media-display,
+.wikipage-infobox-attribute-named-multivalue .contains-rendered-media-display-video .rendered-media-display,
+.wikipage-infobox-attribute-named-multivalue .contains-rendered-media-display-embed .rendered-media-display,
+.wikipage-infobox-attribute-named-multivalue .contains-rendered-media-display-audio .rendered-media-display,
+.wikipage-infobox-attribute-named-multivalue .contains-rendered-media-display-image .rendered-media-display > *,
+.wikipage-infobox-attribute-named-multivalue .contains-rendered-media-display-video .rendered-media-display > *,
+.wikipage-infobox-attribute-named-multivalue .contains-rendered-media-display-embed .rendered-media-display > *,
+.wikipage-infobox-attribute-named-multivalue .contains-rendered-media-display-audio .rendered-media-display > * {
+    width: 100%;
+}
+
+/*TopLeft Corner*/
+.wikipage-imgtable tbody > tr:first-child > th:first-child {
+    border-top-left-radius: 10px;
+}
+/*TopRight Corner*/
+.wikipage-imgtable tbody > tr:first-child > th:last-child {
+    border-top-right-radius: 10px;
+}
+/*BottomLeft Corner*/
+.wikipage-imgtable tbody > tr:last-child > td:first-child {
+    border-bottom-left-radius: 10px;
+}
+/*BottomRight Corner*/
+.wikipage-imgtable tbody > tr:last-child > td:last-child {
+    border-bottom-right-radius: 10px;
 }

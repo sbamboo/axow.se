@@ -92,15 +92,17 @@
             "content": {
                 "columns": ["Image", "City", "Coordinates", "Short Description"],
                 "entries": [
-                    ["media", {
-                        "type": "image",
-                        "media": "!URL!",
-                        "alt": "",
-                        "desc": "!MARKDOWN!"
-                    }],
-                    ["url", "$cities/athia"],
-                    ["coord", ["276","-4511"]],
-                    ["url", "$cities/athia:short_description"]
+                    [
+                        ["media", {
+                            "type": "image",
+                            "media": "!URL!",
+                            "alt": "",
+                            "desc": "!MARKDOWN!"
+                        }],
+                        ["url", "$cities/athia"],
+                        ["coord", ["276","-4511"]],
+                        ["url", "$cities/kayo_beach:meta.short_description"]
+                    ]
                 ]
             }
         },
@@ -119,7 +121,7 @@
                         }],
                         ["url", "$pois/easter_island_2024"],
                         ["coord", ["202","-4740"]],
-                        ["url", "$pois/easter_island_2024:short_description"]
+                        ["url", "$pois/easter_island_2024:meta.short_description"]
                     ]
                 ]
             }

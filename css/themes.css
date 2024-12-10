@@ -6,6 +6,7 @@
     --text-color: #242424;
     --text-secondary: #666666;
     --link-color: #007bff;
+    --link-color-hover: #0056b3;
     --border-color: #eeeeee;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --tag-bg: rgba(0, 0, 0, 0.1);
@@ -32,6 +33,7 @@
     --text-color: #e0e0e0;
     --text-secondary: #a0a0a0;
     --link-color: #5ca9ff;
+    --link-color-hover: #3a7ff7;
     --border-color: #404040;
     --shadow-color: rgba(0, 0, 0, 0.3);
     --tag-bg: rgba(255, 255, 255, 0.1);

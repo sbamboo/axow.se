@@ -82,7 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-            mediaItem.src = mediaItem.src.replace("[AUTO_RETURN]",encodeURIComponent(window.location.href));
+            //mediaItem.src = mediaItem.src.replace("[AUTO_RETURN]",encodeURIComponent(window.location.href));
+            mediaItem.src = mediaItem.src.replace( /\[AUTO_RETURN\]/g, encodeURIComponent(window.location.href) )
 
             link.href = mediaItem.src;
             mediaDisplay.appendChild(link);

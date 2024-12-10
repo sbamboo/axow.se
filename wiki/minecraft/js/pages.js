@@ -77,13 +77,15 @@ window.onload = async () => {
                             }
                         } else if (categoryPage.href.startsWith("@")) {
                             const profileHtmlMap = await getProfileReplacementHTML(new Set([categoryPage.href]),"wiki_minecraft","wiki_minecraft");
-                            const replacementHTML = profileHtmlMap[categoryPage.href];
+                            const result = profileHtmlMap[categoryPage.href];
+                            const replacementHTML = result[0];
                             if (replacementHTML.includes('"')) {
                                 categoryPage.href = replacementHTML.split('"')[1];
                             }
                         }
 
-                        categoryPageLink.href = categoryPage.href.replace("[AUTO_RETURN]",encodeURIComponent(window.location.href));
+                        //categoryPageLink.href = categoryPage.href.replace("[AUTO_RETURN]",encodeURIComponent(window.location.href));
+                        categoryPageLink.href = categoryPage.href.replace( /\[AUTO_RETURN\]/g, encodeURIComponent(window.location.href) )
                     }
                   
                     categoryPageLink.alt = `WikiPage.${categoryPage.name}`;

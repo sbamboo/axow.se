@@ -152,6 +152,10 @@ WIKI_MINECRAFT = {
             "category": "examples",
             "name": "2"
         },
+        {
+            "category": "examples",
+            "name": "full_v1"
+        },
         
         {
             "category": "servers",

@@ -41,11 +41,10 @@ window.onload = () => {
             .then(pageData => {
                 if (valid === true) {
 
-                    const wikipageWrapper = document.createElement("div");
-                    wikipageWrapper.classList.add("wikipage-wrapper");
+                    const wikipageWrapper = document.getElementsByClassName("wikipage-wrapper")[0];
                     
                     const wikipageCloser = document.createElement("a");
-                    wikipageCloser.href = "/wiki/minecraft";
+                    wikipageCloser.href = "/wiki/minecraft/";
                     if (ret == "_pages_") {
                         wikipageCloser.href = "/wiki/minecraft/pages.html";
                     }
@@ -64,9 +63,11 @@ window.onload = () => {
             })
             .catch(error => {
                 valid = false;
-                alert(`${error.message}`);
-                wikipageContainer.style.display = "none";
-                wikiContainer.style.display = "block";
+                if (valid == true) {
+                    alert(`${error.message}`);
+                    wikipageContainer.style.display = "none";
+                    wikiContainer.style.display = "block";
+                }
             });
 
     }
@@ -105,7 +106,8 @@ window.onload = () => {
                             }
                         }
 
-                        categoryHightlight.href = categoryHightlight.href.replace("[AUTO_RETURN]",encodeURIComponent(window.location.href));
+                        //categoryHightlight.href = categoryHightlight.href.replace("[AUTO_RETURN]",encodeURIComponent(window.location.href));
+                        categoryHightlight.href = categoryHightlight.href.replace( /\[AUTO_RETURN\]/g, encodeURIComponent(window.location.href) )
 
                         categoryHightlightContainer.href = categoryHightlight.href;
                     }

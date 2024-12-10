@@ -1,31 +1,25 @@
-import { renderMarkdown } from '/js/utils/markdownRenderer.js';
-
-import { resolveContent, renderCoords, renderDatetime, renderTimestamp } from '/wiki/minecraft/js/wikipage_parsers.js';
-
-/*
-TODO:
-  - Render Markdown
-  - Render ProfileLinks
-  - Render ArticleLink
-  - Render Coords
-  - Render DATETIME
-  - Render <TIME> ( [period => URL,  date => DATETIME] )
-  - Render <INFOBOX.named_multivalue_attribute>
-  - Render <SECTIONS.mediagrid>
-  - Render <SECTIONS.timeline>
-  - Render <SECTIONS.imgtable>
-  - Resolve SameArticleRetrive (%<path>%)
-  - Resolve ArticleAssetFetch  ($<cat>/<art>/<path>)
-  - Resolve ArticleFetch       ($<cat>/<art>:<attribute_id>)
-*/
+import {
+    resolveContent,
+    renderResolvedMarkdown,
+    renderResolvedText,
+    renderCoords,
+    renderDatetime,
+    renderTimestamp,
+    renderResolvedMultivalueBlock,
+    renderResolvedMedia,
+    renderResolvedTimeline,
+    renderResolvedImgTable,
+    renderResolvedDatetime
+} from '/wiki/minecraft/js/wikipage_parsers.js';
 
 const Constants = {
     "markdown": {
-        "__axo77_bluemap__": "test.bluemap.axow.se"
+        "__axo77_bluemap__": "http://test.bluemap.axow.se/"
     }
 };
 
 export async function renderWikiPage(pagedata,container) {
+    container.innerHTML = "";
     // Create elements
     const header = document.createElement("header");
     header.classList.add("wikipage-header");
@@ -47,21 +41,29 @@ export async function renderWikiPage(pagedata,container) {
         introduction_section.classList.add("wikipage-introduction-section");
         main.appendChild(introduction_section);
 
-            const infobox           = document.createElement("aside");
-            infobox.classList.add("wikipage-infobox");
-            introduction_section.appendChild(infobox);
+            const left             = document.createElement("div");
+            left.classList.add("wikipage-left");
+            introduction_section.appendChild(left);
 
-            const mediainfobox      = document.createElement("aside");
-            mediainfobox.classList.add("wikipage-mediainfobox");
-            introduction_section.appendChild(mediainfobox);
+                const introduction_text = document.createElement("div");
+                introduction_text.classList.add("wikipage-introduction-text");
+                left.appendChild(introduction_text);
+                
+                const totitle           = document.createElement("div");
+                totitle.classList.add("wikipage-totitle");
+                left.appendChild(totitle);
 
-            const introduction_text = document.createElement("div");
-            introduction_text.classList.add("wikipage-introduction-text");
-            introduction_section.appendChild(introduction_text);
-            
-            const totitle           = document.createElement("div");
-            totitle.classList.add("wikipage-totitle");
-            introduction_section.appendChild(totitle);
+            const right              = document.createElement("aside");
+            right.classList.add("wikipage-right");
+            introduction_section.appendChild(right);
+
+                const infobox       = document.createElement("div");
+                infobox.classList.add("wikipage-infobox");
+                right.appendChild(infobox);
+
+                const mediainfobox  = document.createElement("div");
+                mediainfobox.classList.add("wikipage-mediainfobox");
+                right.appendChild(mediainfobox);
 
         const content_section = document.createElement("section");
         content_section.classList.add("wikipage-content-section");
@@ -78,6 +80,11 @@ export async function renderWikiPage(pagedata,container) {
         const comment_section = document.createElement("section");
         comment_section.classList.add("wikipage-comment-section");
         main.appendChild(comment_section);
+
+            const comment_header = document.createElement("h2");
+            comment_header.classList.add("wikipage-comment-header");
+            comment_header.innerText = "Comments";
+            comment_section.appendChild(comment_header);
 
     const footer = document.createElement("footer");
     footer.classList.add("wikipage-footer");
@@ -98,19 +105,21 @@ export async function renderWikiPage(pagedata,container) {
         for (const infobox_entry of pagedata.infobox) {
 
             if (infobox_entry.type == "title") {
-                title.innerText = infobox_entry.content;
+                const prepped = await renderResolvedText(infobox_entry.content,pagedata);
+                title.innerText = prepped;
                 infobox.innerHTML += `
                 <div class="wikipage-infobox-title">
-                    <h3 class="wikipage-infobox-title-content">${infobox_entry.content}</h3>
+                    <h1 class="wikipage-infobox-title-content">${prepped}</h1>
                 </div>
                 `;
             }
 
             else if (infobox_entry.type == "banner") {
+                const prepped = await resolveContent(infobox_entry.content,pagedata);
                 infobox.innerHTML += `
                 <div class="wikipage-infobox-banner wikipage-media wikipage-media-image">
                     <figure>
-                        <img src="${infobox_entry.content}" alt="banner image"/>
+                        <img src="${prepped}" alt="banner image"/>
                         <figcaption class="wikipage-infobox-banner-figcaption"></figcaption>
                     </figure> 
                 </div>
@@ -118,43 +127,51 @@ export async function renderWikiPage(pagedata,container) {
             }
 
             else if (infobox_entry.type == "banner_source") {
+                const prepped = await renderResolvedMarkdown(
+                    infobox_entry.content.replace(/__axo77_bluemap__/g,Constants.markdown.__axo77_bluemap__),
+                    pagedata
+                );
                 const figcaptions = infobox.querySelectorAll(".wikipage-infobox-banner-figcaption")
                 if (figcaptions && figcaptions.length > 0) {
-                    figcaptions[figcaptions.length-1].innerText = infobox_entry.content.replace("__axo77_bluemap__",Constants.markdown.__axo77_bluemap__);
+                    figcaptions[figcaptions.length-1].innerHTML = prepped;
                 }
             }
 
             else if (infobox_entry.type == "attribute") {
+                const prepped = await renderResolvedMarkdown(infobox_entry.content,pagedata);
                 infobox.innerHTML += `
                 <div class="wikipage-infobox-attribute">
                     <b class="wikipage-infobox-attribute-title">${infobox_entry.title}</b>
-                    <p class="wikipage-infobox-attribute-content">${infobox_entry.content}</p>
+                    <div class="wikipage-infobox-attribute-content">${prepped}</div>
                 </div>
                 `;
             }
 
             else if (infobox_entry.type == "attributed_profile") {
+                const prepped = await renderResolvedText(infobox_entry.profiles.join(", "),pagedata);
                 infobox.innerHTML += `
                 <div class="wikipage-infobox-attribute wikipage-infobox-attribute-profile">
                     <b class="wikipage-infobox-attribute-title">${infobox_entry.title}</b>
-                    <p class="wikipage-infobox-attribute-content attributed_profile has_profile_links has_article_links">${infobox_entry.profiles}</p>
+                    <p class="wikipage-infobox-attribute-content attributed_profile has_profile_links has_article_links">${prepped}</p>
                 </div>
                 `;
             }
 
             else if (infobox_entry.type == "header") {
+                const prepped = await renderResolvedText(infobox_entry.content,pagedata);
                 infobox.innerHTML += `
                 <div class="wikipage-infobox-header">
-                    <h2 class="wikipage-infobox-header-content">${infobox_entry.content}</h2>
+                    <h2 class="wikipage-infobox-header-content">${prepped}</h2>
                 </div>
                 `;
             }
 
             else if (infobox_entry.type == "attributed_location") {
+                const prepped = await renderCoords(infobox_entry.content);
                 infobox.innerHTML += `
                 <div class="wikipage-infobox-attribute wikipage-infobox-attribute-location">
                     <b class="wikipage-infobox-attribute-title">${infobox_entry.title}</b>
-                    <p class="wikipage-infobox-attribute-content attributed_location">${infobox_entry.content}</p>
+                    <p class="wikipage-infobox-attribute-content attributed_location">${prepped}</p>
                 </div>
                 `;
             }
@@ -166,7 +183,9 @@ export async function renderWikiPage(pagedata,container) {
                 `;
                 for (const entry of infobox_entry.content) {
                     content += `
-                        <p class="wikipage-infobox-attribute-content attributed_named_multivalue">${JSON.stringify(entry)}</p>
+                        <div class="wikipage-infobox-attribute-content attributed_named_multivalue">
+                            ${await renderResolvedMultivalueBlock(entry,pagedata)}
+                        </div>
                     `;
                 }
                 content += `
@@ -183,8 +202,8 @@ export async function renderWikiPage(pagedata,container) {
                 for (const entry of infobox_entry.value) {
                     content += `
                         <div class="wikipage-infobox-attribute-content attributed_descripted_profiles">
-                            <p class="attributed_descripted_profiles_profile">${entry[0]}</p>
-                            <p class="attributed_descripted_profiles_description">${entry[1]}</p>
+                            <p class="attributed_descripted_profiles_profile">${await resolveContent(entry[0],pagedata)}</p>
+                            <p class="attributed_descripted_profiles_description">${await renderResolvedText(entry[1],pagedata)}</p>
                         </div>
                     `;
                 }
@@ -199,8 +218,8 @@ export async function renderWikiPage(pagedata,container) {
                 <div class="wikipage-infobox-attribute wikipage-infobox-attribute-time">
                     <b class="wikipage-infobox-attribute-title">${infobox_entry.title}</b>
                     <div class="wikipage-infobox-attribute-content attributed_time">
-                        <p class="attributed_time_time wikipage-timestamp">${infobox_entry.time}</p>
-                        <p class="attributed_time_desc">${infobox_entry.description}</p>
+                        <p class="attributed_time_time wikipage-timestamp">${await renderTimestamp(infobox_entry.time,pagedata)}</p>
+                        <div class="attributed_time_desc">${await renderResolvedMarkdown(infobox_entry.description,pagedata)}</div>
                     </div>
                 </div>
                 `;
@@ -217,15 +236,15 @@ export async function renderWikiPage(pagedata,container) {
 
             if (section_entry.type == "introduction") {
                 introduction_text.innerHTML += `
-                <pre class="wikipage-introduction-text-content">${section_entry.content}</pre>
+                <div class="wikipage-introduction-text-content">${await renderResolvedMarkdown(section_entry.content,pagedata)}</div>
                 `;
             }
 
             else if (section_entry.type == "text") {
                 content_section.innerHTML += `
                 <div class="wikipage-content-block wikipage-content-text">
-                    <h3>${section_entry.title}</h3>
-                    <pre>${section_entry.content}</pre>
+                    <h2>${section_entry.title}</h2>
+                    <div>${await renderResolvedMarkdown(section_entry.content,pagedata)}</div>
                 </div>
                 `;
             }
@@ -233,14 +252,14 @@ export async function renderWikiPage(pagedata,container) {
             else if (section_entry.type == "media_grid") {
                 let content = `
                 <div class="wikipage-content-block wikipage-content-mediagrid">
-                    <h3>${section_entry.title}</h3>
+                    <h2>${section_entry.title}</h2>
                     <div class="wikipage-mediagrid">
                 `;
                 for (const entry of section_entry.content) {
                     content += `
-                    <a class="a-reset wikipage-mediagrid-block">
-                        <pre>${JSON.stringify(entry)}</pre>
-                    </a>
+                    <div class="wikipage-mediagrid-block">
+                        ${await renderResolvedMedia(entry,pagedata)}
+                    </div>
                     `;
                 }
                 content += `
@@ -255,10 +274,10 @@ export async function renderWikiPage(pagedata,container) {
                 let content = ``;
                 for (const entry of section_entry.content) {
                     content += `
-                    <a ${entry.href ? 'href="'+entry.href+'"' : ''} class="a-reset wikipage-source-row wikipage-source-row-href">
-                        <p class="wikipage-source-row-id">${entry.id ? entry.id : ''}</p>
-                        <p class="wikipage-source-row-text">${entry.text}</p>
-                        <p class="wikipage-source-row-time wikipage-timestamp">${entry.time}</p>
+                    <a ${entry.href ? 'href="'+(await resolveContent(entry.href,pagedata))+'"' : ''} class="a-reset wikipage-source-row wikipage-source-row-href wikipage-reference-note">
+                        <i class="wikipage-source-row-id wikipage-reference-note-id">${entry.id ? entry.id : ''}.</i>
+                        <span class="wikipage-source-row-text wikipage-reference-note-text">${await renderResolvedText(entry.text,pagedata)}</span>
+                        <p class="wikipage-source-row-time wikipage-timestamp wikipage-reference-note-time">(${await renderResolvedDatetime(entry.time,pagedata)})</p>
                     </b>
                     `;
                 }
@@ -268,9 +287,9 @@ export async function renderWikiPage(pagedata,container) {
             else if (section_entry.type == "timeline") {
                 content_section.innerHTML += `
                 <div class="wikipage-content-block wikipage-content-timeline">
-                    <h3>${section_entry.title}</h3>
+                    <h2>${section_entry.title}</h2>
                     <div class="wikipage-timeline">
-                        <pre>${JSON.stringify(section_entry.content)}</pre>
+                        ${await renderResolvedTimeline(section_entry.content,pagedata)}
                     </div>
                 </div>
                 `;
@@ -279,9 +298,9 @@ export async function renderWikiPage(pagedata,container) {
             else if (section_entry.type == "img-table") {
                 content_section.innerHTML += `
                 <div class="wikipage-content-block wikipage-content-imgtable">
-                    <h3>${section_entry.title}</h3>
+                    <h2>${section_entry.title}</h2>
                     <div class="wikipage-imgtable">
-                        <pre>${JSON.stringify(section_entry.content)}</pre>
+                        ${await renderResolvedImgTable(section_entry.content,pagedata)}
                     </div>
                 </div>
                 `;
@@ -294,17 +313,34 @@ export async function renderWikiPage(pagedata,container) {
     //// Fill comments
     if (pagedata.comments) {
         for (const comment_entry of pagedata.comments) {
+            const result = await resolveContent(comment_entry.by,pagedata,"",true);
+            let prepped_profile = null;
+            let prepped_profileimg = "/assets/images/default_author.svg";
+            if (Array.isArray(result)) {
+                const [result_profile,result_profileMap] = result;
+                prepped_profile = result_profile;
+                const prepped_profiledata = await result_profileMap[Object.keys(result_profileMap)[0]][1].json();
+                if (prepped_profiledata.image) {
+                    if (!prepped_profiledata.image.includes("/")) {
+                        prepped_profileimg = `/profiles/${prepped_profiledata.name.startsWith("@") ? prepped_profiledata.name : "@"+prepped_profiledata.name}/${prepped_profiledata.image}`;
+                    } else {
+                        prepped_profileimg = prepped_profiledata.image;
+                    }
+                }
+            } else {
+                prepped_profile = result;
+            }
             comment_section.innerHTML += `
             <div class="wikipage-comment-block">
                 <div class="wikipage-comment-heading">
-                    <img src="/assets/images/default_author.svg" alt="${comment_entry.by.startsWith("@") ? comment_entry.by.slice(1) : comment_entry.by}" class="wikipage-comment-profileimg"/>
-                    <b class="wikipage-comment-profile">${comment_entry.by}</b>
-                    <i class="wikipage-comment-posted wikipage-timestamp">${comment_entry.posted}</i>
+                    <img src="${prepped_profileimg}" alt="${comment_entry.by.startsWith("@") ? comment_entry.by.slice(1) : comment_entry.by}" class="wikipage-comment-profileimg"/>
+                    <div class="wikipage-comment-profile">${prepped_profile}</div>
+                    <i class="wikipage-comment-posted wikipage-timestamp">${await renderResolvedDatetime(comment_entry.posted,pagedata)}</i>
                 </div
                 <div class="wikipage-comment-content">
-                    ${comment_entry.title ? '<b class="wikipage-comment-title">'+comment_entry.title+'</b>' : ''}
-                    <pre class="wikipage-comment-main">${comment_entry.content}</pre>
-                    ${comment_entry.note ? '<i class="wikipage-comment-note">'+comment_entry.note+'</i>' : ''}
+                    ${comment_entry.title ? '<b class="wikipage-comment-title">'+(await renderResolvedText(comment_entry.title,pagedata))+'</b><br>' : ''}
+                    <span class="wikipage-comment-main">${await renderResolvedMarkdown(comment_entry.content,pagedata)}</span>
+                    ${comment_entry.note ? '<i class="wikipage-comment-note">'+(await renderResolvedText(comment_entry.note,pagedata))+'</i>' : ''}
                 </div>
             </div>
             `;

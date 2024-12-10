@@ -12,7 +12,7 @@ async function getProfileReplacementHTML(profiles,section,namespace) {
       try {
         const response = await fetch(profileUrl2);
         if (response.ok) {
-          return { profile, valid: true, url:2 };
+          return { profile, valid: true, url:2, response:response };
         }
       } catch (error) {
         // Profile not found or fetch error
@@ -21,12 +21,12 @@ async function getProfileReplacementHTML(profiles,section,namespace) {
       try {
         const response = await fetch(profileUrl1);
         if (response.ok) {
-          return { profile, valid: true, url:1 };
+          return { profile, valid: true, url:1, response:response };
         }
       } catch (error) {
         // Profile not found or fetch error
       }
-      return { profile, valid: false, url:0 };
+      return { profile, valid: false, url:0, response:null };
 
     })
   );
@@ -35,7 +35,7 @@ async function getProfileReplacementHTML(profiles,section,namespace) {
   const profileHtmlMap = Object.fromEntries(
     profileMap
       .filter(({ valid }) => valid)
-      .map(({ profile, url }) => {
+      .map(({ profile, url, response }) => {
         const returnUrl = encodeURIComponent(window.location.href);
         let sectionText = "";
         if (section) {
@@ -44,12 +44,12 @@ async function getProfileReplacementHTML(profiles,section,namespace) {
         if (namespace && namespace != null && url == 2) {
           return [
             profile,
-            `<a href="/profiles/${namespace}/${profile}/index.html?ret=${returnUrl}${sectionText}" class="profile-link">${profile}</a>`,
+            [`<a href="/profiles/${namespace}/${profile}/index.html?ret=${returnUrl}${sectionText}" class="profile-link">${profile}</a>`, response]
           ];
         } else {
           return [
             profile,
-            `<a href="/profiles/${profile}/index.html?ret=${returnUrl}${sectionText}" class="profile-link">${profile}</a>`,
+            [`<a href="/profiles/${profile}/index.html?ret=${returnUrl}${sectionText}" class="profile-link">${profile}</a>`,response]
           ];
         }
       })
@@ -62,7 +62,8 @@ async function processProfileLinks(element,section,namespace=null) {
   // Helper function to process and replace text
   const processText = (text) => {
     let updatedText = text;
-    for (const [profile, replacementHtml] of Object.entries(profileHtmlMap)) {
+    for (const [profile, result] of Object.entries(profileHtmlMap)) {
+      const replacementHtml = result[0];
       const profileRegex = new RegExp(`${profile}`, "g");
       updatedText = updatedText.replace(profileRegex, replacementHtml);
     }
@@ -71,7 +72,7 @@ async function processProfileLinks(element,section,namespace=null) {
 
   // Get all <p> elements and <div> elements
   const paragraphs = element.querySelectorAll("p");
-  const divs = element.querySelectorAll("div");
+  const divs = element.querySelectorAll("div, main");
 
   // Regex to match profiles
   const regex = /(@\w+)(?![^<]*>)/g;
@@ -130,7 +131,8 @@ async function updateProcessedProfileLinks(section,namespace=null) {
   // Helper function to process and replace text
   const processText = (text, profileHtmlMap) => {
     let updatedText = text;
-    for (const [profile, replacementHtml] of Object.entries(profileHtmlMap)) {
+    for (const [profile, result] of Object.entries(profileHtmlMap)) {
+      const replacementHtml = result[0];
       const profileRegex = new RegExp(`${profile}`, "g");
       updatedText = updatedText.replace(profileRegex, replacementHtml);
     }
