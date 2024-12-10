@@ -4,6 +4,7 @@ window.onload = () => {
 
     const params = new URLSearchParams(window.location.search);
     const ret = params.get("ret");
+    const back = params.get("back");
 
     // Check if we have hashing
     const wikiContainer = document.getElementsByClassName("wiki-container")[0];
@@ -45,14 +46,39 @@ window.onload = () => {
                     
                     const wikipageCloser = document.createElement("a");
                     wikipageCloser.href = "/wiki/minecraft/";
-                    if (ret == "_pages_") {
-                        wikipageCloser.href = "/wiki/minecraft/pages.html";
+                    if (ret) {
+                        if (ret == "_pages_" || ret == "_wiki_minecraft_pages_") {
+                            wikipageCloser.href = "/wiki/minecraft/pages.html";
+                        } else if (ret == "_wiki_minecraft_") {
+                            wikipageCloser.href = "/wiki/minecraft/";
+                        } else if (ret == "_articles_") {
+                            wikipageCloser.href = "/articles/index.html";
+                        } else {
+                            wikipageCloser.href = decodeURIComponent(ret);
+                        }
                     }
                     wikipageCloser.classList.add("return-cross");
                     wikipageCloser.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>`;
 
+                    const wikipageBack = document.createElement("a");
+                    if (back) {
+                        if (back == "_pages_" || back == "_wiki_minecraft_pages_") {
+                            wikipageBack.href = "/wiki/minecraft/pages.html";
+                        } else if (back == "_wiki_minecraft_") {
+                            wikipageBack.href = "/wiki/minecraft/";
+                        } else if (back == "_articles_") {
+                            wikipageBack.href = "/articles/index.html";
+                        } else {
+                            wikipageBack.href = decodeURIComponent(back);
+                        }
+                        wikipageBack.classList.add("back-arrow");
+                        wikipageBack.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M10.828 12l4.95-4.95a.75.75 0 1 0-1.06-1.06L8.22 11.47a.75.75 0 0 0 0 1.06l6.5 6.5a.75.75 0 0 0 1.06-1.06L10.828 12z"/></svg>`;
+                    }
+
+
                     wikipageContainer.appendChild(wikipageWrapper);
                     wikipageContainer.appendChild(wikipageCloser);
+                    if (back) { wikipageContainer.appendChild(wikipageBack); }
 
                     renderWikiPage(pageData,wikipageWrapper);
 

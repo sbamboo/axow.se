@@ -105,7 +105,7 @@ export async function resolveContent(input,pagedata,article_link_add="",yield_pr
         }
         // ArticleLink
         else {
-            let replacementUrl = '/wiki/minecraft/index.html#'+article_find.slice(1);
+            let replacementUrl = `/wiki/minecraft/index.html?back=${encodeURIComponent(window.location.href)}#`+article_find.slice(1);
             // replace al with the html
             input = input.replace(article_find, `<a href="${replacementUrl}" alt="${article_find.slice(1)}" class="article-link">${article_find.slice(1)+article_link_add}</a>`)
         }
