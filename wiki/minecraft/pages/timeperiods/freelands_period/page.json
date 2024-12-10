@@ -1,4 +1,5 @@
 {
+    "group": "axo77_srv",
     "category": "timeperiods",
     "page": "freelands_period",
 
@@ -58,12 +59,12 @@
             "content": "Historic Events"
         },
         {
-            ">MERGE.FROM<": "started",
+            "MERGE:FROM": "infobox.{started}",
             "description": "",
             "attribute_id": "historic_event_started"
         },
         {
-            ">MERGE.FROM<": "ended",
+            "MERGE:FROM": "infobox.{ended}",
             "description": "",
             "attribute_id": "historic_event_ended"
         }

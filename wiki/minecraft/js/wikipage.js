@@ -9,7 +9,9 @@ import {
     renderResolvedMedia,
     renderResolvedTimeline,
     renderResolvedImgTable,
-    renderResolvedDatetime
+    renderResolvedDatetime,
+    getNestedValue,
+    mergeFromKeyPath
 } from '/wiki/minecraft/js/wikipage_parsers.js';
 
 const Constants = {
@@ -102,7 +104,9 @@ export async function renderWikiPage(pagedata,container) {
     //// Fill infobox content
     if (pagedata.infobox) {
 
-        for (const infobox_entry of pagedata.infobox) {
+        for (let infobox_entry of pagedata.infobox) {
+
+            if (infobox_entry["MERGE:FROM"]) { infobox_entry = mergeFromKeyPath(infobox_entry,pagedata) }
 
             if (infobox_entry.type == "title") {
                 const prepped = await renderResolvedText(infobox_entry.content,pagedata);
@@ -181,7 +185,8 @@ export async function renderWikiPage(pagedata,container) {
                 <div class="wikipage-infobox-attribute wikipage-infobox-attribute-named-multivalue">
                     <b class="wikipage-infobox-attribute-title">${infobox_entry.title}</b>
                 `;
-                for (const entry of infobox_entry.content) {
+                for (let entry of infobox_entry.content) {
+                    if (entry["MERGE:FROM"]) { entry = mergeFromKeyPath(entry,pagedata) }
                     content += `
                         <div class="wikipage-infobox-attribute-content attributed_named_multivalue">
                             ${await renderResolvedMultivalueBlock(entry,pagedata)}
@@ -199,7 +204,8 @@ export async function renderWikiPage(pagedata,container) {
                 <div class="wikipage-infobox-attribute wikipage-infobox-attribute-descripted-profiles">
                     <b class="wikipage-infobox-attribute-title">${infobox_entry.title}</b>
                 `;
-                for (const entry of infobox_entry.value) {
+                for (let entry of infobox_entry.value) {
+                    if (entry["MERGE:FROM"]) { entry = mergeFromKeyPath(entry,pagedata) }
                     content += `
                         <div class="wikipage-infobox-attribute-content attributed_descripted_profiles">
                             <p class="attributed_descripted_profiles_profile">${await resolveContent(entry[0],pagedata)}</p>
@@ -232,7 +238,9 @@ export async function renderWikiPage(pagedata,container) {
     //// Fill sections
     if (pagedata.sections) {
 
-        for (const section_entry of pagedata.sections) {
+        for (let section_entry of pagedata.sections) {
+
+            if (section_entry["MERGE:FROM"]) { section_entry = mergeFromKeyPath(section_entry,pagedata) }
 
             if (section_entry.type == "introduction") {
                 introduction_text.innerHTML += `
@@ -255,7 +263,8 @@ export async function renderWikiPage(pagedata,container) {
                     <h2>${section_entry.title}</h2>
                     <div class="wikipage-mediagrid">
                 `;
-                for (const entry of section_entry.content) {
+                for (let entry of section_entry.content) {
+                    if (entry["MERGE:FROM"]) { entry = mergeFromKeyPath(entry,pagedata) }
                     content += `
                     <div class="wikipage-mediagrid-block">
                         ${await renderResolvedMedia(entry,pagedata)}
@@ -272,7 +281,8 @@ export async function renderWikiPage(pagedata,container) {
             else if (section_entry.type == "sources") {
                 sources_section_header.innerText = section_entry.title;
                 let content = ``;
-                for (const entry of section_entry.content) {
+                for (let entry of section_entry.content) {
+                    if (entry["MERGE:FROM"]) { entry = mergeFromKeyPath(entry,pagedata) }
                     content += `
                     <a ${entry.href ? 'href="'+(await resolveContent(entry.href,pagedata))+'"' : ''} class="a-reset wikipage-source-row wikipage-source-row-href wikipage-reference-note">
                         <i class="wikipage-source-row-id wikipage-reference-note-id">${entry.id ? entry.id : ''}.</i>
@@ -312,7 +322,8 @@ export async function renderWikiPage(pagedata,container) {
 
     //// Fill comments
     if (pagedata.comments) {
-        for (const comment_entry of pagedata.comments) {
+        for (let comment_entry of pagedata.comments) {
+            if (comment_entry["MERGE:FROM"]) { comment_entry = mergeFromKeyPath(comment_entry,pagedata) }
             const result = await resolveContent(comment_entry.by,pagedata,"",true);
             let prepped_profile = null;
             let prepped_profileimg = "/assets/images/default_author.svg";

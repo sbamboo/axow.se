@@ -1,10 +1,11 @@
 Directives:
-  %<path>%            //SameArticleRetrive
-  @<prof>             //ProfileLink
-  $<cat>/<art>        //ArticleLink
-  $<cat>/<art>/<path> //ArticleAssetFetch
+  %<path>%                    //SameArticleRetrive
+  @<prof>                     //ProfileLink
+  $<cat>/<art>                //ArticleLink
+  $<cat>/<art>/<path>         //ArticleAssetFetch
   $<cat>/<art>:<attribute_id> //ArticleFetch
-  !<text>!            //Placeholder (Unparsed)
+  MERGE:FROM                  //Merge.From (If this is key merge with path from value)
+  !<text>!                    //Placeholder (Unparsed)
 
 Constants:
   MARKDOWN.__axo77_bluemap_ = "test.bluemap.axow.se"
@@ -26,6 +27,7 @@ DataTypes:
   DESC_PROFILES -> List< Pair<(ProfileLink,ArticleLink), TEXT> >
 
 SetTypes:
+  ROOT.group
   ROOT.category
   ROOT.page
 

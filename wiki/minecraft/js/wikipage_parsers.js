@@ -1,6 +1,6 @@
 import { renderMarkdown } from '/js/utils/markdownRenderer.js';
 
-function getNestedValue(obj, keyString) {
+export function getNestedValue(obj, keyString) {
     return keyString.split('.').reduce((currentValue, key) => {
         if (!currentValue) return undefined;
         
@@ -24,6 +24,21 @@ function getNestedValue(obj, keyString) {
         // Handle regular object key
         return currentValue[key];
     }, obj);
+}
+
+export function mergeFromKeyPath(checkObj, retrieveObj) {
+    if (checkObj && checkObj["MERGE:FROM"]) {
+        const keyPath = checkObj["MERGE:FROM"];
+        const valueToMerge = getNestedValue(retrieveObj, keyPath);
+
+        if (valueToMerge && typeof valueToMerge === 'object') {
+            return {
+                ...checkObj,
+                ...valueToMerge
+            };
+        }
+    }
+    return checkObj;
 }
 
 function findSubstringBetweenStartAndEndingChars(input, startChar='$', endingChars=[' ', '.', ')', '}', ']']) {
@@ -332,7 +347,8 @@ export async function renderResolvedMultivalueBlock(input,pagedata) {
     else if (type == "desc_profiles" || type == "descripted_profiles") {
         if (input.value.length > 0) {
             renderedValue = ``;
-            for (const entry of input.value) {
+            for (let entry of input.value) {
+                if (entry["MERGE:FROM"]) { entry = mergeFromKeyPath(entry,pagedata) }
                 renderedValue += `
                 <div class="attributed_descripted_profiles multivalue_attributed_descripted_profiles">
                     <p class="attributed_descripted_profiles_profile multivalue_attributed_descripted_profiles_profile">${await resolveContent(entry[0],pagedata)}</p>
@@ -355,7 +371,8 @@ export async function renderResolvedMultivalueBlock(input,pagedata) {
 
 export async function renderResolvedTimeline(input,pagedata) {
     let content = `<div class="timeline" id="timeline">`;
-    for (const [key,value] of Object.entries(input)) {
+    for (let [key,value] of Object.entries(input)) {
+        if (value["MERGE:FROM"]) { value = mergeFromKeyPath(value,pagedata) }
         content += `
         <div class="timeline-item">
             <div class="timeline-content">
@@ -382,6 +399,7 @@ export async function renderResolvedImgTable(input,pagedata) {
     for (const entry of input.entries) {
         content += `<tr>`;
         for (const column of entry) {
+            if (column[1] && column[1]["MERGE:FROM"]) { column[1] = mergeFromKeyPath(column[1],pagedata) }
             const columnTemplate = {
                 "name": null,
                 "type": column[0],
