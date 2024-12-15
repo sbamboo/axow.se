@@ -69,6 +69,7 @@ async function loadPages() {
                 const parsedUrl = new URL(window.location.href);
                 parsedUrl.searchParams.delete('filter_cat');
                 parsedUrl.searchParams.delete('filter_group');
+                parsedUrl.searchParams.delete('filter_name');
                 window.location.href = parsedUrl.toString();
             };
             wikiFilterInfo.appendChild(wikiFilterClear);
