@@ -27,6 +27,8 @@ async function processAllProfileLinks() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+    const forInvitedButton = document.getElementById("for-invited");
+    forInvitedButton.href = `/projects/minecraft/axo77_server/for_players.html?ret=${encodeURIComponent(window.location.href)}`;
     await createTimeline();
     await processAllProfileLinks();
 });

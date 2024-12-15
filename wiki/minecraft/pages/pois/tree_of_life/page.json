@@ -1,0 +1,62 @@
+{
+    "group": "axo77_srv",
+    "category": "pois",
+    "page": "tree_of_life",
+
+    "meta": {
+        "title": "Tree Of Life",
+        "short_description": "An old tree!"
+    },
+
+    "infobox": [
+        {
+            "type": "title",
+            "content": "%meta.title%",
+            "attribute_id": "name"
+        },
+
+        {
+            "type": "banner",
+            "content": "$pois/tree_of_life/banner.png",
+            "attribute_id": "banner"
+        },
+        {
+            "type": "banner_source",
+            "content": "Image from old site",
+            "attribute_id": "banner_source"
+        },
+
+        {
+            "type": "attributed_profile",
+            "title": "Found By",
+            "profiles": ["@Daksido06"],
+            "attribute_id": "found_by"
+        },
+        {
+            "type": "attributed_time",
+            "title": "Found",
+            "time": {
+                "period": "$timeperiods/kayo_beach_start",
+                "date": "xx-xx-xxxx"
+            },
+            "description": "",
+            "attribute_id": "historic_event_found"
+        }
+    ],
+
+    "sections": [
+        {
+            "type": "introduction",
+            "content": "This tree is in the old beta terrain of the server close to the original spawn point. The tree was found out about close after the start of the server."
+        }
+    ],
+
+    "comments": [
+        {
+            "by": "@TheAxolot77",
+            "title": "Info",
+            "content": "Imported this from the old site...",
+            "posted": "15-12-2024"
+        }
+    ]
+}

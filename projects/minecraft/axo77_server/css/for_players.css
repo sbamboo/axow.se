@@ -1,0 +1,52 @@
+body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#wrapper {
+    width: 80%;
+    margin-top: 70px;
+    background-color: var(--card-bg2);
+    padding: 10px;
+}
+
+main > section:first-child > h2:first-child {
+    margin-top: 0px;
+}
+
+main > section > h2:first-child {
+    margin-top: 30px;
+}
+
+section h2 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+section p {
+    display: inline;
+}
+
+.discord-channel {
+    color: var(--text-secondary);
+}
+
+main > section a,
+main > section a:active,
+main > section a:visited {
+    color: var(--link-color);
+}
+main > section a:hover {
+    color: var(--link-color-hover);
+}
+
+.QAq {
+    color: var(--text-color-hover);
+    padding-left: 10px;
+}
+
+.QAa {
+    color: var(--text-secondary);
+    padding-left: 10px;
+}

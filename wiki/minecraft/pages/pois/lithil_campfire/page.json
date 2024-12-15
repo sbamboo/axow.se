@@ -1,0 +1,56 @@
+{
+    "group": "axo77_srv",
+    "category": "pois",
+    "page": "lithil_campfire",
+
+    "meta": {
+        "title": "Lithil Campire",
+        "short_description": "The old spawn point!"
+    },
+
+    "infobox": [
+        {
+            "type": "title",
+            "content": "%meta.title%",
+            "attribute_id": "name"
+        },
+
+        {
+            "type": "banner",
+            "content": "$pois/lithil_campfire/banner.png",
+            "attribute_id": "banner"
+        },
+        {
+            "type": "banner_source",
+            "content": "Image from old resourcepack",
+            "attribute_id": "banner_source"
+        },
+
+        {
+            "type": "attributed_time",
+            "title": "Created",
+            "time": {
+                "period": "$timeperiods/kayo_beach_start",
+                "date": "xx-xx-xxxx"
+            },
+            "description": "",
+            "attribute_id": "historic_event_created"
+        }
+    ],
+
+    "sections": [
+        {
+            "type": "introduction",
+            "content": "This place marks the old alpha spawn point."
+        }
+    ],
+
+    "comments": [
+        {
+            "by": "@TheAxolot77",
+            "title": "Info",
+            "content": "Imported this from an old resourcepack version...",
+            "posted": "15-12-2024"
+        }
+    ]
+}

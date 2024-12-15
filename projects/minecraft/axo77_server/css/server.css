@@ -184,3 +184,29 @@
     color: var(--text-secondary);
     line-height: 1.4;
 }
+
+/* ... */
+.for-players-section {
+    margin-top: 80px;
+    width: 100%;
+    border-top: 2px solid var(--border-color);
+}
+.for-players-section div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#for-invited {
+    display: inline-block;
+    padding: 8px 12px;
+    background: rgba(92 169 255 / 0.15);
+    border: 1px solid rgba(92 169 255 / 0.5);
+    color: var(--text-bg);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+#for-invited:hover {
+    background: rgba(92 169 255 / 0.3);
+}

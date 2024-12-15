@@ -1,3 +1,5 @@
+import { getNestedValue, resolveContent } from '/wiki/minecraft/js/wikipage_parsers.js';
+
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("media-carusell");
     if (!container || !THEAXOLOT77_MCSRV_MEDIA || !THEAXOLOT77_MCSRV_MEDIA.carusell) {
@@ -37,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     container.appendChild(dotsContainer);
   
     // Update the carousel display
-    const updateCarousel = () => {
+    const updateCarousel = async () => {
       const mediaItem = mediaList[currentIndex];
       mediaDisplay.innerHTML = ""; // Clear the display
   
@@ -51,6 +53,23 @@ document.addEventListener("DOMContentLoaded", () => {
         video.src = mediaItem.media;
         video.controls = true;
         mediaDisplay.appendChild(video);
+      } else if (mediaItem.type === "wiki") {
+        const img = document.createElement("img");
+
+        try {
+          const response3 = await fetch(`/wiki/minecraft/pages/${mediaItem.category}/${mediaItem.page}/page.json`)
+          const json3 = await response3.json();
+
+          mediaItem.media = await resolveContent(mediaItem.media,json3);
+          mediaItem.description = await resolveContent(mediaItem.description,json3);
+
+          img.alt = mediaItem.description;
+        } catch {
+          img.alt = mediaItem.media;
+        }
+
+        img.src = mediaItem.media;
+        mediaDisplay.appendChild(img);
       }
   
       description.textContent = mediaItem.description;

@@ -187,6 +187,18 @@ WIKI_MINECRAFT = {
                 "category": "pois",
                 "name": "freelands_duck"
             },
+            {
+                "category": "pois",
+                "name": "tree_of_life"
+            },
+            {
+                "category": "pois",
+                "name": "oldc_towncenter"
+            },
+            {
+                "category": "pois",
+                "name": "lithil_campfire"
+            },
             
             {
                 "category": "regions",

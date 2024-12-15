@@ -1,4 +1,5 @@
 THEAXOLOT77_SERVER_HISTORY = {
+    /*
     "Ca 2015": {
         "title": "Server Origins",
         "description": "The first iteration of the server started as a small vanilla server for friends."
@@ -23,20 +24,106 @@ THEAXOLOT77_SERVER_HISTORY = {
         "title": "Latest Update",
         "description": "Updated to 1.21.3 with new features and improvements. Server is now hosted by @PigiBlossom with enhanced stability."
     }
+    */
+
+    "unknown1": {
+        "title": "The Redstonia Period",
+        "description": ""
+    },
+    "unknown2": {
+        "title": "Gamla Centrum Days",
+        "description": ""
+    },
+    "unknown3": {
+        "title": "Freelands Tiden",
+        "description": ""
+    },
+    "unknown4": {
+        "title": "Nyare Gamla Centrum Days",
+        "description": ""
+    },
+    "unknown5": {
+        "title": "Kayo Beach Start",
+        "description": ""
+    },
+    "unknown6": {
+        "title": "Kayo Beach Golden Days",
+        "description": ""
+    },
+    "unknown7": {
+        "title": "Skånska Året",
+        "description": ""
+    },
+    "unknown8": {
+        "title": "The Middleages",
+        "description": ""
+    },
+    "unknown9": {
+        "title": "A Taste Of KorvCraft",
+        "description": ""
+    },
+    "unknown10": {
+        "title": "Bits and Bobs",
+        "description": ""
+    },
+    "unknown11": {
+        "title": "The Spawn Move",
+        "description": ""
+    },
+    "unknown12": {
+        "title": "Vicy Islands Founding",
+        "description": ""
+    },
+    "unknown13": {
+        "title": "Vicy Islands Golden Days",
+        "description": ""
+    },
+    "unknown14": {
+        "title": "A Storm Arrives",
+        "description": ""
+    },
+    "unknown15": {
+        "title": "Youtube Time",
+        "description": ""
+    },
+    "unknown16": {
+        "title": "Some New Life",
+        "description": ""
+    },
+    "unknown17": {
+        "title": "The Arrival Of Athians",
+        "description": ""
+    }
 };
 
 const THEAXOLOT77_MCSRV_MEDIA = {
     carusell: [
-      {
-          type: "image",
-          media: "https://sbamboo.github.io/theaxolot77/assets/articles/banners/mc_server_1.21.3.png",
-          description: "Latest server update bringing new features and improvements"
-      },
-      {
-          type: "image",
-          media: "https://sbamboo.github.io/theaxolot77/assets/articles/banners/mc_server_1.21.png",
-          description: "Community gathering during our special events"
-      }
+        {
+            type: "wiki",
+            category: "pois",
+            page: "tree_of_life",
+            media: "$pois/tree_of_life/banner.png",
+            description: "%meta.title%"
+        },
+        {
+            type: "wiki",
+            category: "pois",
+            page: "lithil_campfire",
+            media: "$pois/lithil_campfire/banner.png",
+            description: "%meta.title%"
+        },
+        {
+            type: "wiki",
+            category: "pois",
+            page: "oldc_towncenter",
+            media: "$pois/oldc_towncenter/banner.png",
+            description: "%meta.title%"
+        },
+        {
+            type: "image",
+            media: "https://sbamboo.github.io/theaxolot77/assets/articles/banners/mc_server_1.21.png",
+            description: "A trial chamber ¯\\_(ツ)_/¯"
+        }
     ],
 };
   

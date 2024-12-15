@@ -1,0 +1,74 @@
+{
+    "group": "axo77_srv",
+    "category": "pois",
+    "page": "oldc_towncenter",
+
+    "meta": {
+        "title": "Gamla Centrum's Towncenter",
+        "short_description": "Not at all inspired by 90gq :P"
+    },
+
+    "infobox": [
+        {
+            "type": "title",
+            "content": "%meta.title%",
+            "attribute_id": "name"
+        },
+
+        {
+            "type": "banner",
+            "content": "$pois/oldc_towncenter/banner.png",
+            "attribute_id": "banner"
+        },
+        {
+            "type": "banner_source",
+            "content": "Image from old resourcepack",
+            "attribute_id": "banner_source"
+        },
+
+        {
+            "type": "header",
+            "content": "Creation"
+        },
+
+        {
+            "type": "attributed_time",
+            "title": "Created",
+            "time": {
+                "period": "$timeperiods/oldc_days",
+                "date": "xx-xx-xxxx"
+            },
+            "description": "",
+            "attribute_id": "historic_event_created"
+        },
+
+        {
+            "type": "attributed_profile",
+            "title": "Builders",
+            "profiles": ["@TheAxolot77"],
+            "attribute_id": "builders"
+        },
+        {
+            "type": "attributed_profile",
+            "title": "Owners",
+            "profiles": ["$organizations/oldc_state"],
+            "attribute_id": "owners"
+        }
+    ],
+
+    "sections": [
+        {
+            "type": "introduction",
+            "content": "A symbolic building for the town."
+        }
+    ],
+
+    "comments": [
+        {
+            "by": "@TheAxolot77",
+            "title": "Info",
+            "content": "Imported this from an old resourcepack version...",
+            "posted": "15-12-2024"
+        }
+    ]
+}
