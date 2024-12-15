@@ -44,6 +44,13 @@ WIKI_MINECRAFT = {
         }
     ],
 
+    "groups": {
+        "axo77_srv": {
+            "name": "TheAxolot77's Server",
+            //"href": "/projects/minecraft/axo77_server/index.html?ret=_wiki_minecraft_"
+        }
+    },
+
     "categories": {
 
         "examples": {
@@ -60,7 +67,8 @@ WIKI_MINECRAFT = {
                     "name": "TheAxolot77",
                     "icon": "https://picsum.photos/id/369/100/100.jpg",
                     "alt": "A vanilla+ server for friends only.",
-                    "href": "/projects/minecraft/axo77_server/index.html?ret=_wiki_minecraft_"
+                    "href": "/projects/minecraft/axo77_server/index.html?ret=_wiki_minecraft_",
+                    "group": "_ungrouped_"
                 }
             ]
         },
@@ -73,7 +81,8 @@ WIKI_MINECRAFT = {
                     "name": "Kayo Beach",
                     "icon": "https://picsum.photos/id/831/100/100.jpg",
                     "alt": "One of the first cities",
-                    "href": "$cities/kayo_beach"
+                    "href": "$cities/kayo_beach",
+                    "group": "axo77_srv"
                 }
             ]
         },
@@ -86,7 +95,8 @@ WIKI_MINECRAFT = {
                     "name": "Freelands Duck",
                     "icon": "$pois/freelands_duck/duck1.png",
                     "alt": "Daktordooms Duck",
-                    "href": "$pois/freelands_duck"
+                    "href": "$pois/freelands_duck",
+                    "group": "axo77_srv"
                 }
             ]
         },
@@ -99,7 +109,8 @@ WIKI_MINECRAFT = {
                     "name": "The Athia Region",
                     "icon": "$regions/the_athia_region/region.png",
                     "alt": "Founded 2024-03-03",
-                    "href": "$regions/the_athia_region"
+                    "href": "$regions/the_athia_region",
+                    "group": "axo77_srv"
                 }
             ]
         },
@@ -112,13 +123,15 @@ WIKI_MINECRAFT = {
                     "name": "TheAxolot77",
                     "icon": "https://picsum.photos/id/382/100/100.jpg",
                     "alt": "The server owner",
-                    "href": "/profiles/@TheAxolot77?ret=[AUTO_RETURN]&sections=wiki_minecraft"
+                    "href": "/profiles/@TheAxolot77?ret=[AUTO_RETURN]&sections=wiki_minecraft",
+                    "group": "axo77_srv"
                 },
                 {
                     "name": "Herobrine",
                     "icon": "https://i.ytimg.com/vi/18f8xhPXzV4/hqdefault.jpg",
                     "alt": "The server owner",
-                    "href": "/profiles/wiki_minecraft/@Herobrine?ret=[AUTO_RETURN]&sections=wiki_minecraft"
+                    "href": "/profiles/wiki_minecraft/@Herobrine?ret=[AUTO_RETURN]&sections=wiki_minecraft",
+                    "group": "axo77_srv"
                 }
             ]
         },
@@ -143,65 +156,68 @@ WIKI_MINECRAFT = {
 
     },
 
-    "wikipages": [
-        {
-            "category": "examples",
-            "name": "1"
-        },
-        {
-            "category": "examples",
-            "name": "2"
-        },
-        {
-            "category": "examples",
-            "name": "full_v1"
-        },
+    "wikipages": {
+        "_ungrouped_": [],
+        "axo77_srv": [
+            {
+                "category": "examples",
+                "name": "1"
+            },
+            {
+                "category": "examples",
+                "name": "2"
+            },
+            {
+                "category": "examples",
+                "name": "full_v1"
+            },
+            
+            {
+                "category": "servers",
+                "name": "theaxolot77",
+                "href": "/projects/minecraft/axo77_server/index.html?ret=_wiki_minecraft_pages_"
+            },
+            
+            {
+                "category": "cities",
+                "name": "kayo_beach"
+            },
+            
+            {
+                "category": "pois",
+                "name": "freelands_duck"
+            },
+            
+            {
+                "category": "regions",
+                "name": "the_athia_region"
+            },
+            
+            {
+                "category": "players",
+                "name": "theaxolot77",
+                "href": "@TheAxolot77"
+            },
+            {
+                "category": "players",
+                "name": "herobrine",
+                "href": "@Herobrine"
+            },
         
-        {
-            "category": "servers",
-            "name": "theaxolot77",
-            "href": "/projects/minecraft/axo77_server/index.html?ret=_wiki_minecraft_pages_"
-        },
+            {
+                "category": "organizations",
+                "name": "kayo_beach_state"
+            },
         
-        {
-            "category": "cities",
-            "name": "kayo_beach"
-        },
+            {
+                "category": "timeperiods",
+                "name": "freelands_period"
+            },
         
-        {
-            "category": "pois",
-            "name": "freelands_duck"
-        },
-        
-        {
-            "category": "regions",
-            "name": "the_athia_region"
-        },
-        
-        {
-            "category": "players",
-            "name": "theaxolot77",
-            "href": "@TheAxolot77"
-        },
-        {
-            "category": "players",
-            "name": "herobrine",
-            "href": "@Herobrine"
-        },
-      
-        {
-            "category": "organizations",
-            "name": "kayo_beach_state"
-        },
-      
-        {
-            "category": "timeperiods",
-            "name": "freelands_period"
-        },
-      
-        {
-            "category": "events",
-            "name": "example"
-        }
-    ]
+            {
+                "category": "events",
+                "name": "example"
+            }
+        ]
+    }
 }

@@ -13,9 +13,32 @@
     margin-bottom: 30px;
 }
 
+.wikipage-wrapper {
+    padding-top: 10px;
+}
+
 .wikipage-header {
     display: flex;
     flex-direction: column;
+}
+
+.wikipage-header-pathing {
+    margin-bottom: 12px;   
+}
+
+.wikipage-header-pathing > a {
+    font-size: 0.9em;
+}
+.wikipage-header-pathing {
+    color: var(--graytext-color);
+}
+.wikipage-header-pathing > a,
+.wikipage-header-pathing > a:visited,
+.wikipage-header-pathing > a:active {
+    color: var(--graylink-color);
+}
+.wikipage-header-pathing > a:hover {
+    color: var(--graylink-color-hover);
 }
 
 .wikipage-pagesource {
@@ -463,6 +486,50 @@
 .wikipage-infobox-attribute-named-multivalue .contains-rendered-media-display-embed .rendered-media-display > *,
 .wikipage-infobox-attribute-named-multivalue .contains-rendered-media-display-audio .rendered-media-display > * {
     width: 100%;
+}
+
+.wikipage-totitle {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid var(--border-color);
+    width: fit-content;
+}
+.wikipage-totitle > .totitle-clickable-header {
+    display: flex;
+    flex-direction: column;
+}
+.totitle-clickable-header {
+    background-color: transparent;
+    border: none;
+    color: var(--text-color);
+}
+.totitle-clickable-header > div {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    width: 100%;
+}
+.totitle-clickable-header > div:hover {
+    background-color: var(--dropdown-bg);
+}
+.totitle-clickable-header > div > i {
+    margin-right: 10px;
+    color: var(--text-secondary);
+}
+.totitle-clickable-header > .totitle-clickable-header {
+    width: 100%;
+    padding-left: 15px;
+}
+
+.profile-link, .article-link,
+.profile-link:active, .article-link:active,
+.profile-link:visited, .article-link:visited {
+    color: var(--link-color);
+}
+.profile-link:hover, .article-link:hover {
+    color: var(--link-color-hover);
 }
 
 /*TopLeft Corner*/

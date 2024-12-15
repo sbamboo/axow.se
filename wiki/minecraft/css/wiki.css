@@ -46,6 +46,45 @@
     margin-bottom: 16px;
 }
 
+.wiki-category-highlights-group,
+.wiki-category-highlights-categories > div {
+    padding: 10px;
+    background-color: rgba(0,0,0,0.05);
+    border-radius: 20px;
+}
+
+.wiki-category-highlights-group-title {
+    width: fit-content;
+}
+.wiki-category-highlights-group-title,
+.wiki-category-highlights-group-title:active,
+.wiki-category-highlights-group-title:visited {
+    color: var(--text-color);
+    font-size: 1.3em;
+    margin-bottom: 8px;
+    text-decoration: none;
+    display: block;
+}
+.wiki-category-highlights-group-title:hover {
+    color: var(--text-color-hover);
+}
+
+.wiki-category-highlights-category-title {
+    width: fit-content;
+}
+.wiki-category-highlights-category-title,
+.wiki-category-highlights-category-title:active,
+.wiki-category-highlights-category-title:visited {
+    color: var(--text-color);
+    font-size: 1.1em;
+    margin-bottom: 2px;
+    text-decoration: none;
+    display: block;
+}
+.wiki-category-highlights-category-title:hover {
+    color: var(--text-color-hover);
+}
+
 .wiki-category-highlights-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));

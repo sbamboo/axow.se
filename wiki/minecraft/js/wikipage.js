@@ -11,7 +11,9 @@ import {
     renderResolvedImgTable,
     renderResolvedDatetime,
     getNestedValue,
-    mergeFromKeyPath
+    mergeFromKeyPath,
+    getHeaderClickableId,
+    getFirstParentWithClass
 } from '/wiki/minecraft/js/wikipage_parsers.js';
 
 const Constants = {
@@ -26,6 +28,35 @@ export async function renderWikiPage(pagedata,container) {
     const header = document.createElement("header");
     header.classList.add("wikipage-header");
     container.appendChild(header);
+
+        const pathing = document.createElement("span");
+        pathing.classList.add("wikipage-header-pathing");
+        const current_url = window.location.href.toString();
+        let current_url2 = current_url;
+        if (current_url2.includes("#")) {
+            current_url2 = current_url2.split("#");
+            current_url2.pop()
+            current_url2 = current_url2.join("#");
+        }
+        current_url2 = current_url2.split("/");
+        current_url2.pop()
+        current_url2 = current_url2.join("/");
+        console.log(current_url2);
+        pathing.innerHTML = "/ ";
+        if (pagedata.group) {
+            pathing.innerHTML += `<a class="wikipage-header-pathing-group" href="${current_url2 + "/pages.html?filter_group=" + pagedata.group}">${pagedata.group}</a> / `;
+        }
+        if (pagedata.category) {
+            pathing.innerHTML += `<a class="wikipage-header-pathing-category" href="${current_url2 + "/pages.html?filter_cat=" + pagedata.category}">${pagedata.category}</a> / `;
+        } else {
+            pathing.innerHTML += `... / `;
+        }
+        if (pagedata.page) {
+            pathing.innerHTML += `<a class="wikipage-header-pathing-page" href="${pagedata._sourcefile_}">${pagedata.page}.json</a>`;
+        } else {
+            pathing.innerHTML += `<a class="wikipage-header-pathing-page" href="${pagedata._sourcefile_}">page.json</a>`;
+        }
+        header.appendChild(pathing);
 
         const title = document.createElement("h1");
         title.classList.add("wikipage-header-title");
@@ -53,6 +84,7 @@ export async function renderWikiPage(pagedata,container) {
                 
                 const totitle           = document.createElement("div");
                 totitle.classList.add("wikipage-totitle");
+                totitle.innerHTML = `<p class="wikipage-totitle-loading">Parsing Wikipage...</p>`;
                 left.appendChild(totitle);
 
             const right              = document.createElement("aside");
@@ -76,7 +108,8 @@ export async function renderWikiPage(pagedata,container) {
         main.appendChild(sources_section);
 
             const sources_section_header = document.createElement("h2");
-            sources_section_header.classList.add("wikipage-sources-header")
+            sources_section_header.classList.add("wikipage-sources-header");
+            sources_section_header.innerText = "Sources";
             sources_section.appendChild(sources_section_header);
 
         const comment_section = document.createElement("section");
@@ -279,7 +312,9 @@ export async function renderWikiPage(pagedata,container) {
             }
 
             else if (section_entry.type == "sources") {
-                sources_section_header.innerText = section_entry.title;
+                if (section_entry.title && section_entry.title !== "" && section_entry.title !== null) {
+                    sources_section_header.innerText = section_entry.title;
+                }
                 let content = ``;
                 for (let entry of section_entry.content) {
                     if (entry["MERGE:FROM"]) { entry = mergeFromKeyPath(entry,pagedata) }
@@ -357,5 +392,4 @@ export async function renderWikiPage(pagedata,container) {
             `;
         }
     }
-
 }

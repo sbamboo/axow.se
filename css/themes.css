@@ -4,6 +4,7 @@
     --card-bg: #ffffff;
     --card-bg2: rgba(255, 255, 255, 0.8);
     --text-color: #242424;
+    --text-color-hover: #434343;
     --text-secondary: #666666;
     --link-color: #007bff;
     --link-color-hover: #0056b3;
@@ -23,6 +24,9 @@
     --dropdown-border: #ddd;
     --dropdown-hover: #f1f3f5;
     --header-divider: #f8f9fa;
+    --graytext-color: #CACACA;
+    --graylink-color: #CACACA;
+    --graylink-color-hover: #A1A1A1;
 }
 
 /* Dark theme */
@@ -31,6 +35,7 @@
     --card-bg: #2d2d2d;
     --card-bg2: rgba(45, 45, 45, 0.8);
     --text-color: #e0e0e0;
+    --text-color-hover: #C0C0C0;
     --text-secondary: #a0a0a0;
     --link-color: #5ca9ff;
     --link-color-hover: #3a7ff7;
@@ -50,6 +55,9 @@
     --dropdown-border: #404040;
     --dropdown-hover: #404040;
     --header-divider: #363636;
+    --graytext-color: #4C4C4C;
+    --graylink-color: #4C4C4C;
+    --graylink-color-hover: #626262;
 }
 
 /* Common styles that use CSS variables */

@@ -9,6 +9,78 @@
     margin-bottom: 40px;
 }
 
+/* Filtering */
+.wiki-filtering-info {
+    background-color: rgba(0,0,0,0.05);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.wiki-filtering-info > span {
+    display: flex;
+    flex-direction: row;
+}
+.wiki-filtering-info > span > * {
+    display: block;
+    margin: 0;
+    color: var(--text-color);
+}
+.wiki-filtering-info > span > i {
+    color: var(--text-secondary);
+    margin-right: 10px;
+}
+#wiki-filtering-clear {
+    background-color: transparent;
+    border: 1px solid var(--graylink-color);
+    color: var(--graylink-color-hover);
+    border-radius: 5px;
+    cursor: pointer;
+}
+#wiki-filtering-clear:hover {
+    background-color: rgba(255,255,255,0.01);
+    border: 1px solid var(--graylink-color-hover);
+}
+#wiki-filtering-clear,
+.wiki-filtering-info > span > * {
+    font-size: 0.8em;
+}
+
+/* Group layout */
+.wiki-group-outer-wrapper {
+    background-color: rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.wiki-group-title {
+    font-size: 1.5em;
+    text-decoration: none;
+    margin-bottom: 16px;
+    display: block;
+    width: fit-content;
+}
+.wiki-group-title,
+.wiki-group-title:visited,
+.wiki-group-title:active {
+    color: var(--text-color);
+}
+.wiki-group-title:hover {
+    color: var(--text-color-hover);
+}
+
+.wiki-category-name {
+    text-decoration: none;
+}
+.wiki-category-name,
+.wiki-category-name:visited,
+.wiki-category-name:active {
+    color: var(--text-color);
+}
+.wiki-category-name:hover {
+    color: var(--text-color-hover);
+}
+
 /* Category layout */
 .wiki-category-wrapper {
     background: var(--card-bg);
@@ -35,9 +107,8 @@
 
 .wiki-category-name {
     margin: 0;
-    font-size: 1.4em;
+    font-size: 1.3em;
     font-weight: 500;
-    color: var(--text-color);
 }
 
 .wiki-category-inner-wrapper {

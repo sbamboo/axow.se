@@ -1,5 +1,88 @@
 import { renderMarkdown } from '/js/utils/markdownRenderer.js';
 
+
+
+function getUniqueHeaderId(name) {
+    let selector = `totitle-header-id-${name}`
+    const safeSelector = selector.replace(/[^a-zA-Z0-9_-]/g, '_');
+
+    let element = document.querySelector(`#${safeSelector}`);
+
+    let finalSelector = safeSelector;
+    let counter = 0;
+    while (element) {
+        counter++;
+        finalSelector = `${safeSelector}-${counter}`;
+        element = document.querySelector(`#${finalSelector}`);
+    }
+
+    return finalSelector;
+}
+
+export function getFirstParentWithClass(element, className) {
+    // Traverse up the DOM tree
+    while (element !== null) {
+      if (element.classList && element.classList.contains(className)) {
+        return element;
+      }
+      element = element.parentElement;
+    }
+    return null;
+  }
+
+function addHeaderForParent(name,query,parent) {
+    const newchild = document.createElement("button");
+
+    let newid = parent.children.length+1;
+    if (parent.classList.contains("totitle-clickable-header")) {
+        const parentid = parent.id.replace('totitle-header-', '');
+        newid = `${parentid}.${newid-1}`;
+    }
+
+    newchild.id = `totitle-header-${newid}`;
+    newchild.classList.add("totitle-clickable-header");
+
+    newchild.innerHTML = `
+    <div>
+        <i>${newid}</i>
+        <p>${name}</p>
+    </div>
+    `;
+
+    newchild.onclick = (event)=>{
+        if (getFirstParentWithClass(event.target,"totitle-clickable-header") == newchild) {
+            const elem = document.querySelector(`#${query}`);
+            if (elem) {
+                let scrollPosition = elem.getBoundingClientRect().top + window.scrollY - 80;
+                if (document.body.clientWidth <= 591) {
+                    scrollPosition = scrollPosition - 30;
+                }
+                window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+            }
+        }
+    };
+
+    parent.appendChild(newchild);
+
+    return newchild;
+}
+
+export function getHeaderClickableId(name,parent,retObj=false) {
+    let id;
+    if (parent.classList.contains("totitle-clickable-header")) {
+        id = getUniqueHeaderId(`${name}-${parent.children.length}`);
+    } else {
+        id = getUniqueHeaderId(name);
+    }
+    const newchild = addHeaderForParent(name,id,parent);
+    if (retObj) {
+        return [id,newchild];
+    }
+    return id;
+}
+
+
+
 export function getNestedValue(obj, keyString) {
     return keyString.split('.').reduce((currentValue, key) => {
         if (!currentValue) return undefined;
@@ -373,6 +456,7 @@ export async function renderResolvedTimeline(input,pagedata) {
     let content = `<div class="timeline" id="timeline">`;
     for (let [key,value] of Object.entries(input)) {
         if (value["MERGE:FROM"]) { value = mergeFromKeyPath(value,pagedata) }
+
         content += `
         <div class="timeline-item">
             <div class="timeline-content">

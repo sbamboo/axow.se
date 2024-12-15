@@ -13,6 +13,11 @@
 
 /* Media query for mobile */
 @media (max-width: 591px) {
+
+    .wikipage-container {
+        margin-top: 30px;
+    }
+
     .return-cross {
         position: absolute;
         top: -50px;
