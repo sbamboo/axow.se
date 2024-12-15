@@ -160,19 +160,6 @@ WIKI_MINECRAFT = {
         "_ungrouped_": [],
         "axo77_srv": [
             {
-                "category": "examples",
-                "name": "1"
-            },
-            {
-                "category": "examples",
-                "name": "2"
-            },
-            {
-                "category": "examples",
-                "name": "full_v1"
-            },
-            
-            {
                 "category": "servers",
                 "name": "theaxolot77",
                 "href": "/projects/minecraft/axo77_server/index.html?ret=_wiki_minecraft_pages_"
@@ -229,6 +216,12 @@ WIKI_MINECRAFT = {
             {
                 "category": "events",
                 "name": "example"
+            },
+
+            
+            {
+                "category": "examples",
+                "name": "full_v1"
             }
         ]
     }
