@@ -155,9 +155,12 @@
 }
 
 .wikipage-infobox {
-    width: 270px;
-    border: 1px solid var(--border-color);
-    padding-bottom: 10px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    overflow: hidden;
+    font-size: 0.9em;
+    line-height: 1.5;
 }
 
 .wikipage-infobox a,
@@ -184,10 +187,9 @@
 }
 
 .wikipage-infobox > div {
-    padding-left: 10px;
+    padding-left: 12px;
     padding-right: 10px;
 
-    font-size: 12px;
     line-height: 1.5;
 }
 
@@ -198,7 +200,7 @@
     padding-right: 0px;
     text-align: center;
     width: 100%;
-    background-color: green;
+    background-color: #2A75CB;
 }
 .wikipage-infobox > .wikipage-infobox-header {
     padding-left: 0px;
@@ -207,16 +209,16 @@
     padding-bottom: 2px;
     text-align: center;
     width: 100%;
-    background-color: rgba(0, 128, 0, 0.551);
+    background-color: rgba(75 100 129 / 0.52);
 }
+
 .wikipage-infobox-title-content {
-    font-size: 18px;
-    line-height: 1.25;
+    font-size: 1.4em;
+    margin: 0;
 }
 
 .wikipage-infobox .wikipage-infobox-header-content {
-    font-size: 14px;
-    line-height: 1.25;
+    font-size: 1.05em;
 }
 .wikipage-infobox .wikipage-infobox-banner-figcaption {
     font-size: 14px;
@@ -251,10 +253,14 @@
     padding-top: 3px;
     padding-bottom: 3px;
     border-bottom: 1px solid var(--border-color);
+    padding-top: 7px;
+    padding-bottom: 7px;
 }
 
 .wikipage-infobox-attribute > *:first-child {
     margin-right: auto;
+    color: var(--text-secondary);
+    font-weight: 500;
 }
 
 .wikipage-infobox-attribute > *:last-child {
@@ -285,6 +291,8 @@
 
 .multivalue-block > *:first-child {
     margin-right: auto;
+    color: var(--text-secondary);
+    font-weight: 500;
 }
 
 .wikipage-infobox-attribute-content > :not(div) {
@@ -349,6 +357,7 @@
     margin-top: 60px;
     padding-top: 10px;
     border-top: 1px solid var(--border-color);
+    overflow: auto;
 }
 
 .wikipage-mediagrid {
@@ -406,6 +415,11 @@
 .wikipage-imgtable td {
     padding: 5px;
     font-size: 12.5px;
+}
+.wikipage-imgtable th,
+.wikipage-imgtable td {
+    margin: 0;
+    background: var(--card-bg);
 }
 .wikipage-imgtable a,
 .wikipage-imgtable a:active,
@@ -491,10 +505,11 @@
 .wikipage-totitle {
     display: flex;
     flex-direction: column;
-    padding: 5px;
-    margin: 5px;
-    border: 1px solid var(--border-color);
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid rgba(0,0,0,0.15);
     width: fit-content;
+    border-radius: 10px;
 }
 .wikipage-totitle > .totitle-clickable-header {
     display: flex;
@@ -509,10 +524,25 @@
     display: flex;
     flex-direction: row;
     cursor: pointer;
-    width: 100%;
+    width: calc(100% - 7px);
+    padding: 3px;
+    border-radius: 3px;
 }
-.totitle-clickable-header > div:hover {
-    background-color: var(--dropdown-bg);
+:root[data-theme="dark"] {
+    .wikipage-totitle {
+        background-color: rgba(255,255,255,0.02);
+    }
+    .totitle-clickable-header > div:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+}
+:root[data-theme="light"] {
+    .wikipage-totitle {
+        background-color: rgba(0,0,0,0.02);
+    }
+    .totitle-clickable-header > div:hover {
+        background-color: rgba(0,0,0,0.1);
+    }
 }
 .totitle-clickable-header > div > i {
     margin-right: 10px;
