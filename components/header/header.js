@@ -35,7 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 <path d="M8.5 3.5H3.5M8.5 3.5L3 9M8.5 3.5V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
-            <a href="/downloads/resourcepacks.html" class="dropdown-item">Resource Packs</a>
+            <!--<a href="/downloads/resourcepacks.html" class="dropdown-item">Resource Packs</a>-->
+            <a href="https://sbamboo.github.io/theaxolot77/storage" class="dropdown-item" target="_blank" rel="noopener noreferrer">
+              Resource Packs
+              <svg class="external-link-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5 3.5H3.5M8.5 3.5L3 9M8.5 3.5V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
             <a href="/wiki/minecraft/index.html" class="dropdown-item">Wiki</a>
           </div>
         </div>
