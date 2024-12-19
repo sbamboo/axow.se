@@ -6,8 +6,8 @@ Banner: banner.png
 Favicon: favicon.png
 CardBackground: banner.png
 Tags: news,changelog,minecraft,mc,axo,server
-CreationDate: 2024-12-18
-UpdatedDate: 2024-12-18
+CreationDate: 2024-12-19
+UpdatedDate: 2024-12-19
 </p>
 
 **After much work and frustration the server is finally up again, phew! 💩**
