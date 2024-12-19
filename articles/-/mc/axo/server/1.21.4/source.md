@@ -40,7 +40,11 @@ The server is now generously hosted by @PigiBlossom!
 
 **Datapack / Resourcepack Changes**
 - Still using the MoreArmorTrims fork from 1.21.3, sadly still no emmissives for now...<br>
-  Also armorsets using the custom trims might not render correctly until re-trimmed, will decide on a solution in the future resourcepack re-make.
+  Also armorsets using the custom trims might not render correctly until re-trimmed, will decide on a solution in the future resourcepack re-make.<br>
+<br>
+
+**Datapack / Resourcepack Issues**
+- The server resourcepack has some of issues.<br>
 <br><br>
 
 ## What next?
