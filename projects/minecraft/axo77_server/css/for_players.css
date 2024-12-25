@@ -50,3 +50,16 @@ main > section a:hover {
     color: var(--text-secondary);
     padding-left: 10px;
 }
+
+section > ul {
+    margin-top: 0px;
+}
+
+section > ul > li {
+    margin-top: 10px;
+}
+
+section > .topmar {
+    margin-top: 15px;
+    display: block;
+}

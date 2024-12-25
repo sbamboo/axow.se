@@ -45,9 +45,9 @@ The server is now generously hosted by @PigiBlossom!
 
 **Datapack / Resourcepack Issues**
 - The server resourcepack has some of issues.<br>
-<br><br>
+<br>
 
-## What next?
+## Whats next?
 - Fixing any missing features.
 - Making 1.21.4 clients.
 - 1.21.4 Have changed how items work in resourcepacks so I am planning on re-making the server resourcepack from the ground up.
