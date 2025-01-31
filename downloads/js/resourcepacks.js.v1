@@ -1,0 +1,196 @@
+const REPO_URL = `https://sbamboo.github.io/theaxolot77/storage/chibits/chibits.json`;
+
+const outerWrapper = document.getElementById("chibit-downloads");
+
+const mainProgressLoader = new ProgressLoader(outerWrapper);
+
+/**
+ * Compute checksum using specified algorithm.
+ * @param {Uint8Array} data - The data to compute the checksum for.
+ * @param {string} algorithm - The checksum algorithm (e.g., "crc32").
+ * @returns {number|string} The checksum value.
+ */
+function computeChecksum(data, algorithm) {
+    if (algorithm === 'crc32') {
+        // Compute CRC32 checksum (using a simple implementation)
+        let crc = 0 ^ (-1);
+        for (let i = 0; i < data.length; i++) {
+            crc = (crc >>> 8) ^ crc32Table[(crc ^ data[i]) & 0xff];
+        }
+        return (crc ^ (-1)) >>> 0;
+    } else {
+        throw new Error(`Unsupported checksum algorithm: ${algorithm}`);
+    }
+}
+
+// Precompute CRC32 table
+const crc32Table = Array(256).fill(0).map((_, n) => {
+    let c = n;
+    for (let k = 0; k < 8; k++) {
+        c = c & 1 ? (0xedb88320 ^ (c >>> 1)) : (c >>> 1);
+    }
+    return c >>> 0;
+});
+
+
+
+function waitUntil(conditionFn) {
+    return new Promise(resolve => {
+        function checkCondition() {
+            if (conditionFn()) {
+                resolve();
+            } else {
+                setTimeout(checkCondition, 50); // Recheck condition after 50ms
+            }
+        }
+        checkCondition();
+    });
+}
+
+function waitUntilThen(conditionFn, onConditionMet) {
+    return new Promise(resolve => {
+        function checkCondition() {
+            if (conditionFn()) {
+                onConditionMet(); // Execute the callback once the condition is met
+                resolve();
+            } else {
+               setTimeout(checkCondition, 50); // Recheck condition after 50ms
+            }
+        }
+        checkCondition();
+    });
+  }
+
+async function assembleChibitDownloadBlob(container,data,downButton,cancelButton) {
+    const chunkProgress = new ProgressLoader(container);
+
+    cancelButton.style.display = "block";
+    downButton.style.display = "none";
+
+    cancelButton.onclick = () => {
+        cancelButton.style.display = "none";
+        downButton.style.display = "block";
+    
+        chunkProgress.cleanUpAll();
+        
+        // Reassign the original click event to restart download
+        downButton.onclick = () => {
+            assembleChibitDownloadBlob(container, data, downButton, cancelButton);
+        };
+    };    
+
+    let assembledData;
+    if (data.chunks.length === 1) {
+        // Single chunk download
+        const response = await chunkProgress.fetch(data.chunks[0], `Chunk 1 of ${data.filename}`);
+        assembledData = new Uint8Array(await response.arrayBuffer());
+    } else {
+        // Multiple chunk downloads
+        const chunkPromises = data.chunks.map((chunkUrl, index) => 
+            chunkProgress.fetch(chunkUrl, `Chunk ${index + 1} of ${data.filename}`).then(res => res.arrayBuffer())
+        );
+
+        const buffers = await Promise.all(chunkPromises);
+        
+        // Assemble chunks in order
+        assembledData = new Uint8Array(buffers.reduce((acc, buffer) => acc + buffer.byteLength, 0));
+        let offset = 0;
+        for (const buffer of buffers) {
+            assembledData.set(new Uint8Array(buffer), offset);
+            offset += buffer.byteLength;
+        }
+    }
+
+    if (assembledData.length !== data.size) {
+        throw new Error(`Size mismatch. Expected: ${data.size}, Received: ${assembledData.length}`);
+    }
+
+    const calculatedChecksum = computeChecksum(assembledData, data.checksum.algorithm);
+
+    if (calculatedChecksum !== data.checksum.hash) {
+        throw new Error(`Checksum mismatch. Expected: ${data.checksum.hash}, Calculated: ${calculatedChecksum}`);
+    }
+
+    // Create a blob and offer as a downloadable URL
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(
+        new Blob([assembledData])
+    );
+    a.download = data.filename;
+    container.appendChild(a);
+    a.click();
+    container.removeChild(a);
+}
+
+async function assembleChibitDownload(container, stepsProgressBar, id, url) {
+
+    // Fetch the entry data
+    const innerWrapper = document.createElement('div');
+    innerWrapper.classList.add('chibit-entry');
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        console.error('Failed to fetch chibit entry:', response);
+        return;
+    }
+
+    const data = await response.json();
+
+    // Create button to create download
+    const button = document.createElement("button");
+    button.innerText = data.filename;
+    button.id = `for-${data.filename}-download`;
+    button.classList.add("chibit-entry-button");
+
+    const button2 = document.createElement("button");
+    button2.innerText = "Cancel";
+    button2.id = `for-${data.filename}-cancel`;
+    button2.classList.add("chibit-cancel-button");
+    button2.style.display = "none";
+    innerWrapper.appendChild(button2);
+
+    button.onclick = () => {
+        assembleChibitDownloadBlob(innerWrapper, data, button, button2);
+    };
+    innerWrapper.appendChild(button);
+
+    // Increment progressbar
+    stepsProgressBar.progress(1);
+
+    container.appendChild(innerWrapper);
+}
+
+async function assembleChibitDownloads() {
+    // Fetch the repo
+    const response = await mainProgressLoader.fetch(REPO_URL,"Fetching chibit repo...");
+
+    if (!response.ok) {
+        console.error('Failed to fetch chibit repo:', response);
+        return;
+    }
+
+    const data = await response.json();
+
+    const maxlen = Object.keys(data).length;
+
+    // Assemble a progressbar to fetch al the entries
+    const stepsProgressBar = mainProgressLoader.createProgressBar(`Assembling ${maxlen} entries...`, true, 0, maxlen);
+
+    // Call for al entries to be created into downloads
+    const container = document.createElement('div');
+    for (const [id, url] of Object.entries(data)) {
+        assembleChibitDownload(container, stepsProgressBar, id, url);
+    }
+
+    // Await al being done and clean up
+    await waitUntilThen(
+        () => { return stepsProgressBar._obj_.currentValue >= stepsProgressBar._obj_.end; },
+        () => {
+            stepsProgressBar.cleanUp();
+            outerWrapper.appendChild(container);
+        }
+    );
+}
+
+assembleChibitDownloads();

@@ -1,0 +1,33 @@
+#external-site-link,
+#external-site-link:visited,
+#external-site-link:active {
+    color: #007bff;
+    margin-bottom: 30px;
+    display: block;
+}
+
+#external-site-link:hover {
+    color: #0056b3;
+}
+
+.chibit-cancel-button,
+.chibit-entry-button {
+    background-color: #2a2a2a;
+    border: 1px solid #484848;
+    color: #d7d7d7;
+    padding: 4px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.chibit-cancel-button:hover,
+.chibit-entry-button:hover {
+    background-color: #323232;
+    border: 1px solid #4c4c4c;
+    color: #c3c1ca;
+}
+
+#chibit-title {
+    font-weight: normal;
+    margin-bottom: 20px;
+}

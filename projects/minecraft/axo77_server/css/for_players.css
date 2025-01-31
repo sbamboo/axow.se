@@ -63,3 +63,7 @@ section > .topmar {
     margin-top: 15px;
     display: block;
 }
+
+.grayed-slightly {
+    color: var(--text-color-hover);
+}
