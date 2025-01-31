@@ -4,6 +4,7 @@
     color: #007bff;
     margin-bottom: 30px;
     display: block;
+    width: fit-content;
 }
 
 #external-site-link:hover {
