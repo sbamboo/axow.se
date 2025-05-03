@@ -69,3 +69,7 @@ body {
         background-position: -200% 0; /* End position aligns with the start */
     }
 }
+
+.emoticon-size {
+    font-size: 0.7rem;
+}
