@@ -7,7 +7,7 @@ Favicon: favicon.png
 CardBackground: banner.png
 Tags: news,changelog,minecraft,mc,axo,client,community,mooare
 CreationDate: 2025-04-21
-UpdatedDate: 2025-04-21
+UpdatedDate: 2025-06-07
 </p>
 
 ## Standard Community Clients
