@@ -1,0 +1,35 @@
+@keyframes stripe-slide {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: calc(40px * var(--width-multiplier, 2)) 0;
+    }
+}
+
+.striped-background,
+.striped-text {
+    background-image: linear-gradient(45deg,
+            var(--stripe-light-color, yellow) 25%,
+            transparent 25%,
+            transparent 50%,
+            var(--stripe-light-color, yellow) 50%,
+            var(--stripe-light-color, yellow) 75%,
+            transparent 75%,
+            transparent);
+    background-size: calc(40px * var(--width-multiplier, 2)) calc(40px * var(--width-multiplier, 2));
+    animation: stripe-slide calc(1s / var(--speed-multiplier, 1)) linear infinite;
+}
+
+.striped-background {
+    background-color: var(--stripe-dark-color, rgb(107, 88, 3));
+}
+
+.striped-text {
+    background-color: var(--stripe-dark-color, rgb(107, 88, 3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
