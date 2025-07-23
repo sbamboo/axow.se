@@ -120,6 +120,19 @@ You can always fully remove the mod by just removing it from your `/mods` folder
 *(If you change this while playing on a server or world, please disconnect and join again)*
 
 **Another option is:**<br>
-While ingame with the mod enabled you can open chat and in the bottom right corner see a little icon.
-With just `NoChatReports` it looks something like:<br>
-<img src="https://raw.githubusercontent.com/sbamboo/axow.se/refs/heads/main/articles/-/mc/axo/client/c/1.21.7/nochatreports_button.png"/>
+While ingame with the mod enabled you can open chat and in the bottom right corner you should see a little icon.<br>
+> With just `NoChatReports` it looks something like:<br>
+> <img src="https://raw.githubusercontent.com/sbamboo/axow.se/refs/heads/main/articles/-/mc/axo/client/c/1.21.7/nochatreports_button.png"/><br>
+> Or if you have the `ChatReporingHelper` resourcepack enabled:<br>
+> <img src="https://raw.githubusercontent.com/sbamboo/axow.se/refs/heads/main/articles/-/mc/axo/client/c/1.21.7/nochatreports_button_whelper.png"/><br>
+> (The resourcepack is nowadays often enabled by default on my clients)
+
+Clicking this icon toggles between the different modes of operation for the mod, or what it calls `Signing Mode`:
+- `Default (Prompt)` Your messages are not reportable by default, if server requires it you will be asked.
+- `Never` Never allow your messages to be reported, if server requires it you can not chat.
+- `Always` You allways prefer having your messages be reportable, this is how it works without the mod.
+- `Prompt` Your messages are not reportable by default, if server requires it you will be asked.
+- `On Demand` Your messages will be reportable only if the server requires it.
+
+As you can see `Default (Prompt)` and `Prompt` are the same.<br>
+**If you want to essentially disable the mod set the mode to `Always`.**
