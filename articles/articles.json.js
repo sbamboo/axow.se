@@ -43,6 +43,11 @@ ARTICLES_INDEX = {
             "group": "minecraft",
             "category": "server"
         },
+        {
+            "path": "/articles/-/mc/axo/server/1.21.10/source.md",
+            "group": "minecraft",
+            "category": "server"
+        },
 
         {
             "path": "/articles/-/mc/axo/client/c/1.21.1/source.md",
@@ -61,6 +66,11 @@ ARTICLES_INDEX = {
         },
         {
             "path": "/articles/-/mc/axo/client/c/1.21.7/source.md",
+            "group": "minecraft",
+            "category": "client"
+        },
+        {
+            "path": "/articles/-/mc/axo/client/c/1.21.10/source.md",
             "group": "minecraft",
             "category": "client"
         }
