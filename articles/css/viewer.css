@@ -184,6 +184,10 @@ ol li::before {
     color: var(--text-secondary);
 }
 
+:not(ol) li {
+    margin-left: 2em;
+}
+
 .article-container-error {
     padding-top: 20px;
     padding-bottom: 20px;
