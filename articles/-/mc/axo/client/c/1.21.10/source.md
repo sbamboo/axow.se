@@ -12,8 +12,7 @@ UpdatedDate: 2025-10-25
 
 ## Note!
 This is a smaller pre-release, usually I release three clients *lite*, *standard* and *mooare* and each in two variants *E (essentials mod)* and *C (e4mc mod)*.<br>
-However since *e4mc* have not yet updated and I have had less time then usual for the clients I am choosing to release only two pre-release clients, *Standard E* and *Mooare E*.<br>
-The plan is ofcourse to release the other clients as more things have updated, *or in worst case on the next update cycle*.
+However since *e4mc* have not yet updated and I have had less time then usual for the clients I am choosing to release only two pre-release clients, *Standard E* and *Mooare E*.
 <br>
 
 ## Standard Community Client
