@@ -1,5 +1,5 @@
 <p hidden meta>
-Title: 1.21.11 Client Pre-Release
+Title: 1.21.11 Client Release
 Author: @TheAxolot77
 AuthorTitle: Author/Owner
 Banner: banner.png
@@ -7,7 +7,7 @@ Favicon: favicon.png
 CardBackground: banner.png
 Tags: news,changelog,minecraft,mc,axo,client,community,mooare
 CreationDate: 2026-01-07
-UpdatedDate: 2025-01-07
+UpdatedDate: 2026-01-07
 </p>
 
 ## Standard Community Client
