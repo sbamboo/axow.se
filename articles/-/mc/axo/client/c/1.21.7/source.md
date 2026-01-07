@@ -123,7 +123,7 @@ You can always fully remove the mod by just removing it from your `/mods` folder
 While ingame with the mod enabled you can open chat and in the bottom right corner you should see a little icon.<br>
 With just `NoChatReports` it looks something like:<br>
 <img src="https://raw.githubusercontent.com/sbamboo/axow.se/refs/heads/main/articles/-/mc/axo/client/c/1.21.7/nochatreports_button.png"/><br>
-Or if you have the `ChatReporingHelper` resourcepack enabled:<br>
+Or if you have the `ChatReportingHelper` resourcepack enabled:<br>
 <img src="https://raw.githubusercontent.com/sbamboo/axow.se/refs/heads/main/articles/-/mc/axo/client/c/1.21.7/nochatreports_button_whelper.png"/><br>
 (The resourcepack is nowadays often enabled by default on my clients)<br><br>
 
