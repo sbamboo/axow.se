@@ -19,7 +19,7 @@ However since *e4mc* have not yet updated and I have had less time then usual fo
 Contains additional QoL features compared to the *Lite* clients.
 
 <details>
-    <summary>Mod Changes: (Since 1.21.7_Community_Client_U3.B2.E)</summary>
+    <summary>Mod Changes: (Since 1.21.7_Community_Client_U3.B2)</summary>
 
     <span style="color:red;font-weight:bold;">Missing Mods:</span>
         - `betterstats`
@@ -37,7 +37,7 @@ The mooare series are larger modpacks that contain additional mods that I like t
 And contains all of the same mods as the regular clients but with a lot extra added.
 
 <details>
-    <summary>Mod Changes: (Since 1.21.7 Mooare U1 BETA1 E)</summary>
+    <summary>Mod Changes: (Since 1.21.7 Mooare U1 BETA1)</summary>
 
     <span style="color:red;font-weight:bold;">Missing Mods:</span>
         - `betterstats`
