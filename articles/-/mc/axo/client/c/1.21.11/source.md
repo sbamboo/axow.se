@@ -103,4 +103,4 @@ And contains all of the same mods as the regular clients but with a lot extra ad
 For a full modslist for each of the modpacks goto [mcc-web](https://sbamboo.github.io/mcc-web) and press `Open in modviewer` for any given modpack.
 
 ## A note regarding the NoChatReports mod
-The previous article [1.21.7 Client Release](https://axow.se/articles/#mc/axo/client/c/1.21.7) had notes about the [NoChatReports](https://modrinth.com/mod/no-chat-reports) mod, what it is, my thoughts about it in my clients, and how to disable it if you want to.
+A previous article [1.21.7 Client Release](https://axow.se/articles/#mc/axo/client/c/1.21.7) had notes about the [NoChatReports](https://modrinth.com/mod/no-chat-reports) mod, what it is, my thoughts about it in my clients, and how to disable it if you want to.
