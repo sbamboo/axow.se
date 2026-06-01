@@ -105,7 +105,7 @@ There is now a new way to download my clients from [mcc-web](https://sbamboo.git
 ## A note regarding the NoChatReports mod
 For a long time now my clients have included the [NoChatReports](https://modrinth.com/mod/no-chat-reports) mod, which disables Mojangs chat-reporting system *where possible* by removing the ability for servers to verify messages came from your Minecraft account, as I personally don't like their system. Some servers require chat-verification and you can still play on those servers with the mod/client, you will just get a message asking if you want to enable chat verification for that gameplay session.<br><br>
 
-For servers that don't require chat-verification your messages may be listed as `Not Secure` this just means the server could not *securely* verify it was you. This if nothing to worry about but incase a server owners does not know what this means it is good if you know it's the `NoChatReports` mod. 
+For servers that don't require chat-verification your messages may be listed as `Not Secure` this just means the server could not *securely* verify it was you. This is nothing to worry about but incase a server owner does not know what this means, it is good if you know it's the `NoChatReports` mod. 
 
 ### Want to disable the mod?
 You can always fully remove the mod by just removing it from your `/mods` folder.<br><br>
