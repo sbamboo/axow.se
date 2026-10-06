@@ -11,6 +11,10 @@
     color: #0056b3;
 }
 
+.chibit-entry {
+    position: relative;
+}
+
 .chibit-cancel-button,
 .chibit-entry-button {
     background-color: #2a2a2a;
@@ -19,6 +23,62 @@
     padding: 4px;
     width: 100%;
     margin-bottom: 10px;
+}
+
+.chibit-download-name {
+    text-align: left;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+    font-size: 0.85em;
+}
+
+.chibit-chunk-progress {
+    margin-top: 6px;
+}
+
+.chibit-entry > .chibit-chunk-progress:last-child {
+    margin-bottom: 8px;
+}
+
+#chibit-downloads > .chibit-chunk-progress:not(:has(+ .chibit-chunk-progress)) {
+    margin-bottom: 28px;
+}
+
+.chibit-chunk-progress .progressdrop_meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0;
+    justify-content: flex-start;
+}
+
+.chibit-chunk-progress .progressdrop_meta p {
+    margin: 0;
+    flex: none;
+}
+
+.chibit-chunk-track {
+    flex: 1;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #484848;
+    overflow: hidden;
+}
+
+.chibit-chunk-progress .progressdrop_bar {
+    height: 4px;
+}
+
+.chibit-latest {
+    position: absolute;
+    left: calc(100% + 8px);
+    top: 0;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    padding: 4px 0;
+    color: #3cbb4e;
+    white-space: nowrap;
+    line-height: normal;
 }
 
 .chibit-cancel-button:hover,
@@ -31,4 +91,15 @@
 #chibit-title {
     font-weight: normal;
     margin-bottom: 20px;
+}
+
+.chibit-group-label {
+    font-weight: normal;
+    font-size: 1em;
+    margin-top: 4px;
+    margin-bottom: 6px;
+}
+
+.chibit-group-label:not(:first-child) {
+    margin-top: 12px;
 }
