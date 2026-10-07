@@ -18,10 +18,11 @@ Contains additional QoL features compared to the *Lite* clients.
 
     <span style="color:red;font-weight:bold;">Missing Mods:</span>
         - `polytone`
-        - `heywiki`
         - `modelfix`
         - `mixin-trace`
-        - `show-me-your-skin` / `armor-hider`
+
+    <span style="color:orange;font-weight:bold;">Skipped:</span>
+        - `show-me-your-skin` / `armor-hider` *In Mooare*
         - `enhanced-block-entites` *In Mooare for evaluation*
         - `lazy-language-loading` *In Mooare for evaluation*
 
@@ -41,6 +42,8 @@ And contains a lot of the same mods but less then the regular clients.
     <span style="color:red;font-weight:bold;">Still Missing Mods:</span>
         - `modelfix`
         - `mixin-trace`
+
+    <span style="color:orange;font-weight:bold;">Skipped:</span>
         - `polytone` *In standard client for now*
         - `enhanced-block-entites` *In Mooare for evaluation*
 
@@ -61,13 +64,13 @@ And contains all of the same mods as the regular clients but with a lot extra ad
         - `polytone`
         - `more-leaf-particles`
         - `lazy-language-loading`
-        - `heywiki`
         - `modelfix`
         - `mixin-trace`
-        - `show-me-your-skin` / `armor-hider`
         - `resourcepack-extractor`
-        - `big sign writer`
         - `voxy`
+
+    <span style="color:orange;font-weight:bold;">Skipped:</span>
+        - `big sign writer`
 
     <span style="color:blue;font-weight:bold;">Notes:</span>
         - No longer using `xaeros zoom out` since it's now part of the main mod as a setting.
